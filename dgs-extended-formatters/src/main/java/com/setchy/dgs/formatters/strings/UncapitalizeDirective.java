@@ -2,6 +2,7 @@ package com.setchy.dgs.formatters.strings;
 
 import com.netflix.graphql.dgs.DgsDirective;
 import com.setchy.dgs.formatters.DirectiveConstants;
+import graphql.schema.GraphQLFieldDefinition;
 import org.apache.commons.text.WordUtils;
 
 
@@ -9,7 +10,7 @@ import org.apache.commons.text.WordUtils;
 public class UncapitalizeDirective extends StringDirective {
 
     @Override
-    public String format(Object value) {
-        return WordUtils.uncapitalize((String) value);
+    public String format(GraphQLFieldDefinition field, String value) {
+        return WordUtils.uncapitalize(value);
     }
 }

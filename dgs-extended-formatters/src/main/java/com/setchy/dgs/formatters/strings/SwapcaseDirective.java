@@ -2,6 +2,7 @@ package com.setchy.dgs.formatters.strings;
 
 import com.netflix.graphql.dgs.DgsDirective;
 import com.setchy.dgs.formatters.DirectiveConstants;
+import graphql.schema.GraphQLFieldDefinition;
 import org.apache.commons.lang3.StringUtils;
 
 
@@ -9,7 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 public class SwapcaseDirective extends StringDirective {
 
     @Override
-    public String format(Object value) {
-        return StringUtils.swapCase((String) value);
+    public String format(GraphQLFieldDefinition field, String value) {
+        return StringUtils.swapCase(value);
     }
 }

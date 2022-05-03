@@ -2,6 +2,7 @@ package com.setchy.dgs.formatters.strings;
 
 import com.netflix.graphql.dgs.DgsDirective;
 import com.setchy.dgs.formatters.DirectiveConstants;
+import graphql.GraphQL;
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetcherFactories;
 import graphql.schema.GraphQLFieldDefinition;
@@ -22,7 +23,7 @@ public abstract class StringDirective implements SchemaDirectiveWiring {
         DataFetcher dataFetcher =
             DataFetcherFactories.wrapDataFetcher(originalDataFetcher, ((dataFetchingEnvironment, value) -> {
                 if (value instanceof String) {
-                    return format(value);
+                    return format(field, (String) value);
                 }
                 return value;
             }));
@@ -31,5 +32,5 @@ public abstract class StringDirective implements SchemaDirectiveWiring {
         return field;
     }
 
-    public abstract String format(Object value);
+    public abstract String format(GraphQLFieldDefinition field, String value);
 }

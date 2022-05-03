@@ -5,7 +5,7 @@ directive @capitalize on FIELD_DEFINITION
 directive @reverse on FIELD_DEFINITION
 directive @swapcase on FIELD_DEFINITION
 directive @uncapitalize on FIELD_DEFINITION
-directive @abbreviate on FIELD_DEFINITION
+directive @abbreviate(width: Int!) on FIELD_DEFINITION
 
 
 
@@ -23,5 +23,5 @@ type FormattedStringExamples {
   reversed: String @reverse
   swapcased: String @swapcase
   uncapitalized: String @uncapitalize
-  abbreviated: String @abbreviate
+  abbreviated: String @abbreviate(width: 10)
 }
