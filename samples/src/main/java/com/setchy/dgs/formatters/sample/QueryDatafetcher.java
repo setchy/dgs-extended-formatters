@@ -19,11 +19,11 @@ public class QueryDatafetcher {
             return sample;
         }
 
-        public String getUppercase() {
+        public String getUppercased() {
             return sample;
         }
 
-        public String getLowercase() {
+        public String getLowercased() {
             return sample;
         }
 
@@ -31,7 +31,28 @@ public class QueryDatafetcher {
             return sample;
         }
 
-        public String getTrimmedUppercase() {
+        public String getTrimmedUppercased() {
+            return sample;
+        }
+
+        public String getCapitalized() {
+            return sample;
+        }
+
+        public String getReversed() {
+            return sample;
+        }
+
+        public String getSwapcased() {
+            return sample;
+
+        }
+
+        public String getUncapitalized() {
+            return sample;
+        }
+
+        public String getAbbreviated() {
             return sample;
         }
     }
