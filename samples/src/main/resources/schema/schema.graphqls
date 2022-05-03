@@ -1,0 +1,16 @@
+directive @uppercase on FIELD_DEFINITION
+directive @lowercase on FIELD_DEFINITION
+directive @trim on FIELD_DEFINITION
+
+
+type Query {
+  formattedStrings: FormattedStringExamples
+}
+
+type FormattedStringExamples {
+  original: String
+  uppercase: String @uppercase
+  lowercase: String @lowercase
+  trimmed: String @trim
+  trimmedUppercase: String @uppercase @trim
+}
