@@ -17,7 +17,6 @@ public class FormattedStringExamplesDataFetcher {
     @DgsData(parentType = "FormattedStringExamples", field = "capitalized")
     @DgsData(parentType = "FormattedStringExamples", field = "reversed")
     @DgsData(parentType = "FormattedStringExamples", field = "swapcased")
-    @DgsData(parentType = "FormattedStringExamples", field = "uncapitalized")
     @DgsData(parentType = "FormattedStringExamples", field = "abbreviated")
     @DgsData(parentType = "FormattedStringExamples", field = "camelcased")
     public String exampleData(DgsDataFetchingEnvironment dfe) {
