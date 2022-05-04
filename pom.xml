@@ -7,6 +7,12 @@
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
+    <properties>
+        <sonar.organization>setchy</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    </properties>
+    </properties>
+
     <modules>
         <module>dgs-extended-formatters</module>
         <module>samples</module>
