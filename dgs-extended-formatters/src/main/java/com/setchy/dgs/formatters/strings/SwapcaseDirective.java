@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 
 
 @DgsDirective(name = DirectiveConstants.SWAPCASE_DIRECTIVE_NAME)
-public class SwapcaseDirective extends StringDirective {
+public class SwapcaseDirective extends AbstractStringDirective {
 
     @Override
     public String format(GraphQLFieldDefinition field, String value) {

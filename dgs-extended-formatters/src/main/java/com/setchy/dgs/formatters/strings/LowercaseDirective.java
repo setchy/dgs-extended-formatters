@@ -6,7 +6,7 @@ import graphql.schema.GraphQLFieldDefinition;
 
 
 @DgsDirective(name = DirectiveConstants.LOWERCASE_DIRECTIVE_NAME)
-public class LowercaseDirective extends StringDirective {
+public class LowercaseDirective extends AbstractStringDirective {
 
     @Override
     public String format(GraphQLFieldDefinition field, String value) {

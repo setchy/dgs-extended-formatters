@@ -7,7 +7,7 @@ import org.apache.commons.text.WordUtils;
 
 
 @DgsDirective(name = DirectiveConstants.CAPITALIZE_DIRECTIVE_NAME)
-public class CapitalizeDirective extends StringDirective {
+public class CapitalizeDirective extends AbstractStringDirective {
 
     @Override
     public String format(GraphQLFieldDefinition field, String value) {

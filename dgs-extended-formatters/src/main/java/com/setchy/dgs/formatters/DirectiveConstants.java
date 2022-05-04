@@ -4,6 +4,8 @@ public class DirectiveConstants {
 
     public static final String ABBREVIATE_DIRECTIVE_NAME = "abbreviate";
 
+    public static final String CAMELCASE_DIRECTIVE_NAME = "camelcase";
+
     public static final String CAPITALIZE_DIRECTIVE_NAME = "capitalize";
 
     public static final String LOWERCASE_DIRECTIVE_NAME = "lowercase";

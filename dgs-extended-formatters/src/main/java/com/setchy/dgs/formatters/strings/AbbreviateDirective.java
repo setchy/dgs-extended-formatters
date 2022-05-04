@@ -9,11 +9,11 @@ import org.apache.commons.lang3.StringUtils;
 
 
 @DgsDirective(name = DirectiveConstants.ABBREVIATE_DIRECTIVE_NAME)
-public class AbbreviateDirective extends StringDirective {
+public class AbbreviateDirective extends AbstractStringDirective {
 
     @Override
     public String format(GraphQLFieldDefinition field, String value) {
-        IntValue width = (IntValue) field.getDirective(DirectiveConstants.ABBREVIATE_DIRECTIVE_NAME)
+        IntValue width = (IntValue) field.getAppliedDirective(DirectiveConstants.ABBREVIATE_DIRECTIVE_NAME)
             .getArgument("width")
             .getArgumentValue()
             .getValue();
@@ -22,6 +22,7 @@ public class AbbreviateDirective extends StringDirective {
             throw new GraphQLException("Abbreviate formatter directive");
         }
 
-        return StringUtils.abbreviate(value, width.getValue().intValue());
+        return StringUtils.abbreviate(value, width.getValue()
+            .intValue());
     }
 }

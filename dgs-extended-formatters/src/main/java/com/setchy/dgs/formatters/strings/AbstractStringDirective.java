@@ -1,8 +1,5 @@
 package com.setchy.dgs.formatters.strings;
 
-import com.netflix.graphql.dgs.DgsDirective;
-import com.setchy.dgs.formatters.DirectiveConstants;
-import graphql.GraphQL;
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetcherFactories;
 import graphql.schema.GraphQLFieldDefinition;
@@ -10,14 +7,13 @@ import graphql.schema.GraphQLFieldsContainer;
 import graphql.schema.idl.SchemaDirectiveWiring;
 import graphql.schema.idl.SchemaDirectiveWiringEnvironment;
 
-public abstract class StringDirective implements SchemaDirectiveWiring {
+public abstract class AbstractStringDirective implements SchemaDirectiveWiring {
 
     @Override
     public GraphQLFieldDefinition onField(SchemaDirectiveWiringEnvironment<GraphQLFieldDefinition> env) {
         GraphQLFieldDefinition field = env.getElement();
         GraphQLFieldsContainer fieldsContainer = env.getFieldsContainer();
         DataFetcher originalDataFetcher = env.getFieldDataFetcher();
-
 
         // Build a data fetcher that transforms the given value to uppercase
         DataFetcher dataFetcher =
@@ -28,7 +24,8 @@ public abstract class StringDirective implements SchemaDirectiveWiring {
                 return value;
             }));
 
-        env.getCodeRegistry().dataFetcher(fieldsContainer, field, dataFetcher);
+        env.getCodeRegistry()
+            .dataFetcher(fieldsContainer, field, dataFetcher);
         return field;
     }
 
