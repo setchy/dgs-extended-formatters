@@ -7,7 +7,7 @@ import com.netflix.graphql.dgs.DgsDataFetchingEnvironment;
 @DgsComponent
 public class FormattedStringExamplesDataFetcher {
 
-    private final String sample = "   Example data    ";
+    private static final String SAMPLE_DATA = "   Example data    ";
 
     @DgsData(parentType = "FormattedStringExamples", field = "original")
     @DgsData(parentType = "FormattedStringExamples", field = "uppercased")
@@ -21,6 +21,6 @@ public class FormattedStringExamplesDataFetcher {
     @DgsData(parentType = "FormattedStringExamples", field = "abbreviated")
     @DgsData(parentType = "FormattedStringExamples", field = "camelcased")
     public String exampleData(DgsDataFetchingEnvironment dfe) {
-        return sample;
+        return SAMPLE_DATA;
     }
 }

@@ -1,6 +1,8 @@
 package com.setchy.dgs.formatters;
 
-public class DirectiveConstants {
+public final class DirectiveConstants {
+
+    private DirectiveConstants(){}
 
     public static final String ABBREVIATE_DIRECTIVE_NAME = "abbreviate";
 

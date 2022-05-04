@@ -13,10 +13,10 @@ public abstract class AbstractStringDirective implements SchemaDirectiveWiring {
     public GraphQLFieldDefinition onField(SchemaDirectiveWiringEnvironment<GraphQLFieldDefinition> env) {
         GraphQLFieldDefinition field = env.getElement();
         GraphQLFieldsContainer fieldsContainer = env.getFieldsContainer();
-        DataFetcher originalDataFetcher = env.getFieldDataFetcher();
+        DataFetcher<?> originalDataFetcher = env.getFieldDataFetcher();
 
         // Build a data fetcher that transforms the given value to uppercase
-        DataFetcher dataFetcher =
+        DataFetcher<?> dataFetcher =
             DataFetcherFactories.wrapDataFetcher(originalDataFetcher, ((dataFetchingEnvironment, value) -> {
                 if (value instanceof String) {
                     return format(field, (String) value);
