@@ -1,7 +1,7 @@
 # dgs-extended-formatters
 An experimental set of [DGS](https://github.com/Netflix/dgs-framework) Schema Directives for common response formatting use-cases
 
-## Using
+## Getting started
 _Note: this is not yet published_
 ```xml
 <dependency>
