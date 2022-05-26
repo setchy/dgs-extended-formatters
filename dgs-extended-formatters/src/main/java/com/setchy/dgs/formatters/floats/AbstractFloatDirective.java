@@ -1,4 +1,4 @@
-package com.setchy.dgs.formatters.strings;
+package com.setchy.dgs.formatters.floats;
 
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetcherFactories;
@@ -7,7 +7,7 @@ import graphql.schema.GraphQLFieldsContainer;
 import graphql.schema.idl.SchemaDirectiveWiring;
 import graphql.schema.idl.SchemaDirectiveWiringEnvironment;
 
-public abstract class AbstractStringDirective implements SchemaDirectiveWiring {
+public abstract class AbstractFloatDirective implements SchemaDirectiveWiring {
 
     @Override
     public GraphQLFieldDefinition onField(SchemaDirectiveWiringEnvironment<GraphQLFieldDefinition> env) {
@@ -18,8 +18,8 @@ public abstract class AbstractStringDirective implements SchemaDirectiveWiring {
         // Build a data fetcher that transforms the given value to uppercase
         DataFetcher<?> dataFetcher =
             DataFetcherFactories.wrapDataFetcher(originalDataFetcher, ((dataFetchingEnvironment, value) -> {
-                if (value instanceof String) {
-                    return format(field, (String) value);
+                if (value instanceof Float) {
+                    return format(field, (Float)value);
                 }
                 return value;
             }));
@@ -29,6 +29,6 @@ public abstract class AbstractStringDirective implements SchemaDirectiveWiring {
         return field;
     }
 
-    public abstract String format(GraphQLFieldDefinition field, String value);
+    public abstract Float format(GraphQLFieldDefinition field, Float value);
 
 }
