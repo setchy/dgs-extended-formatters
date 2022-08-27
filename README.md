@@ -39,6 +39,13 @@ Lowercase all characters in a String
 
 - SDL: `directive @lowercase on FIELD_DEFINITION`
 
+### @resourceId
+
+Transforms a string into a base64 protobuf opaque ID. This takes in domain, subdomain, and systemName arguments
+which will be encoded into the ID.
+
+
+- SDL: `directive @resourceId(domain: String!, subdomain: String!, systemName: String!) on FIELD_DEFINITION`
 
 ### @reverse
 
