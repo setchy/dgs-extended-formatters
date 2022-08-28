@@ -3,12 +3,16 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.setchy</groupId>
+    <groupId>com.github.setchy</groupId>
     <artifactId>dgs-extended-formatters</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <name>dgs-extended-formatters</name>
     <description>An experimental set of DGS Directives for common formatting use-cases</description>
+
+    <scm>
+        <url>https://github.com/setchy/dgs-extended-formatters</url>
+    </scm>
 
     <properties>
         <java.version>11</java.version>

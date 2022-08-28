@@ -5,7 +5,7 @@ An experimental set of [DGS](https://github.com/Netflix/dgs-framework) Schema Di
 _Note: this is not yet published_
 ```xml
 <dependency>
-    <groupId>com.setchy>
+    <groupId>com.github.setchy>
     <artifact>dgs-extended-formatters</artifact>
     <version>0.0.1-SNAPSHOT</version>
 </dependency>
