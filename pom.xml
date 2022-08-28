@@ -2,10 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.setchy</groupId>
+    <groupId>io.github.setchy</groupId>
     <artifactId>dgs-extended-formatters-parent</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
+
+    <scm>
+        <url>https://github.com/setchy/dgs-extended-formatters</url>
+    </scm>
 
     <properties>
         <sonar.organization>setchy</sonar.organization>
@@ -16,4 +20,12 @@
         <module>dgs-extended-formatters</module>
         <module>samples</module>
     </modules>
+
+    <distributionManagement>
+        <repository>
+            <id>ossrh</id>
+            <name>Central Repository OSSRH</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 </project>
