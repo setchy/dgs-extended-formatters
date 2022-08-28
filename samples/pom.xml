@@ -10,7 +10,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.setchy</groupId>
+    <groupId>io.github.setchy</groupId>
     <artifactId>dgs-extended-formatters-sample</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
@@ -49,7 +49,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.setchy</groupId>
+            <groupId>io.github.setchy</groupId>
             <artifactId>dgs-extended-formatters</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
