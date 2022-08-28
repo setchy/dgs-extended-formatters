@@ -12,7 +12,7 @@
 
     <groupId>io.github.setchy</groupId>
     <artifactId>dgs-extended-formatters-sample</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
 
     <name>dgs-extended-formatters-sample</name>
     <description>A sample service</description>
