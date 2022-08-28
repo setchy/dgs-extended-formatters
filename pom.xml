@@ -7,9 +7,29 @@
     <packaging>pom</packaging>
     <version>0.0.1</version>
 
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>A set of DGS Directives for common formatting use-cases.</description>
+    <url>https://github.com/setchy/dgs-extended-formatters</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
     <scm>
-        <url>https://github.com/setchy/dgs-extended-formatters</url>
+        <connection>scm:git:git://github.com/setchy/dgs-extended-formatters.git</connection>
+        <developerConnection>scm:git:ssh://github.com:setchy/dgs-extended-formatters.git</developerConnection>
+        <url>http://github.com/setchy/dgs-extended-formatters/tree/main</url>
     </scm>
+
+    <developers>
+        <developer>
+            <name>Adam Setch</name>
+            <email>adam.setch@outlook.com</email>
+        </developer>
+    </developers>
 
     <properties>
         <sonar.organization>setchy</sonar.organization>
@@ -20,6 +40,36 @@
         <module>dgs-extended-formatters</module>
         <module>samples</module>
     </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
 
     <distributionManagement>
         <snapshotRepository>

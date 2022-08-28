@@ -16,6 +16,28 @@
 
     <name>dgs-extended-formatters-sample</name>
     <description>A sample service</description>
+    <url>https://github.com/setchy/dgs-extended-formatters</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git://github.com/setchy/dgs-extended-formatters.git</connection>
+        <developerConnection>scm:git:ssh://github.com:setchy/dgs-extended-formatters.git</developerConnection>
+        <url>http://github.com/setchy/dgs-extended-formatters/tree/main</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>Adam Setch</name>
+            <email>adam.setch@outlook.com</email>
+        </developer>
+    </developers>
+
 
     <properties>
         <java.version>11</java.version>
