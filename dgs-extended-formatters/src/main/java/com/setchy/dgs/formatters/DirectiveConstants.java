@@ -9,6 +9,7 @@ public final class DirectiveConstants {
     public static final String CAPITALIZE_DIRECTIVE_NAME = "capitalize";
     public static final String LOWERCASE_DIRECTIVE_NAME = "lowercase";
     public static final String PRECISION_DIRECTIVE_NAME = "precision";
+    public static final String RESOURCE_ID_DIRECTIVE_NAME = "resourceId";
     public static final String REVERSE_DIRECTIVE_NAME = "reverse";
     public static final String SWAPCASE_DIRECTIVE_NAME = "swapcase";
     public static final String TRIM_DIRECTIVE_NAME = "trim";

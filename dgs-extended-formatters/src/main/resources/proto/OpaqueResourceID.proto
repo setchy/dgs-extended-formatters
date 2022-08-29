@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option java_package = "com.setchy.dgs.formatters.protobuf";
+option java_outer_classname = "OpaqueResourceIDProto";
+
+message OpaqueResourceID {
+  string domain = 1;
+  string subdomain = 2;
+  string systemName = 3;
+  string systemID = 4;
+}
