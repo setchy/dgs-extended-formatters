@@ -10,18 +10,43 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.setchy</groupId>
+    <groupId>io.github.setchy</groupId>
     <artifactId>dgs-extended-formatters-sample</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
 
     <name>dgs-extended-formatters-sample</name>
     <description>A sample service</description>
+    <url>https://github.com/setchy/dgs-extended-formatters</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git://github.com/setchy/dgs-extended-formatters.git</connection>
+        <developerConnection>scm:git:ssh://github.com:setchy/dgs-extended-formatters.git</developerConnection>
+        <url>http://github.com/setchy/dgs-extended-formatters/tree/main</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>Adam Setch</name>
+            <email>adam.setch@outlook.com</email>
+        </developer>
+    </developers>
+
 
     <properties>
         <java.version>11</java.version>
+        <dgs-extended-formatters.version>0.0.2-SNAPSHOT</dgs-extended-formatters.version>
         <dgs-platform-dependencies.version>5.1.1</dgs-platform-dependencies.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
 
     <dependencyManagement>
@@ -49,9 +74,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.setchy</groupId>
+            <groupId>io.github.setchy</groupId>
             <artifactId>dgs-extended-formatters</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${dgs-extended-formatters.version}</version>
         </dependency>
     </dependencies>
 
@@ -63,4 +88,15 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 </project>
