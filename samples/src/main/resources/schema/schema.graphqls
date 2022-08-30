@@ -6,6 +6,7 @@ directive @reverse on FIELD_DEFINITION
 directive @swapcase on FIELD_DEFINITION
 directive @abbreviate(width: Int!) on FIELD_DEFINITION
 directive @camelcase on FIELD_DEFINITION
+directive @resourceId(domain: String!, subdomain: String!, systemName: String!) on FIELD_DEFINITION
 
 
 
@@ -24,4 +25,5 @@ type FormattedStringExamples {
   swapcased: String @swapcase
   abbreviated: String @abbreviate(width: 10)
   camelcased: String @camelcase
+  resourceId: String @resourceId(domain: "domain", subdomain: "subdomain", systemName: "systemName")
 }

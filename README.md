@@ -2,12 +2,11 @@
 An experimental set of [DGS](https://github.com/Netflix/dgs-framework) Schema Directives for common response formatting use-cases
 
 ## Getting started
-_Note: this is not yet published_
 ```xml
 <dependency>
-    <groupId>io.github.setchy>
+    <groupId>io.github.setchy</groupId>
     <artifact>dgs-extended-formatters</artifact>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
 </dependency>
 ```
 
@@ -39,6 +38,13 @@ Lowercase all characters in a String
 
 - SDL: `directive @lowercase on FIELD_DEFINITION`
 
+### @resourceId
+
+Transforms a string into a base64 protobuf opaque ID. This takes in domain, subdomain, and systemName arguments
+which will be encoded into the ID.
+
+
+- SDL: `directive @resourceId(domain: String!, subdomain: String!, systemName: String!) on FIELD_DEFINITION`
 
 ### @reverse
 
