@@ -11,17 +11,12 @@
 
     <groupId>io.github.setchy</groupId>
     <artifactId>dgs-extended-formatters-sample</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>${parent.version}</version>
 
     <name>${project.artifactId}</name>
     <description>A sample graphql dgs service which utilizes dgs-extended-formatters</description>
 
     <properties>
-        <java.version>11</java.version>
-        <dgs-extended-formatters.version>0.0.3-SNAPSHOT</dgs-extended-formatters.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-
         <spring-boot.version>2.7.3</spring-boot.version>
 
         <!-- Skip deploying this module when releasing -->
@@ -34,7 +29,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-parent</artifactId>
                 <version>${spring-boot.version}</version>
-
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -55,7 +49,7 @@
         <dependency>
             <groupId>io.github.setchy</groupId>
             <artifactId>dgs-extended-formatters</artifactId>
-            <version>${dgs-extended-formatters.version}</version>
+            <version>${parent.version}</version>
         </dependency>
     </dependencies>
 

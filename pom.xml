@@ -18,6 +18,10 @@
     </modules>
 
     <properties>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
         <dgs-platform-dependencies.version>5.1.1</dgs-platform-dependencies.version>
 
         <!-- Sonarcloud details -->
