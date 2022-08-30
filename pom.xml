@@ -7,7 +7,7 @@
     <packaging>pom</packaging>
     <version>0.0.3-SNAPSHOT</version>
 
-    <name>${project.groupId}:${project.artifactId}</name>
+    <name>${project.artifactId}</name>
     <description>A set of DGS Directives for common formatting use-cases.</description>
     <url>https://github.com/setchy/dgs-extended-formatters</url>
 
