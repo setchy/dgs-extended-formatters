@@ -3,33 +3,18 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>io.github.setchy</groupId>
+        <artifactId>dgs-extended-formatters-parent</artifactId>
+        <version>0.0.3-SNAPSHOT</version>
+    </parent>
+
     <groupId>io.github.setchy</groupId>
     <artifactId>dgs-extended-formatters</artifactId>
     <version>0.0.3-SNAPSHOT</version>
 
     <name>${project.artifactId}</name>
     <description>A set of DGS Directives for common formatting use-cases</description>
-    <url>https://github.com/setchy/dgs-extended-formatters</url>
-
-    <licenses>
-        <license>
-            <name>MIT License</name>
-            <url>http://www.opensource.org/licenses/mit-license.php</url>
-        </license>
-    </licenses>
-
-    <scm>
-        <connection>scm:git:git://github.com/setchy/dgs-extended-formatters.git</connection>
-        <developerConnection>scm:git:ssh://github.com:setchy/dgs-extended-formatters.git</developerConnection>
-        <url>http://github.com/setchy/dgs-extended-formatters/tree/main</url>
-    </scm>
-
-    <developers>
-        <developer>
-            <name>Adam Setch</name>
-            <email>adam.setch@outlook.com</email>
-        </developer>
-    </developers>
 
     <properties>
         <java.version>11</java.version>
@@ -45,19 +30,6 @@
         <os-maven-plugin.version>1.7.0</os-maven-plugin.version>
         <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
     </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.netflix.graphql.dgs</groupId>
-                <artifactId>graphql-dgs-platform-dependencies</artifactId>
-                <!-- The DGS BOM/platform dependency. This is the only place you set version of DGS -->
-                <version>${dgs-platform-dependencies.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -191,16 +163,4 @@
             </build>
         </profile>
     </profiles>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
-
 </project>

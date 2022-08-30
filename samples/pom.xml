@@ -4,10 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.3</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>io.github.setchy</groupId>
+        <artifactId>dgs-extended-formatters-parent</artifactId>
+        <version>0.0.3-SNAPSHOT</version>
     </parent>
 
     <groupId>io.github.setchy</groupId>
@@ -20,9 +19,10 @@
     <properties>
         <java.version>11</java.version>
         <dgs-extended-formatters.version>0.0.3-SNAPSHOT</dgs-extended-formatters.version>
-        <dgs-platform-dependencies.version>5.1.1</dgs-platform-dependencies.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <spring-boot.version>2.7.3</spring-boot.version>
 
         <!-- Skip deploying this module when releasing -->
         <maven.deploy.skip>true</maven.deploy.skip>
@@ -31,10 +31,10 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.netflix.graphql.dgs</groupId>
-                <artifactId>graphql-dgs-platform-dependencies</artifactId>
-                <!-- The DGS BOM/platform dependency. This is the only place you set version of DGS -->
-                <version>${dgs-platform-dependencies.version}</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${spring-boot.version}</version>
+
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

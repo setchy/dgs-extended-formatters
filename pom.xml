@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.setchy</groupId>
@@ -10,6 +11,32 @@
     <name>${project.artifactId}</name>
     <description>A set of DGS Directives for common formatting use-cases.</description>
     <url>https://github.com/setchy/dgs-extended-formatters</url>
+
+    <modules>
+        <module>dgs-extended-formatters</module>
+        <module>samples</module>
+    </modules>
+
+    <properties>
+        <dgs-platform-dependencies.version>5.1.1</dgs-platform-dependencies.version>
+
+        <!-- Sonarcloud details -->
+        <sonar.organization>setchy</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.netflix.graphql.dgs</groupId>
+                <artifactId>graphql-dgs-platform-dependencies</artifactId>
+                <!-- The DGS BOM/platform dependency. This is the only place you set version of DGS -->
+                <version>${dgs-platform-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <licenses>
         <license>
@@ -30,16 +57,6 @@
             <email>adam.setch@outlook.com</email>
         </developer>
     </developers>
-
-    <properties>
-        <sonar.organization>setchy</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-    </properties>
-
-    <modules>
-        <module>dgs-extended-formatters</module>
-        <module>samples</module>
-    </modules>
 
     <distributionManagement>
         <snapshotRepository>
