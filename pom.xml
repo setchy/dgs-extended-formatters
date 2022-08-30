@@ -5,7 +5,7 @@
     <groupId>io.github.setchy</groupId>
     <artifactId>dgs-extended-formatters-parent</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>A set of DGS Directives for common formatting use-cases.</description>
