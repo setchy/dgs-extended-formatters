@@ -11,7 +11,7 @@
 
     <groupId>io.github.setchy</groupId>
     <artifactId>dgs-extended-formatters</artifactId>
-    <version>${parent.version}</version>
+    <version>0.0.3-SNAPSHOT</version>
 
     <name>${project.artifactId}</name>
     <description>A set of DGS Directives for common formatting use-cases</description>
