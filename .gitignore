@@ -1,4 +1,4 @@
 .dcignore
 .idea
 target/
-*/*.iml
+**/*.iml
