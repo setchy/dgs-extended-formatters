@@ -48,19 +48,15 @@
             <url>http://www.opensource.org/licenses/mit-license.php</url>
         </license>
     </licenses>
-
-    <scm>
-        <connection>scm:git:git://github.com/setchy/dgs-extended-formatters.git</connection>
-        <developerConnection>scm:git:ssh://github.com:setchy/dgs-extended-formatters.git</developerConnection>
-        <url>http://github.com/setchy/dgs-extended-formatters/tree/main</url>
-    </scm>
-
     <developers>
         <developer>
             <name>Adam Setch</name>
             <email>adam.setch@outlook.com</email>
         </developer>
     </developers>
+    <scm>
+        <url>http://github.com/setchy/dgs-extended-formatters</url>
+    </scm>
 
     <distributionManagement>
         <snapshotRepository>
