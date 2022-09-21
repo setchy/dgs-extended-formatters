@@ -5,7 +5,7 @@
 
     <groupId>io.github.setchy</groupId>
     <artifactId>dgs-extended-formatters-parent</artifactId>
-    <version>0.0.5</version>
+    <version>0.0.6-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
