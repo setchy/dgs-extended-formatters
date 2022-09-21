@@ -4,9 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.github.setchy</groupId>
-        <artifactId>dgs-extended-formatters-parent</artifactId>
-        <version>0.0.4-SNAPSHOT</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.3</version>
+        <relativePath/>
     </parent>
 
     <groupId>io.github.setchy</groupId>
@@ -17,8 +18,9 @@
     <description>A sample graphql dgs service which utilizes dgs-extended-formatters</description>
 
     <properties>
-        <spring-boot.version>2.7.3</spring-boot.version>
+        <!-- extended formatters -->
         <dgs-extended-formatters.version>0.0.4-SNAPSHOT</dgs-extended-formatters.version>
+        <dgs-platform-dependencies.version>5.2.1</dgs-platform-dependencies.version>
 
         <!-- Skip deploying this module when releasing -->
         <maven.deploy.skip>true</maven.deploy.skip>
@@ -27,9 +29,10 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-parent</artifactId>
-                <version>${spring-boot.version}</version>
+                <groupId>com.netflix.graphql.dgs</groupId>
+                <artifactId>graphql-dgs-platform-dependencies</artifactId>
+                <!-- The DGS BOM/platform dependency. This is the only place you set version of DGS -->
+                <version>${dgs-platform-dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
