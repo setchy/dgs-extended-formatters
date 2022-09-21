@@ -1,4 +1,4 @@
-package com.setchy.dgs.formatters;
+package io.github.setchy.dgs.formatters;
 
 public final class DirectiveConstants {
 

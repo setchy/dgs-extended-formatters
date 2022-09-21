@@ -1,4 +1,4 @@
-package com.setchy.dgs.formatters.floats;
+package io.github.setchy.dgs.formatters.floats;
 
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetcherFactories;

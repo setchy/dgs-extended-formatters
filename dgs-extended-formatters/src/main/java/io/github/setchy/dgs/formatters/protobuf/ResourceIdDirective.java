@@ -1,8 +1,8 @@
-package com.setchy.dgs.formatters.protobuf;
+package io.github.setchy.dgs.formatters.protobuf;
 
 import com.netflix.graphql.dgs.DgsDirective;
-import com.setchy.dgs.formatters.DirectiveConstants;
-import com.setchy.dgs.formatters.strings.AbstractStringDirective;
+import io.github.setchy.dgs.formatters.DirectiveConstants;
+import io.github.setchy.dgs.formatters.strings.AbstractStringDirective;
 import graphql.GraphQLException;
 import graphql.language.StringValue;
 import graphql.schema.GraphQLFieldDefinition;
