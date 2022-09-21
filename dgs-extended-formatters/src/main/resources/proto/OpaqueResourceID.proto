@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option java_package = "com.setchy.dgs.formatters.protobuf";
+option java_package = "io.github.setchy.dgs.formatters.protobuf";
 option java_outer_classname = "OpaqueResourceIDProto";
 
 message OpaqueResourceID {

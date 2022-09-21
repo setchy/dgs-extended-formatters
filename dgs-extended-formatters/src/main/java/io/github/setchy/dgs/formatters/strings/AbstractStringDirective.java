@@ -1,4 +1,4 @@
-package com.setchy.dgs.formatters.strings;
+package io.github.setchy.dgs.formatters.strings;
 
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetcherFactories;

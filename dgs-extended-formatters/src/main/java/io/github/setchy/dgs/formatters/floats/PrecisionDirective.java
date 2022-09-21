@@ -1,7 +1,7 @@
-package com.setchy.dgs.formatters.floats;
+package io.github.setchy.dgs.formatters.floats;
 
 import com.netflix.graphql.dgs.DgsDirective;
-import com.setchy.dgs.formatters.DirectiveConstants;
+import io.github.setchy.dgs.formatters.DirectiveConstants;
 import graphql.GraphQLException;
 import graphql.schema.GraphQLFieldDefinition;
 
