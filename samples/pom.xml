@@ -20,7 +20,7 @@
     <properties>
         <!-- extended formatters -->
         <dgs-extended-formatters.version>0.0.6-SNAPSHOT</dgs-extended-formatters.version>
-        <dgs-platform-dependencies.version>5.2.1</dgs-platform-dependencies.version>
+        <dgs-platform-dependencies.version>5.2.4</dgs-platform-dependencies.version>
 
         <!-- Skip deploying this module when releasing -->
         <maven.deploy.skip>true</maven.deploy.skip>
