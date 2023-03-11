@@ -11,7 +11,6 @@ public class QueryDataFetcher {
         return new FormattedStringExamples();
     }
 
-
     public class FormattedStringExamples {
     }
 }
