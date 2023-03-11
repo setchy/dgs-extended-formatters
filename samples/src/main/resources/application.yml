@@ -1,0 +1,6 @@
+dgs:
+  graphql:
+    graphiql:
+      enabled: true
+      path: /graphiql
+      title: DGS Extended Formatters - GraphiQL
