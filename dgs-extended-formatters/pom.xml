@@ -5,7 +5,7 @@
 
     <groupId>io.github.setchy</groupId>
     <artifactId>dgs-extended-formatters</artifactId>
-    <version>0.0.7-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <name>${project.artifactId}</name>
     <description>A set of DGS Directives for common formatting use-cases</description>
@@ -42,6 +42,9 @@
         <protoc-gen-grpc-java.version>1.53.0</protoc-gen-grpc-java.version>
         <os-maven-plugin.version>1.7.1</os-maven-plugin.version>
         <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
+
+        <!-- Helper plugins -->
+        <build-helper-maven-plugin.version>3.3.0</build-helper-maven-plugin.version>
 
         <!-- Release plugins -->
         <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
@@ -120,6 +123,25 @@
                             <goal>compile</goal>
                             <goal>compile-custom</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>${build-helper-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources</source>
+                            </sources>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
