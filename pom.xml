@@ -4,14 +4,14 @@
 
     <groupId>io.github.setchy</groupId>
     <artifactId>dgs-extended-formatters-parent</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.2</version>
     <packaging>pom</packaging>
 
     <scm>
         <url>${project.scm.url}</url>
         <connection>${project.scm.url.git}</connection>
         <developerConnection>${project.scm.url.git}</developerConnection>
-      <tag>HEAD</tag>
+      <tag>dgs-extended-formatters-parent-1.0.2</tag>
   </scm>
 
     <modules>
