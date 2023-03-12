@@ -1,4 +1,4 @@
-name: Build
+name: Prepare for release
 on:
   workflow_dispatch:
     inputs:
@@ -12,7 +12,6 @@ on:
         required: true
 jobs:
   prepare:
-    name: Prepare Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
