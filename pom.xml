@@ -8,6 +8,12 @@
     <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <scm>
+        <url>${project.scm.id}</url>
+        <connection>scm:git:${project.scm.id}</connection>
+        <developerConnection>scm:git:${project.scm.id}</developerConnection>
+    </scm>
+
     <modules>
         <module>dgs-extended-formatters</module>
         <module>samples</module>
@@ -17,6 +23,9 @@
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <!-- Project Settings -->
+        <project.scm.url>https://github.com/setchy/dgs-extended-formatters</project.scm.url>
 
         <!-- Sonarcloud details -->
         <sonar.organization>setchy</sonar.organization>
