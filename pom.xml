@@ -9,9 +9,9 @@
     <packaging>pom</packaging>
 
     <scm>
-        <url>${project.scm.id}</url>
-        <connection>scm:git:${project.scm.id}</connection>
-        <developerConnection>scm:git:${project.scm.id}</developerConnection>
+        <url>${project.scm.url}</url>
+        <connection>${project.scm.url.git}</connection>
+        <developerConnection>${project.scm.url.git}</developerConnection>
     </scm>
 
     <modules>
@@ -25,7 +25,8 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <!-- Project Settings -->
-        <project.scm.id>https://github.com/setchy/dgs-extended-formatters</project.scm.id>
+        <project.scm.url>https://github.com/setchy/dgs-extended-formatters</project.scm.url>
+        <project.scm.url.git>scm:git:${project.scm.url}.git</project.scm.url.git>
 
         <!-- Sonarcloud details -->
         <sonar.organization>setchy</sonar.organization>

@@ -9,7 +9,7 @@
 
     <name>${project.artifactId}</name>
     <description>A set of DGS Directives for common formatting use-cases</description>
-    <url>https://github.com/setchy/dgs-extended-formatters</url>
+    <url>${project.scm.url}</url>
     <licenses>
         <license>
             <name>MIT License</name>
@@ -23,9 +23,9 @@
         </developer>
     </developers>
     <scm>
-        <url>${project.scm.id}</url>
-        <connection>scm:git:${project.scm.id}</connection>
-        <developerConnection>scm:git:${project.scm.id}</developerConnection>
+        <url>${project.scm.url}</url>
+        <connection>${project.scm.url.git}</connection>
+        <developerConnection>${project.scm.url.git}</developerConnection>
     </scm>
 
     <properties>
@@ -37,6 +37,7 @@
 
         <!-- Project Settings -->
         <project.scm.url>https://github.com/setchy/dgs-extended-formatters</project.scm.url>
+        <project.scm.url.git>scm:git:${project.scm.url}.git</project.scm.url.git>
 
         <!-- Dependencies -->
         <dgs-platform-dependencies.version>6.0.1</dgs-platform-dependencies.version>
