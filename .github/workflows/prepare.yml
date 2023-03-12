@@ -31,4 +31,4 @@ jobs:
           git config user.name "GitHub Actions"
       - name: Prepare new release
         run:
-          mvn --batch-mode -Pgithub release:prepare -Darguments=-DreleaseVersion=${{ github.event.inputs.release_version }} -Darguments=-DdevelopmentVersion=${{ github.event.inputs.release_version }}
+          mvn --batch-mode release:prepare -Darguments=-DreleaseVersion=${{ github.event.inputs.release_version }} -Darguments=-DdevelopmentVersion=${{ github.event.inputs.release_version }}
