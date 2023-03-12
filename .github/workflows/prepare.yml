@@ -11,7 +11,7 @@ on:
         description: Next snapshot version to use
         required: true
 jobs:
-  build:
+  prepare:
     name: Prepare Release
     runs-on: ubuntu-latest
     steps:
