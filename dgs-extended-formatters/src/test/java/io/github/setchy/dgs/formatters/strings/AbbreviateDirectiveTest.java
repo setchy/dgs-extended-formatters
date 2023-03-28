@@ -20,7 +20,7 @@ class AbbreviateDirectiveTest extends StringDirectiveTestBase {
     }
 
     @Test
-    @Disabled
+    @Disabled("Work in progress")
     @DisplayName("Should abbreviate string with zero width")
     void testAbbreviateWithZeroWidth() {
         GraphQLArgument arg = GraphQLArgument
