@@ -61,6 +61,10 @@
         <!-- Release Prepare configuration -->
         <project.scm.id>github</project.scm.id>
 
+        <!-- Sonarcloud details -->
+        <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/../target/site/jacoco/jacoco.xml
+        </sonar.coverage.jacoco.xmlReportPaths>
+
         <!-- Release plugins -->
         <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
         <maven-javadoc-plugin.version>3.5.0</maven-javadoc-plugin.version>
@@ -231,6 +235,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>${maven-javadoc-plugin.version}</version>
+                <configuration>
+                    <excludePackageNames>io.github.setchy.dgs.formatters.protobuf.OpaqueResourceIDProto</excludePackageNames>
+                </configuration>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
