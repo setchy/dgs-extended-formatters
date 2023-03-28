@@ -112,6 +112,7 @@
             <artifactId>protobuf-java</artifactId>
             <version>${protobuf-java.version}</version>
         </dependency>
+
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>protoc-gen-grpc-java</artifactId>
@@ -124,7 +125,6 @@
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -178,11 +178,14 @@
                 </executions>
             </plugin>
 
-
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco-maven-plugin.version}</version>
+                <configuration>
+                    <destFile>${sonar.jacoco.reportPath}</destFile>
+                    <append>true</append>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
