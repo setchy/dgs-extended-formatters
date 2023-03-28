@@ -54,7 +54,6 @@
         <!-- Test Dependencies -->
         <junit-bom.version>5.9.2</junit-bom.version>
         <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
-        <sonar-maven-plugin.version>3.9.1</sonar-maven-plugin.version>
 
         <!-- Helper plugins -->
         <build-helper-maven-plugin.version>3.3.0</build-helper-maven-plugin.version>
@@ -177,12 +176,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.sonarsource.scanner.maven</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>${sonar-maven-plugin.version}</version>
             </plugin>
 
             <plugin>
