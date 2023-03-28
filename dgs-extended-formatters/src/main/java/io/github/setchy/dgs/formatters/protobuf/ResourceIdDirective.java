@@ -50,8 +50,8 @@ public class ResourceIdDirective extends AbstractStringDirective {
     public static String createOpaqueResourceID(String domain, String subdomain, String systemName,
                                                 String systemID) {
 
-        io.github.setchy.dgs.formatters.protobuf.OpaqueResourceIDProto.OpaqueResourceID opaqueResourceIDProto =
-                io.github.setchy.dgs.formatters.protobuf.OpaqueResourceIDProto.OpaqueResourceID.newBuilder()
+        OpaqueResourceIDProto.OpaqueResourceID opaqueResourceIDProto =
+                OpaqueResourceIDProto.OpaqueResourceID.newBuilder()
                         .setDomain(domain)
                         .setSubdomain(subdomain)
                         .setSystemName(systemName)
