@@ -11,6 +11,6 @@ public class PrecisionDirective extends AbstractFloatDirective {
 
     @Override
     public Float format(GraphQLFieldDefinition field, Float value) {
-        throw new GraphQLException("Precision directive not implemented yet");
+        throw new GraphQLException("Precision directive is not yet implemented");
     }
 }
