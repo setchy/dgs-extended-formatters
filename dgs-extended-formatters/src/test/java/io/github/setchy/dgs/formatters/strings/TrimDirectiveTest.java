@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TrimDirectiveTest extends StringDirectiveTestBase {
+class TrimDirectiveTest extends StringDirectiveTestBase {
 
     TrimDirective trimDirective;
     @BeforeEach

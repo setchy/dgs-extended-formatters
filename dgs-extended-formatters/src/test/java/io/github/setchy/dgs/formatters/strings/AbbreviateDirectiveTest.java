@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import static graphql.Scalars.GraphQLString;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AbbreviateDirectiveTest extends StringDirectiveTestBase {
+class AbbreviateDirectiveTest extends StringDirectiveTestBase {
 
     AbbreviateDirective abbreviateDirective;
     @BeforeEach

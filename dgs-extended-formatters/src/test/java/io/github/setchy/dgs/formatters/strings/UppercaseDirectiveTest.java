@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class UppercaseDirectiveTest extends StringDirectiveTestBase {
+class UppercaseDirectiveTest extends StringDirectiveTestBase {
 
     UppercaseDirective uppercaseDirective;
     @BeforeEach

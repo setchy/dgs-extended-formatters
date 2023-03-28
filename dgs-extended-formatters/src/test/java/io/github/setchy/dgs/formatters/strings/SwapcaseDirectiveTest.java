@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SwapcaseDirectiveTest extends StringDirectiveTestBase {
+class SwapcaseDirectiveTest extends StringDirectiveTestBase {
 
     SwapcaseDirective swapcaseDirective;
     @BeforeEach

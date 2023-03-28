@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CamelcaseDirectiveTest extends StringDirectiveTestBase {
+class CamelcaseDirectiveTest extends StringDirectiveTestBase {
 
     CamelcaseDirective camelcaseDirective;
     @BeforeEach

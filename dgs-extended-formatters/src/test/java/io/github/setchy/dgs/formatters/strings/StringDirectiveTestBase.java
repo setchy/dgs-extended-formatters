@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 
 import static graphql.Scalars.GraphQLString;
 
-public class StringDirectiveTestBase {
+class StringDirectiveTestBase {
 
     static String SOME_STRING = "  Some string That has MIXED case  ";
     GraphQLFieldDefinition field;
