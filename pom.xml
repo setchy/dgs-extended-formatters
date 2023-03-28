@@ -33,6 +33,9 @@
         <sonar.organization>setchy</sonar.organization>
         <sonar.projectKey>setchy_dgs-extended-formatters</sonar.projectKey>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+
+        <!-- Release -->
+        <maven-release-plugin.version>3.0.0</maven-release-plugin.version>
     </properties>
 
     <distributionManagement>
@@ -52,11 +55,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
+                <version>${maven-release-plugin.version}</version>
                 <configuration>
                     <tagNameFormat>@{project.version}</tagNameFormat>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 </project>
