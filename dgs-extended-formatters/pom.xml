@@ -62,10 +62,7 @@
         <project.scm.id>github</project.scm.id>
 
         <!-- Sonarcloud details -->
-        <sonar.organization>setchy</sonar.organization>
-        <sonar.projectKey>setchy_dgs-extended-formatters</sonar.projectKey>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/target/site/jacoco/jacoco.xml
+        <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/../target/site/jacoco/jacoco.xml
         </sonar.coverage.jacoco.xmlReportPaths>
 
         <!-- Release plugins -->
