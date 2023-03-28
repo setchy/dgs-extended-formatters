@@ -14,7 +14,7 @@ public class AbbreviateDirective extends AbstractStringDirective {
     @Override
     public String format(GraphQLFieldDefinition field, String value) {
         IntValue width = (IntValue) field.getAppliedDirective(DirectiveConstants.ABBREVIATE_DIRECTIVE_NAME)
-            .getArgument("width")
+            .getArgument(DirectiveConstants.ABBREVIATE_DIRECTIVE_ARGUMENT_NAME)
             .getArgumentValue()
             .getValue();
 
