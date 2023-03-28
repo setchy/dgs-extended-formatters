@@ -11,8 +11,6 @@ public class CapitalizeDirective extends AbstractStringDirective {
 
     @Override
     public String format(GraphQLFieldDefinition field, String value) {
-        String temp = value;
-        String capVal = WordUtils.capitalize(temp);
-        return capVal;
+        return WordUtils.capitalize(value);
     }
 }
