@@ -54,6 +54,8 @@
         <!-- Test Dependencies -->
         <junit-bom.version>5.9.2</junit-bom.version>
         <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
+        <sonar-maven-plugin.version>3.9.1</sonar-maven-plugin.version>
+
 
         <!-- Helper plugins -->
         <build-helper-maven-plugin.version>3.3.0</build-helper-maven-plugin.version>
@@ -112,6 +114,7 @@
             <artifactId>protobuf-java</artifactId>
             <version>${protobuf-java.version}</version>
         </dependency>
+
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>protoc-gen-grpc-java</artifactId>
@@ -124,7 +127,6 @@
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -178,11 +180,20 @@
                 </executions>
             </plugin>
 
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>${sonar-maven-plugin.version}</version>
+            </plugin>
 
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco-maven-plugin.version}</version>
+                <configuration>
+                    <destFile>${sonar.jacoco.reportPath}</destFile>
+                    <append>true</append>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
