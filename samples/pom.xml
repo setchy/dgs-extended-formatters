@@ -11,7 +11,7 @@
 
     <groupId>io.github.setchy</groupId>
     <artifactId>dgs-extended-formatters-sample</artifactId>
-    <version>1.1.0</version>
+    <version>1.0.2-SNAPSHOT</version>
 
     <name>${project.artifactId}</name>
     <description>A sample graphql dgs service which utilizes dgs-extended-formatters</description>
