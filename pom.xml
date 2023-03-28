@@ -29,12 +29,7 @@
         <project.scm.url>https://github.com/setchy/dgs-extended-formatters</project.scm.url>
         <project.scm.url.git>scm:git:${project.scm.url}.git</project.scm.url.git>
 
-        <!-- Sonarcloud details -->
-        <sonar-maven-plugin.version>3.9.1</sonar-maven-plugin.version>
-        <sonar.organization>setchy</sonar.organization>
-        <sonar.projectKey>setchy_dgs-extended-formatters</sonar.projectKey>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.coverage.jacoco.xmlReportPaths>**/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+
     </properties>
 
     <distributionManagement>
@@ -59,11 +54,6 @@
                 </configuration>
             </plugin>
 
-            <plugin>
-                <groupId>org.sonarsource.scanner.maven</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>${sonar-maven-plugin.version}</version>
-            </plugin>
         </plugins>
     </build>
 </project>
