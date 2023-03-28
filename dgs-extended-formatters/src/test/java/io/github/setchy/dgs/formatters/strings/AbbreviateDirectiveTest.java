@@ -27,8 +27,8 @@ class AbbreviateDirectiveTest extends StringDirectiveTestBase {
     }
 
     @Test
-    @DisplayName("Will abbreviate string")
-    void testFormatWithAbbreviation() {
+    @DisplayName("Will abbreviate string when width argument provided")
+    void testFormatWithWidthArgument() {
         GraphQLFieldDefinition field = mock(GraphQLFieldDefinition.class);
         GraphQLAppliedDirective appliedDirective = mock(GraphQLAppliedDirective.class);
         GraphQLAppliedDirectiveArgument argument = mock(GraphQLAppliedDirectiveArgument.class);
@@ -47,8 +47,8 @@ class AbbreviateDirectiveTest extends StringDirectiveTestBase {
     }
 
     @Test
-    @DisplayName("Will throw exception when width is missing")
-    void testFormatWithMissingWidth() {
+    @DisplayName("Will throw exception when width argument is missing")
+    void testFormatWithMissingWidthArgument() {
         GraphQLFieldDefinition field = mock(GraphQLFieldDefinition.class);
         GraphQLAppliedDirective appliedDirective = mock(GraphQLAppliedDirective.class);
         GraphQLAppliedDirectiveArgument argument = mock(GraphQLAppliedDirectiveArgument.class);
@@ -58,6 +58,8 @@ class AbbreviateDirectiveTest extends StringDirectiveTestBase {
         when(field.getAppliedDirective(DirectiveConstants.ABBREVIATE_DIRECTIVE_NAME)).thenReturn(appliedDirective);
         when(appliedDirective.getArgument(DirectiveConstants.ABBREVIATE_DIRECTIVE_ARGUMENT_NAME)).thenReturn(argument);
         when(argument.getArgumentValue()).thenReturn(argumentValue);
+        when(argumentValue.getValue()).thenReturn(intValue);
+
 
         GraphQLException thrown = assertThrows(GraphQLException.class, () -> {
             abbreviateDirective.format(field, "This is a long value");
