@@ -1,6 +1,7 @@
 package io.github.setchy.dgs.formatters.protobuf;
 
 import com.netflix.graphql.dgs.DgsDirective;
+import graphql.schema.GraphQLAppliedDirective;
 import io.github.setchy.dgs.formatters.DirectiveConstants;
 import io.github.setchy.dgs.formatters.strings.AbstractStringDirective;
 import graphql.GraphQLException;
@@ -14,18 +15,20 @@ public class ResourceIdDirective extends AbstractStringDirective {
 
     @Override
     public String format(GraphQLFieldDefinition field, String value) {
-        StringValue domain = (StringValue) field.getAppliedDirective(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME)
-                .getArgument("domain")
+        GraphQLAppliedDirective appliedDirective = field.getAppliedDirective(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME);
+
+        StringValue domain = (StringValue) appliedDirective
+                .getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_DOMAIN_ARGUMENT_NAME)
                 .getArgumentValue()
                 .getValue();
 
-        StringValue subdomain = (StringValue) field.getAppliedDirective(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME)
-                .getArgument("subdomain")
+        StringValue subdomain = (StringValue) appliedDirective
+                .getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_SUBDOMAIN_ARGUMENT_NAME)
                 .getArgumentValue()
                 .getValue();
 
-        StringValue systemName = (StringValue) field.getAppliedDirective(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME)
-                .getArgument("systemName")
+        StringValue systemName = (StringValue) appliedDirective
+                .getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_SYSTEMNAME_ARGUMENT_NAME)
                 .getArgumentValue()
                 .getValue();
 
@@ -47,8 +50,8 @@ public class ResourceIdDirective extends AbstractStringDirective {
     public static String createOpaqueResourceID(String domain, String subdomain, String systemName,
                                                 String systemID) {
 
-        OpaqueResourceIDProto.OpaqueResourceID opaqueResourceIDProto =
-                OpaqueResourceIDProto.OpaqueResourceID.newBuilder()
+        io.github.setchy.dgs.formatters.protobuf.OpaqueResourceIDProto.OpaqueResourceID opaqueResourceIDProto =
+                io.github.setchy.dgs.formatters.protobuf.OpaqueResourceIDProto.OpaqueResourceID.newBuilder()
                         .setDomain(domain)
                         .setSubdomain(subdomain)
                         .setSystemName(systemName)
