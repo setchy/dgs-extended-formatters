@@ -20,6 +20,8 @@
         <dgs-extended-formatters.version>1.0.2-SNAPSHOT</dgs-extended-formatters.version>
         <dgs-platform-dependencies.version>6.0.1</dgs-platform-dependencies.version>
 
+        <sonar.skip>true</sonar.skip>
+
         <!-- Skip deploying this module when releasing -->
         <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
