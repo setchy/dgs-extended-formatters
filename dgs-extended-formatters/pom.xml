@@ -66,12 +66,6 @@
         <maven-javadoc-plugin.version>3.5.0</maven-javadoc-plugin.version>
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
-
-        <!-- Sonarcloud details -->
-        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-        <sonar.jacoco.reportPath>./target/jacoco.exec</sonar.jacoco.reportPath>
-        <sonar.language>java</sonar.language>
     </properties>
 
     <dependencyManagement>
@@ -196,7 +190,7 @@
                     </execution>
                     <execution>
                         <id>report</id>
-                        <phase>prepare-package</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
