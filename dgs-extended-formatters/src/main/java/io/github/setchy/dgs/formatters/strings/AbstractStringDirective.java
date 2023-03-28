@@ -18,8 +18,8 @@ public abstract class AbstractStringDirective implements SchemaDirectiveWiring {
         // Build a data fetcher that transforms the given value to uppercase
         DataFetcher<?> dataFetcher =
             DataFetcherFactories.wrapDataFetcher(originalDataFetcher, ((dataFetchingEnvironment, value) -> {
-                if (value instanceof String) {
-                    return format(field, (String) value);
+                if (value instanceof String stringValue) {
+                    return format(field, stringValue);
                 }
                 return value;
             }));

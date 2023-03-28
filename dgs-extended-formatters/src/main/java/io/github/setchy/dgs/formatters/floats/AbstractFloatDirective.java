@@ -18,8 +18,8 @@ public abstract class AbstractFloatDirective implements SchemaDirectiveWiring {
         // Build a data fetcher that transforms the given value to uppercase
         DataFetcher<?> dataFetcher =
             DataFetcherFactories.wrapDataFetcher(originalDataFetcher, ((dataFetchingEnvironment, value) -> {
-                if (value instanceof Float) {
-                    return format(field, (Float)value);
+                if (value instanceof Float floatValue) {
+                    return format(field, floatValue);
                 }
                 return value;
             }));
