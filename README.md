@@ -12,7 +12,7 @@ An experimental set of [DGS](https://github.com/Netflix/dgs-framework) Schema Di
 <dependency>
     <groupId>io.github.setchy</groupId>
     <artifact>dgs-extended-formatters</artifact>
-    <version>1.0.0</version>
+    <version>1.0.5</version>
 </dependency>
 ```
 
