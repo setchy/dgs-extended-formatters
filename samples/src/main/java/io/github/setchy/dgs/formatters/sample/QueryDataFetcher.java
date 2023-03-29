@@ -11,6 +11,22 @@ public class QueryDataFetcher {
         return new FormattedStringExamples();
     }
 
-    public class FormattedStringExamples {
+    @DgsQuery
+    public FormattedIntegerExamples formattedIntegers() {
+        return new FormattedIntegerExamples();
+    }
+
+    @DgsQuery
+    public FormattedFloatExamples formattedFloats() {
+        return new FormattedFloatExamples();
+    }
+
+    public static class FormattedStringExamples {
+    }
+
+    public static class FormattedIntegerExamples {
+    }
+
+    public static class FormattedFloatExamples {
     }
 }

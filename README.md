@@ -1,4 +1,10 @@
 # dgs-extended-formatters
+
+[![Build Status](https://github.com/setchy/dgs-extended-formatters/actions/workflows/build.yml/badge.svg)](https://github.com/setchy/dgs-extended-formatters/actions/workflows/master.yml)
+[![Latest Release](https://maven-badges.herokuapp.com/maven-central/io.github.setchy/dgs-extended-formatters/badge.svg?color=blue)](https://maven-badges.herokuapp.com/maven-central/io.github.setchy/dgs-extended-formatters/)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=setchy_dgs-extended-formatters&metric=coverage)](https://sonarcloud.io/summary/new_code?id=setchy_dgs-extended-formatters)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=setchy_dgs-extended-formatters&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=setchy_dgs-extended-formatters)
+
 An experimental set of [DGS](https://github.com/Netflix/dgs-framework) Schema Directives for common response formatting use-cases
 
 ## Getting started
@@ -11,7 +17,7 @@ An experimental set of [DGS](https://github.com/Netflix/dgs-framework) Schema Di
 ```
 
 ## String Formatters
-The following schema directives suppport formatting `String` scalars
+The following schema directives support formatting `String` scalars
 
 ### @abbreviate
 Abbreviates a string using ellipses for a given width
@@ -70,3 +76,24 @@ Remove any leading or trailing whitespace
 Uppercase each character in a String
 
 - SDL: `directive @uppercase on FIELD_DEFINITION`
+
+## Numeric Formatters
+The following schema directives support formatting `Int` or `Float` scalars
+
+### @absolute
+
+Returns the absolute value
+
+- SDL: `directive @absolute on FIELD_DEFINITION`
+
+### @ceiling
+
+Returns the ceiling value
+
+- SDL: `directive @ceiling on FIELD_DEFINITION`
+
+### @floor
+
+Returns the floor value
+
+- SDL: `directive @floor on FIELD_DEFINITION`
