@@ -21,12 +21,12 @@ public class QueryDataFetcher {
         return new FormattedFloatExamples();
     }
 
-    public class FormattedStringExamples {
+    public static class FormattedStringExamples {
     }
 
-    public class FormattedIntegerExamples {
+    public static class FormattedIntegerExamples {
     }
 
-    public class FormattedFloatExamples {
+    public static class FormattedFloatExamples {
     }
 }
