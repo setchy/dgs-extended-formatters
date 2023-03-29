@@ -1,8 +1,8 @@
 package io.github.setchy.dgs.formatters.strings;
 
 import com.netflix.graphql.dgs.DgsDirective;
-import io.github.setchy.dgs.formatters.DirectiveConstants;
 import graphql.schema.GraphQLFieldDefinition;
+import io.github.setchy.dgs.formatters.DirectiveConstants;
 import org.apache.commons.text.CaseUtils;
 
 

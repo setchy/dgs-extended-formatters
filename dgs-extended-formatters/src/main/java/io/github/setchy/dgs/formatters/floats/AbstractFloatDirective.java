@@ -16,15 +16,15 @@ public abstract class AbstractFloatDirective implements SchemaDirectiveWiring {
         DataFetcher<?> originalDataFetcher = env.getFieldDataFetcher();
 
         DataFetcher<?> dataFetcher =
-            DataFetcherFactories.wrapDataFetcher(originalDataFetcher, ((dataFetchingEnvironment, value) -> {
-                if (value instanceof Float floatValue) {
-                    return format(field, floatValue);
-                }
-                return value;
-            }));
+                DataFetcherFactories.wrapDataFetcher(originalDataFetcher, ((dataFetchingEnvironment, value) -> {
+                    if (value instanceof Float floatValue) {
+                        return format(field, floatValue);
+                    }
+                    return value;
+                }));
 
         env.getCodeRegistry()
-            .dataFetcher(fieldsContainer, field, dataFetcher);
+                .dataFetcher(fieldsContainer, field, dataFetcher);
         return field;
     }
 

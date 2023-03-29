@@ -16,15 +16,15 @@ public abstract class AbstractStringDirective implements SchemaDirectiveWiring {
         DataFetcher<?> originalDataFetcher = env.getFieldDataFetcher();
 
         DataFetcher<?> dataFetcher =
-            DataFetcherFactories.wrapDataFetcher(originalDataFetcher, ((dataFetchingEnvironment, value) -> {
-                if (value instanceof String stringValue) {
-                    return format(field, stringValue);
-                }
-                return value;
-            }));
+                DataFetcherFactories.wrapDataFetcher(originalDataFetcher, ((dataFetchingEnvironment, value) -> {
+                    if (value instanceof String stringValue) {
+                        return format(field, stringValue);
+                    }
+                    return value;
+                }));
 
         env.getCodeRegistry()
-            .dataFetcher(fieldsContainer, field, dataFetcher);
+                .dataFetcher(fieldsContainer, field, dataFetcher);
         return field;
     }
 
