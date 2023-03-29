@@ -1,4 +1,4 @@
-package io.github.setchy.dgs.formatters.floats;
+package io.github.setchy.dgs.formatters.numeric;
 
 import graphql.GraphQLException;
 import graphql.schema.GraphQLAppliedDirective;
