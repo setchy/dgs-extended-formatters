@@ -1,17 +1,33 @@
 package io.github.setchy.dgs.formatters.protobuf;
 
 import com.netflix.graphql.dgs.DgsDirective;
-import graphql.schema.GraphQLAppliedDirective;
-import io.github.setchy.dgs.formatters.DirectiveConstants;
-import io.github.setchy.dgs.formatters.strings.AbstractStringDirective;
 import graphql.GraphQLException;
 import graphql.language.StringValue;
+import graphql.schema.GraphQLAppliedDirective;
 import graphql.schema.GraphQLFieldDefinition;
+import io.github.setchy.dgs.formatters.DirectiveConstants;
+import io.github.setchy.dgs.formatters.strings.AbstractStringDirective;
 
 import static java.util.Base64.getEncoder;
 
 @DgsDirective(name = DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME)
 public class ResourceIdDirective extends AbstractStringDirective {
+
+    public static String createOpaqueResourceID(String domain, String subdomain, String systemName,
+                                                String systemID) {
+
+        OpaqueResourceIDProto.OpaqueResourceID opaqueResourceIDProto =
+                OpaqueResourceIDProto.OpaqueResourceID.newBuilder()
+                        .setDomain(domain)
+                        .setSubdomain(subdomain)
+                        .setSystemName(systemName)
+                        .setSystemID(systemID)
+                        .build();
+
+        byte[] bytesProto = opaqueResourceIDProto.toByteArray();
+
+        return getEncoder().encodeToString(bytesProto);
+    }
 
     @Override
     public String format(GraphQLFieldDefinition field, String value) {
@@ -45,21 +61,5 @@ public class ResourceIdDirective extends AbstractStringDirective {
         }
 
         return createOpaqueResourceID(domain.getValue(), subdomain.getValue(), systemName.getValue(), value);
-    }
-
-    public static String createOpaqueResourceID(String domain, String subdomain, String systemName,
-                                                String systemID) {
-
-        OpaqueResourceIDProto.OpaqueResourceID opaqueResourceIDProto =
-                OpaqueResourceIDProto.OpaqueResourceID.newBuilder()
-                        .setDomain(domain)
-                        .setSubdomain(subdomain)
-                        .setSystemName(systemName)
-                        .setSystemID(systemID)
-                        .build();
-
-        byte[] bytesProto = opaqueResourceIDProto.toByteArray();
-
-        return getEncoder().encodeToString(bytesProto);
     }
 }
