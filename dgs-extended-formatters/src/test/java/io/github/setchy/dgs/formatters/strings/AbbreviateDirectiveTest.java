@@ -7,6 +7,7 @@ import graphql.schema.GraphQLAppliedDirectiveArgument;
 import graphql.schema.GraphQLFieldDefinition;
 import graphql.schema.InputValueWithState;
 import io.github.setchy.dgs.formatters.DirectiveConstants;
+import io.github.setchy.dgs.formatters.utils.TestUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,52 +19,58 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-class AbbreviateDirectiveTest extends StringDirectiveTestBase {
+class AbbreviateDirectiveTest {
 
     AbbreviateDirective abbreviateDirective;
+    GraphQLFieldDefinition field;
+    InputValueWithState widthArgumentValue;
+
     @BeforeEach
     void setUp() {
-        abbreviateDirective= new AbbreviateDirective();
+        abbreviateDirective = new AbbreviateDirective();
+
+        field = mock(GraphQLFieldDefinition.class);
+        GraphQLAppliedDirective appliedDirective = mock(GraphQLAppliedDirective.class);
+        GraphQLAppliedDirectiveArgument argument = mock(GraphQLAppliedDirectiveArgument.class);
+        widthArgumentValue = mock(InputValueWithState.class);
+
+        when(field.getAppliedDirective(DirectiveConstants.ABBREVIATE_DIRECTIVE_NAME)).thenReturn(appliedDirective);
+        when(appliedDirective.getArgument(DirectiveConstants.ABBREVIATE_DIRECTIVE_ARGUMENT_NAME)).thenReturn(argument);
+        when(argument.getArgumentValue()).thenReturn(widthArgumentValue);
     }
 
     @Test
     @DisplayName("Will abbreviate string when width argument provided")
-    void testFormatWithWidthArgument() {
-        GraphQLFieldDefinition field = mock(GraphQLFieldDefinition.class);
-        GraphQLAppliedDirective appliedDirective = mock(GraphQLAppliedDirective.class);
-        GraphQLAppliedDirectiveArgument argument = mock(GraphQLAppliedDirectiveArgument.class);
-        InputValueWithState argumentValue = mock(InputValueWithState.class);
-        IntValue intValue = mock(IntValue.class);
+    void testFormatWithSmallWidthArgument() {
+        IntValue widthIntValue = mock(IntValue.class);
+        when(widthArgumentValue.getValue()).thenReturn(widthIntValue);
+        when(widthIntValue.getValue()).thenReturn(BigInteger.valueOf(10));
 
-        when(field.getAppliedDirective(DirectiveConstants.ABBREVIATE_DIRECTIVE_NAME)).thenReturn(appliedDirective);
-        when(appliedDirective.getArgument(DirectiveConstants.ABBREVIATE_DIRECTIVE_ARGUMENT_NAME)).thenReturn(argument);
-        when(argument.getArgumentValue()).thenReturn(argumentValue);
-        when(argumentValue.getValue()).thenReturn(intValue);
-        when(intValue.getValue()).thenReturn(BigInteger.valueOf(10));
+        String result = abbreviateDirective.format(field, TestUtils.SOME_STRING);
 
-        String result = abbreviateDirective.format(field, "This is a long value");
+        assertEquals("  Some ...", result);
+    }
 
-        assertEquals("This is...", result);
+    @Test
+    @DisplayName("Will maintain string if width is longer")
+    void testFormatWithHugeWidthArgument() {
+        IntValue widthIntValue = mock(IntValue.class);
+        when(widthArgumentValue.getValue()).thenReturn(widthIntValue);
+        when(widthIntValue.getValue()).thenReturn(BigInteger.valueOf(100));
+
+        String result = abbreviateDirective.format(field, TestUtils.SOME_STRING);
+
+        assertEquals(TestUtils.SOME_STRING, result);
     }
 
     @Test
     @DisplayName("Will throw exception when width argument is missing")
     void testFormatWithMissingWidthArgument() {
-        GraphQLFieldDefinition field = mock(GraphQLFieldDefinition.class);
-        GraphQLAppliedDirective appliedDirective = mock(GraphQLAppliedDirective.class);
-        GraphQLAppliedDirectiveArgument argument = mock(GraphQLAppliedDirectiveArgument.class);
-        InputValueWithState argumentValue = mock(InputValueWithState.class);
-        IntValue intValue = null;
+        when(widthArgumentValue.getValue()).thenReturn(null);
 
-        when(field.getAppliedDirective(DirectiveConstants.ABBREVIATE_DIRECTIVE_NAME)).thenReturn(appliedDirective);
-        when(appliedDirective.getArgument(DirectiveConstants.ABBREVIATE_DIRECTIVE_ARGUMENT_NAME)).thenReturn(argument);
-        when(argument.getArgumentValue()).thenReturn(argumentValue);
-        when(argumentValue.getValue()).thenReturn(intValue);
-
-
-        GraphQLException thrown = assertThrows(GraphQLException.class, () -> {
-            abbreviateDirective.format(field, "This is a long value");
-        });
+        GraphQLException thrown = assertThrows(GraphQLException.class, () ->
+            abbreviateDirective.format(field, "This is a long value")
+        );
 
         assertEquals("Abbreviate formatter directive", thrown.getMessage());
     }
