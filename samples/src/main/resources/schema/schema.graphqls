@@ -1,3 +1,4 @@
+# String Formatters
 directive @uppercase on FIELD_DEFINITION
 directive @lowercase on FIELD_DEFINITION
 directive @trim on FIELD_DEFINITION
@@ -8,10 +9,15 @@ directive @abbreviate(width: Int!) on FIELD_DEFINITION
 directive @camelcase on FIELD_DEFINITION
 directive @resourceId(domain: String!, subdomain: String!, systemName: String!) on FIELD_DEFINITION
 
-
+# Numeric Formatters
+directive @absolute on FIELD_DEFINITION
+directive @ceiling on FIELD_DEFINITION
+directive @floor on FIELD_DEFINITION
 
 type Query {
   formattedStrings: FormattedStringExamples
+  formattedIntegers: FormattedIntegerExamples
+  formattedFloats: FormattedFloatExamples
 }
 
 type FormattedStringExamples {
@@ -26,4 +32,18 @@ type FormattedStringExamples {
   abbreviated: String @abbreviate(width: 10)
   camelcased: String @camelcase
   resourceId: String @resourceId(domain: "domain", subdomain: "subdomain", systemName: "systemName")
+}
+
+type FormattedIntegerExamples {
+  original: Int
+  absolute: Int @absolute
+  ceiling: Int @ceiling
+  floored: Int @floor
+}
+
+type FormattedFloatExamples {
+  original: Float
+  absolute: Float @absolute
+  ceiling: Float @ceiling
+  floored: Float @floor
 }
