@@ -7,23 +7,24 @@ import io.github.setchy.dgs.formatters.utils.TestUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 class CamelcaseDirectiveTest {
 
     CamelcaseDirective camelcaseDirective;
+    @Mock
     GraphQLFieldDefinition field;
 
     @BeforeEach
     void setUp() {
         camelcaseDirective = new CamelcaseDirective();
-        field = mock(GraphQLFieldDefinition.class);
-        GraphQLAppliedDirective appliedDirective = mock(GraphQLAppliedDirective.class);
-
-        when(field.getAppliedDirective(DirectiveConstants.CAMELCASE_DIRECTIVE_NAME)).thenReturn(appliedDirective);
     }
 
     @Test
