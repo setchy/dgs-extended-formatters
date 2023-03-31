@@ -3,9 +3,13 @@ package io.github.setchy.dgs.formatters;
 public final class DirectiveConstants {
 
     public static final String ABBREVIATE_DIRECTIVE_NAME = "abbreviate";
+    public static final String ABSOLUTE_DIRECTIVE_NAME = "absolute";
+
     public static final String ABBREVIATE_DIRECTIVE_ARGUMENT_NAME = "width";
     public static final String CAMELCASE_DIRECTIVE_NAME = "camelcase";
     public static final String CAPITALIZE_DIRECTIVE_NAME = "capitalize";
+    public static final String CEILING_DIRECTIVE_NAME = "ceiling";
+    public static final String FLOOR_DIRECTIVE_NAME = "floor";
     public static final String LOWERCASE_DIRECTIVE_NAME = "lowercase";
     public static final String PRECISION_DIRECTIVE_NAME = "precision";
     public static final String PRECISION_SCALE_ARGUMENT_NAME = "scale";

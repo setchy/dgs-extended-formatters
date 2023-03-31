@@ -1,4 +1,4 @@
-package io.github.setchy.dgs.formatters.floats;
+package io.github.setchy.dgs.formatters.numeric;
 
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetcherFactories;
@@ -7,7 +7,7 @@ import graphql.schema.GraphQLFieldsContainer;
 import graphql.schema.idl.SchemaDirectiveWiring;
 import graphql.schema.idl.SchemaDirectiveWiringEnvironment;
 
-public abstract class AbstractFloatDirective implements SchemaDirectiveWiring {
+public abstract class AbstractNumericDirective implements SchemaDirectiveWiring {
 
     @Override
     public GraphQLFieldDefinition onField(SchemaDirectiveWiringEnvironment<GraphQLFieldDefinition> env) {
@@ -17,7 +17,9 @@ public abstract class AbstractFloatDirective implements SchemaDirectiveWiring {
 
         DataFetcher<?> dataFetcher =
                 DataFetcherFactories.wrapDataFetcher(originalDataFetcher, ((dataFetchingEnvironment, value) -> {
-                    if (value instanceof Float floatValue) {
+                    if (value instanceof Integer intValue) {
+                        return format(field, intValue);
+                    } else if (value instanceof Float floatValue) {
                         return format(field, floatValue);
                     }
                     return value;
@@ -28,6 +30,10 @@ public abstract class AbstractFloatDirective implements SchemaDirectiveWiring {
         return field;
     }
 
+
+    public abstract Integer format(GraphQLFieldDefinition field, Integer value);
+
     public abstract Float format(GraphQLFieldDefinition field, Float value);
+
 
 }
