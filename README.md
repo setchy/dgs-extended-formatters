@@ -5,7 +5,7 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=setchy_dgs-extended-formatters&metric=coverage)](https://sonarcloud.io/summary/new_code?id=setchy_dgs-extended-formatters)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=setchy_dgs-extended-formatters&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=setchy_dgs-extended-formatters)
 
-An experimental set of [DGS](https://github.com/Netflix/dgs-framework) Schema Directives for common response formatting use-cases
+A set of [DGS](https://github.com/Netflix/dgs-framework) Schema Directives for common response formatting use-cases
 
 ## Getting started
 ```xml
