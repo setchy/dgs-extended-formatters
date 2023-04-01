@@ -1,33 +1,20 @@
 package io.github.setchy.dgs.formatters.strings;
 
-import graphql.schema.DataFetcher;
-import graphql.schema.DataFetcherFactories;
 import graphql.schema.GraphQLFieldDefinition;
-import graphql.schema.GraphQLFieldsContainer;
-import graphql.schema.idl.SchemaDirectiveWiring;
-import graphql.schema.idl.SchemaDirectiveWiringEnvironment;
+import io.github.setchy.dgs.formatters.AbstractFormatterDirective;
 
-public abstract class AbstractStringDirective implements SchemaDirectiveWiring {
+public abstract class AbstractStringDirective extends AbstractFormatterDirective {
 
     @Override
-    public GraphQLFieldDefinition onField(SchemaDirectiveWiringEnvironment<GraphQLFieldDefinition> env) {
-        GraphQLFieldDefinition field = env.getElement();
-        GraphQLFieldsContainer fieldsContainer = env.getFieldsContainer();
-        DataFetcher<?> originalDataFetcher = env.getFieldDataFetcher();
-
-        DataFetcher<?> dataFetcher =
-                DataFetcherFactories.wrapDataFetcher(originalDataFetcher, ((dataFetchingEnvironment, value) -> {
-                    if (value instanceof String stringValue) {
-                        return format(field, stringValue);
-                    }
-                    return value;
-                }));
-
-        env.getCodeRegistry()
-                .dataFetcher(fieldsContainer, field, dataFetcher);
-        return field;
+    public Object format(GraphQLFieldDefinition field, Object value) {
+        if (value instanceof String stringValue) {
+            return applyFormatting(field, stringValue);
+        }
+        return value;
     }
 
-    public abstract String format(GraphQLFieldDefinition field, String value);
+    public abstract String applyFormatting(GraphQLFieldDefinition field, String value);
+
+
 
 }

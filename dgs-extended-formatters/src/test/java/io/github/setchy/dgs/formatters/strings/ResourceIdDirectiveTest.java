@@ -1,4 +1,4 @@
-package io.github.setchy.dgs.formatters.protobuf;
+package io.github.setchy.dgs.formatters.strings;
 
 import graphql.GraphQLException;
 import graphql.language.StringValue;
@@ -7,47 +7,49 @@ import graphql.schema.GraphQLAppliedDirectiveArgument;
 import graphql.schema.GraphQLFieldDefinition;
 import graphql.schema.InputValueWithState;
 import io.github.setchy.dgs.formatters.DirectiveConstants;
+import io.github.setchy.dgs.formatters.strings.ResourceIdDirective;
 import io.github.setchy.dgs.formatters.utils.TestUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 class ResourceIdDirectiveTest {
 
     ResourceIdDirective resourceIdDirective;
+
+    @Mock
     GraphQLFieldDefinition field;
+    @Mock
     GraphQLAppliedDirectiveArgument domainArgument;
-    GraphQLAppliedDirectiveArgument subdomainArgument;
+    @Mock GraphQLAppliedDirectiveArgument subdomainArgument;
+    @Mock
     GraphQLAppliedDirectiveArgument systemNameArgument;
 
-
+    @Mock
     InputValueWithState nullArgumentValue;
+    @Mock
     InputValueWithState nonNullArgumentValue;
 
     @BeforeEach
     void setUp() {
         resourceIdDirective = new ResourceIdDirective();
 
-        field = mock(GraphQLFieldDefinition.class);
-        domainArgument = mock(GraphQLAppliedDirectiveArgument.class);
-        subdomainArgument = mock(GraphQLAppliedDirectiveArgument.class);
-        systemNameArgument = mock(GraphQLAppliedDirectiveArgument.class);
-
         GraphQLAppliedDirective appliedDirective = mock(GraphQLAppliedDirective.class);
-        nullArgumentValue = mock(InputValueWithState.class);
-        nonNullArgumentValue = mock(InputValueWithState.class);
         StringValue nonNullValue = StringValue.of(TestUtils.SOME_STRING_ARG);
 
         when(field.getAppliedDirective(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME)).thenReturn(appliedDirective);
         when(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_DOMAIN_ARGUMENT_NAME)).thenReturn(domainArgument);
         when(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_SUBDOMAIN_ARGUMENT_NAME)).thenReturn(subdomainArgument);
         when(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_SYSTEMNAME_ARGUMENT_NAME)).thenReturn(systemNameArgument);
-        when(nullArgumentValue.getValue()).thenReturn(null);
         when(nonNullArgumentValue.getValue()).thenReturn(nonNullValue);
     }
 

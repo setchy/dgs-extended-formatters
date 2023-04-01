@@ -10,7 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 public class SwapcaseDirective extends AbstractStringDirective {
 
     @Override
-    public String format(GraphQLFieldDefinition field, String value) {
+    public String applyFormatting(GraphQLFieldDefinition field, String value) {
         return StringUtils.swapCase(value);
     }
 }

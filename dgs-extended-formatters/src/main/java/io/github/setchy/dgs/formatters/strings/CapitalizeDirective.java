@@ -10,7 +10,7 @@ import org.apache.commons.text.WordUtils;
 public class CapitalizeDirective extends AbstractStringDirective {
 
     @Override
-    public String format(GraphQLFieldDefinition field, String value) {
+    public String applyFormatting(GraphQLFieldDefinition field, String value) {
         return WordUtils.capitalize(value);
     }
 }

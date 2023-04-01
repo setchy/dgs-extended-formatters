@@ -12,7 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 public class AbbreviateDirective extends AbstractStringDirective {
 
     @Override
-    public String format(GraphQLFieldDefinition field, String value) {
+    public String applyFormatting(GraphQLFieldDefinition field, String value) {
         IntValue width = (IntValue) field.getAppliedDirective(DirectiveConstants.ABBREVIATE_DIRECTIVE_NAME)
                 .getArgument(DirectiveConstants.ABBREVIATE_DIRECTIVE_ARGUMENT_NAME)
                 .getArgumentValue()

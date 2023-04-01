@@ -11,6 +11,9 @@ import io.github.setchy.dgs.formatters.utils.TestUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigInteger;
 
@@ -19,20 +22,22 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 class AbbreviateDirectiveTest {
 
     AbbreviateDirective abbreviateDirective;
+
+    @Mock
     GraphQLFieldDefinition field;
+    @Mock
     InputValueWithState widthArgumentValue;
 
     @BeforeEach
     void setUp() {
         abbreviateDirective = new AbbreviateDirective();
 
-        field = mock(GraphQLFieldDefinition.class);
         GraphQLAppliedDirective appliedDirective = mock(GraphQLAppliedDirective.class);
         GraphQLAppliedDirectiveArgument argument = mock(GraphQLAppliedDirectiveArgument.class);
-        widthArgumentValue = mock(InputValueWithState.class);
 
         when(field.getAppliedDirective(DirectiveConstants.ABBREVIATE_DIRECTIVE_NAME)).thenReturn(appliedDirective);
         when(appliedDirective.getArgument(DirectiveConstants.ABBREVIATE_DIRECTIVE_ARGUMENT_NAME)).thenReturn(argument);
@@ -46,7 +51,7 @@ class AbbreviateDirectiveTest {
         when(widthArgumentValue.getValue()).thenReturn(widthIntValue);
         when(widthIntValue.getValue()).thenReturn(BigInteger.valueOf(10));
 
-        String result = abbreviateDirective.format(field, TestUtils.SOME_STRING);
+        String result = abbreviateDirective.applyFormatting(field, TestUtils.SOME_STRING);
 
         assertEquals("  Some ...", result);
     }
@@ -58,7 +63,7 @@ class AbbreviateDirectiveTest {
         when(widthArgumentValue.getValue()).thenReturn(widthIntValue);
         when(widthIntValue.getValue()).thenReturn(BigInteger.valueOf(100));
 
-        String result = abbreviateDirective.format(field, TestUtils.SOME_STRING);
+        String result = abbreviateDirective.applyFormatting(field, TestUtils.SOME_STRING);
 
         assertEquals(TestUtils.SOME_STRING, result);
     }

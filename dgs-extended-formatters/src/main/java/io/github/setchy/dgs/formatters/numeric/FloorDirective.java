@@ -9,12 +9,12 @@ import io.github.setchy.dgs.formatters.DirectiveConstants;
 public class FloorDirective extends AbstractNumericDirective {
 
     @Override
-    public Integer format(GraphQLFieldDefinition field, Integer value) {
+    public Integer applyFormatting(GraphQLFieldDefinition field, Integer value) {
         return value;
     }
 
     @Override
-    public Float format(GraphQLFieldDefinition field, Float value) {
+    public Float applyFormatting(GraphQLFieldDefinition field, Float value) {
         return Float.valueOf(String.valueOf(Math.floor(value.doubleValue())));
     }
 }
