@@ -32,6 +32,6 @@ class TrimDirectiveTest {
     @DisplayName("Should trim string")
     void testTrim() {
         assertEquals("Some string That has MIXED case",
-                trimDirective.format(field, TestUtils.SOME_STRING));
+                trimDirective.applyFormatting(field, TestUtils.SOME_STRING));
     }
 }

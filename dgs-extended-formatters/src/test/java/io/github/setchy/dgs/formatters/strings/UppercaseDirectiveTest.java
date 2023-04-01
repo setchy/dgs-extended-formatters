@@ -32,6 +32,6 @@ class UppercaseDirectiveTest {
     @DisplayName("Should uppercase string")
     void testUppercase() {
         assertEquals("  SOME STRING THAT HAS MIXED CASE  ",
-                uppercaseDirective.format(field, TestUtils.SOME_STRING));
+                uppercaseDirective.applyFormatting(field, TestUtils.SOME_STRING));
     }
 }

@@ -32,6 +32,6 @@ class CapitalizeDirectiveTest {
     @DisplayName("Should capitalize string")
     void testCapitalize() {
         assertEquals("  Some String That Has MIXED Case  ",
-                capitalizeDirective.format(field, TestUtils.SOME_STRING));
+                capitalizeDirective.applyFormatting(field, TestUtils.SOME_STRING));
     }
 }

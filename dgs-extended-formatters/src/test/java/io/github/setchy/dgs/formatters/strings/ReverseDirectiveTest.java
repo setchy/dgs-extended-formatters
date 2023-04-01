@@ -32,6 +32,6 @@ class ReverseDirectiveTest {
     @DisplayName("Should reverse string")
     void testReverse() {
         assertEquals("  esac DEXIM sah tahT gnirts emoS  ",
-                reverseDirective.format(field, TestUtils.SOME_STRING));
+                reverseDirective.applyFormatting(field, TestUtils.SOME_STRING));
     }
 }

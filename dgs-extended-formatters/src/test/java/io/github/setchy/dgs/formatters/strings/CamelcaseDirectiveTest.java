@@ -31,6 +31,6 @@ class CamelcaseDirectiveTest {
     @DisplayName("Should camelcase string")
     void testCamelcase() {
         assertEquals("someStringThatHasMixedCase",
-                camelcaseDirective.format(field, TestUtils.SOME_STRING));
+                camelcaseDirective.applyFormatting(field, TestUtils.SOME_STRING));
     }
 }

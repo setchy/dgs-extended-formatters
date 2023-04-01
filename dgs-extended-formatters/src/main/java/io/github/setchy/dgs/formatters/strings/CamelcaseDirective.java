@@ -10,7 +10,7 @@ import org.apache.commons.text.CaseUtils;
 public class CamelcaseDirective extends AbstractStringDirective {
 
     @Override
-    public String format(GraphQLFieldDefinition field, String value) {
+    public String applyFormatting(GraphQLFieldDefinition field, String value) {
         return CaseUtils.toCamelCase(value, false, ' ');
     }
 }

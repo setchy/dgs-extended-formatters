@@ -32,6 +32,6 @@ class SwapcaseDirectiveTest {
     @DisplayName("Should swap the case of characters within string")
     void testSwapcase() {
         assertEquals("  sOME STRING tHAT HAS mixed CASE  ",
-                swapcaseDirective.format(field, TestUtils.SOME_STRING));
+                swapcaseDirective.applyFormatting(field, TestUtils.SOME_STRING));
     }
 }

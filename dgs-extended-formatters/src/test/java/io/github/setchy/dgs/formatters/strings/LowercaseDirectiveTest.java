@@ -32,6 +32,6 @@ class LowercaseDirectiveTest {
     @DisplayName("Should lowercase string")
     void testLowercase() {
         assertEquals("  some string that has mixed case  ",
-                lowercaseDirective.format(field, TestUtils.SOME_STRING));
+                lowercaseDirective.applyFormatting(field, TestUtils.SOME_STRING));
     }
 }

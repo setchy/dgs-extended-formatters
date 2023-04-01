@@ -1,4 +1,4 @@
-package io.github.setchy.dgs.formatters.protobuf;
+package io.github.setchy.dgs.formatters.strings;
 
 import graphql.GraphQLException;
 import graphql.language.StringValue;
@@ -7,6 +7,7 @@ import graphql.schema.GraphQLAppliedDirectiveArgument;
 import graphql.schema.GraphQLFieldDefinition;
 import graphql.schema.InputValueWithState;
 import io.github.setchy.dgs.formatters.DirectiveConstants;
+import io.github.setchy.dgs.formatters.strings.ResourceIdDirective;
 import io.github.setchy.dgs.formatters.utils.TestUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

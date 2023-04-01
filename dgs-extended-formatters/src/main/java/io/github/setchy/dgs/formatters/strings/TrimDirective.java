@@ -9,7 +9,7 @@ import io.github.setchy.dgs.formatters.DirectiveConstants;
 public class TrimDirective extends AbstractStringDirective {
 
     @Override
-    public String format(GraphQLFieldDefinition field, String value) {
+    public String applyFormatting(GraphQLFieldDefinition field, String value) {
         return value.trim();
     }
 }

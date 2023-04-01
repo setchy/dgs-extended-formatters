@@ -32,8 +32,6 @@ class AbbreviateDirectiveTest {
     @Mock
     InputValueWithState widthArgumentValue;
 
-
-
     @BeforeEach
     void setUp() {
         abbreviateDirective = new AbbreviateDirective();
@@ -53,7 +51,7 @@ class AbbreviateDirectiveTest {
         when(widthArgumentValue.getValue()).thenReturn(widthIntValue);
         when(widthIntValue.getValue()).thenReturn(BigInteger.valueOf(10));
 
-        String result = abbreviateDirective.format(field, TestUtils.SOME_STRING);
+        String result = abbreviateDirective.applyFormatting(field, TestUtils.SOME_STRING);
 
         assertEquals("  Some ...", result);
     }
@@ -65,7 +63,7 @@ class AbbreviateDirectiveTest {
         when(widthArgumentValue.getValue()).thenReturn(widthIntValue);
         when(widthIntValue.getValue()).thenReturn(BigInteger.valueOf(100));
 
-        String result = abbreviateDirective.format(field, TestUtils.SOME_STRING);
+        String result = abbreviateDirective.applyFormatting(field, TestUtils.SOME_STRING);
 
         assertEquals(TestUtils.SOME_STRING, result);
     }

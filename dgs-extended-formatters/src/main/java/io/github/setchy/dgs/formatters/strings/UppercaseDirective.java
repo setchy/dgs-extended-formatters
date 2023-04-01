@@ -9,7 +9,7 @@ import io.github.setchy.dgs.formatters.DirectiveConstants;
 public class UppercaseDirective extends AbstractStringDirective {
 
     @Override
-    public String format(GraphQLFieldDefinition field, String value) {
+    public String applyFormatting(GraphQLFieldDefinition field, String value) {
         return value.toUpperCase();
     }
 }

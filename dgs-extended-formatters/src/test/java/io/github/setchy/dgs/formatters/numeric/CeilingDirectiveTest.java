@@ -6,41 +6,43 @@ import io.github.setchy.dgs.formatters.DirectiveConstants;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 class CeilingDirectiveTest {
 
     CeilingDirective ceilingDirective;
+
+    @Mock
     GraphQLFieldDefinition field;
 
     @BeforeEach
     void setUp() {
         ceilingDirective = new CeilingDirective();
-        field = mock(GraphQLFieldDefinition.class);
-        GraphQLAppliedDirective appliedDirective = mock(GraphQLAppliedDirective.class);
-
-        when(field.getAppliedDirective(DirectiveConstants.CEILING_DIRECTIVE_NAME)).thenReturn(appliedDirective);
     }
 
     @Test
     @DisplayName("Ceiling should round up for float with decimal value)")
     void testCeilingWithDecimalValue() {
-        assertEquals(124.0f, ceilingDirective.format(field, 123.4f));
+        assertEquals(124.0f, ceilingDirective.applyFormatting(field, 123.4f));
     }
 
     @Test
     @DisplayName("Ceiling should do nothing for whole numbers)")
     void testCeilingWithWholeNumber() {
-        assertEquals(123, ceilingDirective.format(field, 123));
-        assertEquals(500f, ceilingDirective.format(field, 500f));
+        assertEquals(123, ceilingDirective.applyFormatting(field, 123));
+        assertEquals(500f, ceilingDirective.applyFormatting(field, 500f));
     }
 
     @Test
     @DisplayName("Ceiling should round up for float with negative value)")
     void testCeilingWithNegativeValue() {
-        assertEquals(-123.0f, ceilingDirective.format(field, -123.4f));
+        assertEquals(-123.0f, ceilingDirective.applyFormatting(field, -123.4f));
     }
 }
