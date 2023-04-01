@@ -7,7 +7,7 @@ import static org.mockito.Mockito.when;
 import graphql.schema.GraphQLFieldDefinition;
 import org.junit.jupiter.api.Test;
 
-public class AbstractStringDirectiveTest {
+class AbstractStringDirectiveTest {
 
     private AbstractStringDirective directive = new AbstractStringDirective() {
         @Override
