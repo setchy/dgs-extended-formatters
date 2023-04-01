@@ -6,7 +6,7 @@ import static org.mockito.Mockito.mock;
 import graphql.schema.GraphQLFieldDefinition;
 import org.junit.jupiter.api.Test;
 
-public class AbstractNumericDirectiveTest {
+class AbstractNumericDirectiveTest {
 
     private AbstractNumericDirective directive = new AbstractNumericDirective() {
         @Override
