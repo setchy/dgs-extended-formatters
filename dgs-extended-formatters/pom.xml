@@ -4,7 +4,7 @@
 
     <groupId>io.github.setchy</groupId>
     <artifactId>dgs-extended-formatters</artifactId>
-    <version>1.0.6-SNAPSHOT</version>
+    <version>1.0.6</version>
 
     <name>${project.artifactId}</name>
     <description>A set of DGS Directives for common formatting use-cases</description>
@@ -25,7 +25,7 @@
         <url>${project.scm.url}</url>
         <connection>${project.scm.url.git}</connection>
         <developerConnection>${project.scm.url.git}</developerConnection>
-        <tag>HEAD</tag>
+        <tag>1.0.6</tag>
     </scm>
 
     <properties>
