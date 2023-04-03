@@ -32,15 +32,15 @@ public class ResourceIdDirective extends AbstractStringDirective {
                 .getValue();
 
         if (domain == null) {
-            throw new GraphQLException("Domain is required in @resourceId");
+            throw new GraphQLException("Domain argument is required in @resourceId");
         }
 
         if (subdomain == null) {
-            throw new GraphQLException("Subdomain is required in @resourceId");
+            throw new GraphQLException("Subdomain argument is required in @resourceId");
         }
 
         if (systemName == null) {
-            throw new GraphQLException("systemName is required in @resourceId");
+            throw new GraphQLException("systemName argument is required in @resourceId");
         }
 
         return createOpaqueResourceID(domain.getValue(), subdomain.getValue(), systemName.getValue(), value);

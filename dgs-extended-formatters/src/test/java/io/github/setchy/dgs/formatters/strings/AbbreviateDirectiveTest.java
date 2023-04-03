@@ -74,9 +74,9 @@ class AbbreviateDirectiveTest {
         when(widthArgumentValue.getValue()).thenReturn(null);
 
         GraphQLException thrown = assertThrows(GraphQLException.class, () ->
-            abbreviateDirective.format(field, "This is a long value")
+            abbreviateDirective.format(field, TestUtils.SOME_STRING)
         );
 
-        assertEquals("Abbreviate formatter directive", thrown.getMessage());
+        assertEquals("Abbreviate formatter directive missing required argument", thrown.getMessage());
     }
 }

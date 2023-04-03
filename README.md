@@ -24,7 +24,6 @@ Abbreviates a string using ellipses for a given width
 
 - SDL: `directive @abbreviate(width: Int!) on FIELD_DEFINITION`
 
-
 ### @camelcase
 Converts the String into camelCase
 
@@ -36,19 +35,22 @@ Capitalize the starting letter for each word in a String
 
 - SDL: `directive @capitalize on FIELD_DEFINITION`
 
-
 ### @lowercase
 
-Lowercase all characters in a String 
-
+Lowercase all characters in a String
 
 - SDL: `directive @lowercase on FIELD_DEFINITION`
+
+### @prefix
+
+Prepends a prefix to a String
+
+- SDL: `directive @prefix(with: String!) on FIELD_DEFINITION`
 
 ### @resourceId
 
 Transforms a string into a base64 protobuf opaque ID. This takes in domain, subdomain, and systemName arguments
 which will be encoded into the ID.
-
 
 - SDL: `directive @resourceId(domain: String!, subdomain: String!, systemName: String!) on FIELD_DEFINITION`
 
@@ -58,12 +60,17 @@ Reverse the characters in a String
 
 - SDL: `directive @reverse on FIELD_DEFINITION`
 
+### @suffix
+
+Appends a suffix to a String
+
+- SDL: `directive @suffix(with: String!) on FIELD_DEFINITION`
+
 ### @swapcase
 
 Invert the case of each character in a String
 
 - SDL: `directive @swapcase on FIELD_DEFINITION`
-
 
 ### @trim
 
@@ -76,6 +83,7 @@ Remove any leading or trailing whitespace
 Uppercase each character in a String
 
 - SDL: `directive @uppercase on FIELD_DEFINITION`
+
 
 ## Numeric Formatters
 The following schema directives support formatting `Int` or `Float` scalars

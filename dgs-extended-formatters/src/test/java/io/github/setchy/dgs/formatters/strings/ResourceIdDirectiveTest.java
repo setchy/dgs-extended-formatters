@@ -64,7 +64,7 @@ class ResourceIdDirectiveTest {
             resourceIdDirective.format(field, TestUtils.SOME_STRING)
         );
 
-        assertEquals("Domain is required in @resourceId", thrown.getMessage());
+        assertEquals("Domain argument is required in @resourceId", thrown.getMessage());
     }
 
     @Test
@@ -78,7 +78,7 @@ class ResourceIdDirectiveTest {
             resourceIdDirective.format(field, TestUtils.SOME_STRING)
         );
 
-        assertEquals("Subdomain is required in @resourceId", thrown.getMessage());
+        assertEquals("Subdomain argument is required in @resourceId", thrown.getMessage());
     }
 
     @Test
@@ -92,7 +92,7 @@ class ResourceIdDirectiveTest {
             resourceIdDirective.format(field, TestUtils.SOME_STRING)
         );
 
-        assertEquals("systemName is required in @resourceId", thrown.getMessage());
+        assertEquals("systemName argument is required in @resourceId", thrown.getMessage());
     }
 
     @Test
