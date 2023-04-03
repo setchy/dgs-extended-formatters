@@ -25,11 +25,11 @@ class AbstractFormatterDirectiveTest {
         root.put("hello", "Hello");
         root.put("world", "World");
 
-        String query = "" +
-                "query {\n" +
-                "    hello \n" +
-                "    world \n" +
-                "}";
+        String query = """
+                query {
+                    hello
+                    world
+                }""";
 
         ExecutionInput executionInput = ExecutionInput.newExecutionInput()
                 .root(root)
@@ -44,11 +44,12 @@ class AbstractFormatterDirectiveTest {
     }
 
     private static GraphQLSchema buildSchema() {
-        String sdlSpec = "directive @nothing on FIELD_DEFINITION\n" +
-                "type Query {\n" +
-                "    hello : String @nothing \n" +
-                "    world : String \n" +
-                "}";
+        String sdlSpec = """
+                directive @nothing on FIELD_DEFINITION
+                type Query {
+                  hello : String @nothing
+                  world : String
+                }""";
 
         TypeDefinitionRegistry registry = new SchemaParser().parse(sdlSpec);
 
