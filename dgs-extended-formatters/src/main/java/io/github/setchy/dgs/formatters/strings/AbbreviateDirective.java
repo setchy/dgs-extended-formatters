@@ -19,7 +19,7 @@ public class AbbreviateDirective extends AbstractStringDirective {
                 .getValue();
 
         if (width == null) {
-            throw new GraphQLException("Abbreviate formatter directive");
+            throw new GraphQLException("Abbreviate formatter directive missing required argument");
         }
 
         return StringUtils.abbreviate(value, width.getValue().intValue());
