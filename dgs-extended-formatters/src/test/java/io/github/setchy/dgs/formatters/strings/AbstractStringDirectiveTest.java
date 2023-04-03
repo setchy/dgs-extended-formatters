@@ -1,11 +1,10 @@
 package io.github.setchy.dgs.formatters.strings;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
 import graphql.schema.GraphQLFieldDefinition;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
 
 class AbstractStringDirectiveTest {
 
