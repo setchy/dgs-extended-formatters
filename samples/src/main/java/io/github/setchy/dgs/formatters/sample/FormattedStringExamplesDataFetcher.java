@@ -20,6 +20,8 @@ public class FormattedStringExamplesDataFetcher {
     @DgsData(parentType = "FormattedStringExamples", field = "abbreviated")
     @DgsData(parentType = "FormattedStringExamples", field = "camelcased")
     @DgsData(parentType = "FormattedStringExamples", field = "resourceId")
+    @DgsData(parentType = "FormattedStringExamples", field = "prefixed")
+    @DgsData(parentType = "FormattedStringExamples", field = "suffixed")
     public String exampleData(DgsDataFetchingEnvironment dfe) {
         return SAMPLE_DATA;
     }
