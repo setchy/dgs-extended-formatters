@@ -1,8 +1,7 @@
 name: Publish to Maven Central (Sonatype)
 on:
-  push:
-    tags:
-      - '*'
+  release:
+    types: [created]
 
 jobs:
   publish:
