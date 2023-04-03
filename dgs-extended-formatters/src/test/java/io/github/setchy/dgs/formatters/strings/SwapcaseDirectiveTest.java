@@ -1,8 +1,6 @@
 package io.github.setchy.dgs.formatters.strings;
 
-import graphql.schema.GraphQLAppliedDirective;
 import graphql.schema.GraphQLFieldDefinition;
-import io.github.setchy.dgs.formatters.DirectiveConstants;
 import io.github.setchy.dgs.formatters.utils.TestUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -12,8 +10,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class SwapcaseDirectiveTest {
