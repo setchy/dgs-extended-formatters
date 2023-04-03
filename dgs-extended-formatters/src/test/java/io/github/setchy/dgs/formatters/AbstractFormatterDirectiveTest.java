@@ -13,7 +13,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-public class AbstractFormatterDirectiveTest {
+
+class AbstractFormatterDirectiveTest {
     @Test
     @DisplayName("Test dummy directive calls format")
     void testAbstractDirectiveCallsFormat() {
