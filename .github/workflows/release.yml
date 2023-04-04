@@ -1,0 +1,44 @@
+name: Release to Maven Central (Sonatype)
+on:
+  workflow_dispatch:
+    inputs:
+      release_version:
+        type: string
+        description: Release version to use
+        required: true
+      snapshot_version:
+        type: string
+        description: Next snapshot version to use
+        required: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Configure for Maven Central Repository
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+          server-id: ossrh
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
+          gpg-private-key: ${{ secrets.OSSRH_GPG_PRIVATE_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+      - name: Release and deploy to Sonatype
+        run: |
+          mvn -B release:prepare release:perform \
+            -DskipTests=true \
+            -DautoVersionSubmodules=true \
+            -Darguments=-DreleaseVersion=${{ github.event.inputs.release_version }} \
+            -Darguments=-DdevelopmentVersion=${{ github.event.inputs.release_version }}
+            -Darguments="-DskipTests=true \
+            -Dgpg.passphrase=${{ secrets.OSSRH_GPG_PASSPHRASE }}" \
+        env:
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.OSSRH_GPG_PASSPHRASE }}
+          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          MAVEN_PASSWORD:
+            ${{ secrets.OSSRH_TOKEN }}
