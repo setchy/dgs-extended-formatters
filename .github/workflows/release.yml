@@ -35,6 +35,7 @@ jobs:
       - name: Release and deploy to Sonatype
         run: |
           mvn -B release:prepare release:perform \
+            -Pdeploy \
             -DskipTests=true \
             -DautoVersionSubmodules=true \
             -Darguments=-DreleaseVersion=${{ github.event.inputs.release_version }} \
