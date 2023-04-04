@@ -23,8 +23,8 @@
     </developers>
     <scm>
         <url>${project.scm.url}</url>
-        <connection>${project.scm.url.git}</connection>
-        <developerConnection>${project.scm.url.git}</developerConnection>
+        <connection>${project.scm.url.git</connection>
+        <developerConnection>${project.scm.url.git</developerConnection>
       <tag>HEAD</tag>
   </scm>
 
@@ -36,8 +36,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- Project Settings -->
-        <project.scm.url>https://github.com/setchy/dgs-extended-formatters</project.scm.url>
-        <project.scm.url.git>scm:git:${project.scm.url}.git</project.scm.url.git>
+        <project.scm.url>scm:git:https://github.com/setchy/dgs-extended-formatters</project.scm.url>
+        <project.scm.url.git>${project.scm.url}.git</project.scm.url.git>
 
         <!-- Dependencies -->
         <dgs-platform-dependencies.version>6.0.2</dgs-platform-dependencies.version>

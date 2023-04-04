@@ -25,8 +25,8 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <!-- Project Settings -->
-        <project.scm.url>https://github.com/setchy/dgs-extended-formatters</project.scm.url>
-        <project.scm.url.git>scm:git:${project.scm.url}.git</project.scm.url.git>
+        <project.scm.url>scm:git:https://github.com/setchy/dgs-extended-formatters</project.scm.url>
+        <project.scm.url.git>${project.scm.url}.git</project.scm.url.git>
 
         <!-- Sonarcloud details -->
         <sonar.organization>setchy</sonar.organization>
