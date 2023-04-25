@@ -1,4 +1,4 @@
-name: [DISABLED] Publish to Maven Central (Sonatype)
+name: RETIRED - Publish to Maven Central (Sonatype)
 on:
   release:
     types: [created]
