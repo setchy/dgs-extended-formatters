@@ -1,4 +1,4 @@
-name: Prepare for release
+name: [DISABLED] Prepare for release
 on:
   workflow_dispatch:
     inputs:
