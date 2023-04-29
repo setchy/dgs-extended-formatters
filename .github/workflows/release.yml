@@ -1,4 +1,4 @@
-name: Release ${{ github.event.inputs.release_version }} to Maven Central (Sonatype)
+name: Release to Maven Central (Sonatype)
 on:
   workflow_dispatch:
     inputs:

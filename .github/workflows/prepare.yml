@@ -1,4 +1,4 @@
-name: Prepare for release
+name: RETIRED - Prepare for release
 on:
   workflow_dispatch:
     inputs:

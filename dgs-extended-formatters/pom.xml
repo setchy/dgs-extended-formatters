@@ -4,7 +4,7 @@
 
     <groupId>io.github.setchy</groupId>
     <artifactId>dgs-extended-formatters</artifactId>
-    <version>1.0.8-SNAPSHOT</version>
+    <version>1.0.9-SNAPSHOT</version>
 
     <name>${project.artifactId}</name>
     <description>A set of DGS Directives for common formatting use-cases</description>
@@ -40,7 +40,7 @@
         <project.scm.url.git>${project.scm.url}.git</project.scm.url.git>
 
         <!-- Dependencies -->
-        <dgs-platform-dependencies.version>6.0.4</dgs-platform-dependencies.version>
+        <dgs-platform-dependencies.version>6.0.5</dgs-platform-dependencies.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <commons-text.version>1.10.0</commons-text.version>
 
@@ -51,8 +51,8 @@
         <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
 
         <!-- Test Dependencies -->
-        <junit-bom.version>5.9.2</junit-bom.version>
-        <jacoco-maven-plugin.version>0.8.9</jacoco-maven-plugin.version>
+        <junit-bom.version>5.9.3</junit-bom.version>
+        <jacoco-maven-plugin.version>0.8.10</jacoco-maven-plugin.version>
 
         <!-- Helper plugins -->
         <build-helper-maven-plugin.version>3.3.0</build-helper-maven-plugin.version>
