@@ -11,7 +11,7 @@ A set of [DGS](https://github.com/Netflix/dgs-framework) Schema Directives for c
 ```xml
 <dependency>
     <groupId>io.github.setchy</groupId>
-    <artifact>dgs-extended-formatters</artifact>
+    <artifactId>dgs-extended-formatters</artifactId>
     <version>1.0.8</version>
 </dependency>
 ```
