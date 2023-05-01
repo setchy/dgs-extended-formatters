@@ -8,6 +8,7 @@
 A set of [DGS](https://github.com/Netflix/dgs-framework) Schema Directives for common response formatting use-cases.
 
 ## Getting started
+
 ```xml
 <dependency>
     <groupId>io.github.setchy</groupId>
@@ -17,21 +18,24 @@ A set of [DGS](https://github.com/Netflix/dgs-framework) Schema Directives for c
 ```
 
 ## String Formatters
+
 The following schema directives support formatting `String` scalars
 
 ### @abbreviate
+
 Abbreviates a string using ellipses for a given width
 
 - SDL: `directive @abbreviate(width: Int!) on FIELD_DEFINITION`
 
 ### @camelcase
+
 Converts the String into camelCase
 
 - SDL: `directive @camelcase on FIELD_DEFINITION`
 
 ### @capitalize
 
-Capitalize the starting letter for each word in a String 
+Capitalize the starting letter for each word in a String
 
 - SDL: `directive @capitalize on FIELD_DEFINITION`
 
@@ -84,8 +88,8 @@ Uppercase each character in a String
 
 - SDL: `directive @uppercase on FIELD_DEFINITION`
 
-
 ## Numeric Formatters
+
 The following schema directives support formatting `Int` or `Float` scalars
 
 ### @absolute

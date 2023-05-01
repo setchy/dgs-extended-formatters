@@ -22,6 +22,7 @@ public final class DirectiveConstants {
     public static final String SWAPCASE_DIRECTIVE_NAME = "swapcase";
     public static final String TRIM_DIRECTIVE_NAME = "trim";
     public static final String UPPERCASE_DIRECTIVE_NAME = "uppercase";
+
     private DirectiveConstants() {
     }
 

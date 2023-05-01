@@ -19,6 +19,28 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DirectivesIntegrationTest {
+    private static GraphQLSchema buildSchema() {
+        String sdlSpec = """
+                directive @absolute on FIELD_DEFINITION
+                directive @uppercase on FIELD_DEFINITION
+
+                type Query {
+                  helloWorld : String
+                  helloWorldShouting : String @uppercase
+                  negativeNumber: Int
+                  absoluteNumber: Int @absolute
+                }""";
+
+        TypeDefinitionRegistry registry = new SchemaParser().parse(sdlSpec);
+
+        RuntimeWiring runtimeWiring = RuntimeWiring.newRuntimeWiring()
+                .directive("uppercase", new UppercaseDirective())
+                .directive("absolute", new AbsoluteDirective())
+                .build();
+
+        return new SchemaGenerator().makeExecutableSchema(registry, runtimeWiring);
+    }
+
     @Test
     @DisplayName("Test directives against simple schema")
     void testAbstractDirectiveCallsFormat() {
@@ -51,27 +73,5 @@ class DirectivesIntegrationTest {
         assertEquals("HELLO WORLD", data.get("helloWorldShouting"));
         assertEquals(-100, data.get("negativeNumber"));
         assertEquals(100, data.get("absoluteNumber"));
-    }
-
-    private static GraphQLSchema buildSchema() {
-        String sdlSpec = """
-                directive @absolute on FIELD_DEFINITION
-                directive @uppercase on FIELD_DEFINITION
-
-                type Query {
-                  helloWorld : String
-                  helloWorldShouting : String @uppercase
-                  negativeNumber: Int
-                  absoluteNumber: Int @absolute
-                }""";
-
-        TypeDefinitionRegistry registry = new SchemaParser().parse(sdlSpec);
-
-        RuntimeWiring runtimeWiring = RuntimeWiring.newRuntimeWiring()
-                .directive("uppercase", new UppercaseDirective())
-                .directive("absolute", new AbsoluteDirective())
-                .build();
-
-        return new SchemaGenerator().makeExecutableSchema(registry, runtimeWiring);
     }
 }

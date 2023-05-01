@@ -29,7 +29,8 @@ class ResourceIdDirectiveTest {
     GraphQLFieldDefinition field;
     @Mock
     GraphQLAppliedDirectiveArgument domainArgument;
-    @Mock GraphQLAppliedDirectiveArgument subdomainArgument;
+    @Mock
+    GraphQLAppliedDirectiveArgument subdomainArgument;
     @Mock
     GraphQLAppliedDirectiveArgument systemNameArgument;
 
@@ -61,7 +62,7 @@ class ResourceIdDirectiveTest {
         when(systemNameArgument.getArgumentValue()).thenReturn(nonNullArgumentValue);
 
         GraphQLException thrown = assertThrows(GraphQLException.class, () ->
-            resourceIdDirective.format(field, TestUtils.SOME_STRING)
+                resourceIdDirective.format(field, TestUtils.SOME_STRING)
         );
 
         assertEquals("Domain argument is required in @resourceId", thrown.getMessage());
@@ -75,7 +76,7 @@ class ResourceIdDirectiveTest {
         when(systemNameArgument.getArgumentValue()).thenReturn(nonNullArgumentValue);
 
         GraphQLException thrown = assertThrows(GraphQLException.class, () ->
-            resourceIdDirective.format(field, TestUtils.SOME_STRING)
+                resourceIdDirective.format(field, TestUtils.SOME_STRING)
         );
 
         assertEquals("Subdomain argument is required in @resourceId", thrown.getMessage());
@@ -89,7 +90,7 @@ class ResourceIdDirectiveTest {
         when(systemNameArgument.getArgumentValue()).thenReturn(nullArgumentValue);
 
         GraphQLException thrown = assertThrows(GraphQLException.class, () ->
-            resourceIdDirective.format(field, TestUtils.SOME_STRING)
+                resourceIdDirective.format(field, TestUtils.SOME_STRING)
         );
 
         assertEquals("systemName argument is required in @resourceId", thrown.getMessage());

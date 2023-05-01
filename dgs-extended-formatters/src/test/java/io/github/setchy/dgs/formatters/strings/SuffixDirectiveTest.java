@@ -51,7 +51,7 @@ class SuffixDirectiveTest {
 
         String result = suffixDirective.applyFormatting(field, TestUtils.SOME_STRING);
 
-        assertEquals( TestUtils.SOME_STRING + "- suffix", result);
+        assertEquals(TestUtils.SOME_STRING + "- suffix", result);
     }
 
     @Test
@@ -65,13 +65,14 @@ class SuffixDirectiveTest {
 
         assertEquals(TestUtils.SOME_STRING, result);
     }
+
     @Test
     @DisplayName("Will throw exception when argument is missing")
     void testFormatWithMissingWidthArgument() {
         when(withArgumentValue.getValue()).thenReturn(null);
 
         GraphQLException thrown = assertThrows(GraphQLException.class, () ->
-            suffixDirective.format(field, TestUtils.SOME_STRING)
+                suffixDirective.format(field, TestUtils.SOME_STRING)
         );
 
         assertEquals("Suffix formatter directive missing required argument", thrown.getMessage());

@@ -47,7 +47,7 @@ public class ResourceIdDirective extends AbstractStringDirective {
     }
 
     private String createOpaqueResourceID(String domain, String subdomain, String systemName,
-                                                String systemID) {
+                                          String systemID) {
 
         OpaqueResourceIDProto.OpaqueResourceID opaqueResourceIDProto =
                 OpaqueResourceIDProto.OpaqueResourceID.newBuilder()

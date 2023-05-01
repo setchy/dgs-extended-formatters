@@ -65,13 +65,14 @@ class PrefixDirectiveTest {
 
         assertEquals(TestUtils.SOME_STRING, result);
     }
+
     @Test
     @DisplayName("Will throw exception when argument is missing")
     void testFormatWithMissingWidthArgument() {
         when(withArgumentValue.getValue()).thenReturn(null);
 
         GraphQLException thrown = assertThrows(GraphQLException.class, () ->
-            prefixDirective.format(field, TestUtils.SOME_STRING)
+                prefixDirective.format(field, TestUtils.SOME_STRING)
         );
 
         assertEquals("Prefix formatter directive missing required argument", thrown.getMessage());

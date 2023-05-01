@@ -17,37 +17,37 @@ directive @ceiling on FIELD_DEFINITION
 directive @floor on FIELD_DEFINITION
 
 type Query {
-  formattedStrings: FormattedStringExamples
-  formattedIntegers: FormattedIntegerExamples
-  formattedFloats: FormattedFloatExamples
+    formattedStrings: FormattedStringExamples
+    formattedIntegers: FormattedIntegerExamples
+    formattedFloats: FormattedFloatExamples
 }
 
 type FormattedStringExamples {
-  original: String
-  uppercased: String @uppercase
-  lowercased: String @lowercase
-  trimmed: String @trim
-  trimmedUppercased: String @uppercase @trim
-  capitalized: String @capitalize
-  reversed: String @reverse
-  swapcased: String @swapcase
-  abbreviated: String @abbreviate(width: 10)
-  camelcased: String @camelcase
-  resourceId: String @resourceId(domain: "domain", subdomain: "subdomain", systemName: "systemName")
-  prefixed: String @prefix(with: "prefix:")
-  suffixed: String @suffix(with: "- suffix")
+    original: String
+    uppercased: String @uppercase
+    lowercased: String @lowercase
+    trimmed: String @trim
+    trimmedUppercased: String @uppercase @trim
+    capitalized: String @capitalize
+    reversed: String @reverse
+    swapcased: String @swapcase
+    abbreviated: String @abbreviate(width: 10)
+    camelcased: String @camelcase
+    resourceId: String @resourceId(domain: "domain", subdomain: "subdomain", systemName: "systemName")
+    prefixed: String @prefix(with: "prefix:")
+    suffixed: String @suffix(with: "- suffix")
 }
 
 type FormattedIntegerExamples {
-  original: Int
-  absolute: Int @absolute
-  ceiling: Int @ceiling
-  floored: Int @floor
+    original: Int
+    absolute: Int @absolute
+    ceiling: Int @ceiling
+    floored: Int @floor
 }
 
 type FormattedFloatExamples {
-  original: Float
-  absolute: Float @absolute
-  ceiling: Float @ceiling
-  floored: Float @floor
+    original: Float
+    absolute: Float @absolute
+    ceiling: Float @ceiling
+    floored: Float @floor
 }

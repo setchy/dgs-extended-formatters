@@ -16,5 +16,4 @@ public abstract class AbstractStringDirective extends AbstractFormatterDirective
     public abstract String applyFormatting(GraphQLFieldDefinition field, String value);
 
 
-
 }
