@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.0.6</version>
-        <relativePath/>
+        <relativePath />
     </parent>
 
     <groupId>io.github.setchy</groupId>
     <artifactId>dgs-extended-formatters-sample</artifactId>
-    <version>1.0.9-SNAPSHOT</version>
+    <version>1.0.9</version>
 
     <name>${project.artifactId}</name>
     <description>A sample graphql dgs service which utilizes dgs-extended-formatters</description>
 
     <properties>
-        <dgs-extended-formatters.version>1.0.9-SNAPSHOT</dgs-extended-formatters.version>
+        <dgs-extended-formatters.version>1.0.9</dgs-extended-formatters.version>
         <dgs-platform-dependencies.version>6.0.5</dgs-platform-dependencies.version>
 
         <!-- Skip deploying this module when releasing -->
@@ -65,4 +64,8 @@
             </plugin>
         </plugins>
     </build>
+
+  <scm>
+    <tag>1.0.9</tag>
+  </scm>
 </project>
