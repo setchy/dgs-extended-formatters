@@ -12,7 +12,7 @@ A set of [DGS](https://github.com/Netflix/dgs-framework) Schema Directives for c
 <dependency>
     <groupId>io.github.setchy</groupId>
     <artifact>dgs-extended-formatters</artifact>
-    <version>1.0.6</version>
+    <version>1.0.8</version>
 </dependency>
 ```
 
