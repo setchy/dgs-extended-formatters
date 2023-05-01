@@ -9,7 +9,7 @@
 
     <name>${project.artifactId}</name>
     <description>A set of DGS Directives for common formatting use-cases</description>
-    <url>${project.scm.url}</url>
+    <url>https://github.com/setchy/dgs-extended-formatters</url>
     <licenses>
         <license>
             <name>MIT License</name>
@@ -23,9 +23,9 @@
         </developer>
     </developers>
     <scm>
-        <url>${project.scm.url}</url>
-        <connection>${project.scm.url.git</connection>
-        <developerConnection>${project.scm.url.git</developerConnection>
+        <url>scm:git:https://github.com/setchy/dgs-extended-formatters</url>
+        <connection>scm:git:https://github.com/setchy/dgs-extended-formatters.git</connection>
+        <developerConnection>scm:git:https://github.com/setchy/dgs-extended-formatters.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
@@ -35,10 +35,6 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <!-- Project Settings -->
-        <project.scm.url>scm:git:https://github.com/setchy/dgs-extended-formatters</project.scm.url>
-        <project.scm.url.git>${project.scm.url}.git</project.scm.url.git>
 
         <!-- Dependencies -->
         <dgs-platform-dependencies.version>6.0.5</dgs-platform-dependencies.version>
