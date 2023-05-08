@@ -1,5 +1,16 @@
 {
   "extends": [
     "config:base"
+  ],
+  "regexManagers": [
+    {
+      "datasourceTemplate": "maven",
+      "fileMatch": ["(^|/).*\.md$"],
+      "depNameTemplate": "io.github.setchy:dgs-extended-formatters",
+      "matchStrings": [
+        "\\s?<version>(?<currentValue>[\\w+\\.\\-]*)<\\/version>\\s?",
+        "\\s?implementation \\'(?<depName>.*)\\:(?<currentValue>[\\w+\\.\\-]*)\\'\\s?"
+      ]
+    }
   ]
 }
