@@ -96,16 +96,16 @@ The following schema directives support formatting `Int` or `Float` scalars
 
 Returns the absolute value
 
-- SDL: `directive @absolute on FIELD_DEFINITION`
+- SDL: `directive @absolute on FIELD_DEFINITION | ARGUMENT_DEFINITION`
 
 ### @ceiling
 
 Returns the ceiling value
 
-- SDL: `directive @ceiling on FIELD_DEFINITION`
+- SDL: `directive @ceiling on FIELD_DEFINITION | ARGUMENT_DEFINITION`
 
 ### @floor
 
 Returns the floor value
 
-- SDL: `directive @floor on FIELD_DEFINITION`
+- SDL: `directive @floor on FIELD_DEFINITION | ARGUMENT_DEFINITION`

@@ -12,13 +12,13 @@ directive @prefix(with: String!) on FIELD_DEFINITION
 directive @suffix(with: String!) on FIELD_DEFINITION
 
 # Numeric Formatters
-directive @absolute on FIELD_DEFINITION
-directive @ceiling on FIELD_DEFINITION
-directive @floor on FIELD_DEFINITION
+directive @absolute on FIELD_DEFINITION | ARGUMENT_DEFINITION
+directive @ceiling on FIELD_DEFINITION | ARGUMENT_DEFINITION
+directive @floor on FIELD_DEFINITION | ARGUMENT_DEFINITION
 
 type Query {
     formattedStrings: FormattedStringExamples
-    formattedStringArgs: FormattedStringArgsExamples
+    formattedArgs: FormattedArgsExamples
     formattedIntegers: FormattedIntegerExamples
     formattedFloats: FormattedFloatExamples
 }
@@ -39,7 +39,7 @@ type FormattedStringExamples {
     suffixed: String @suffix(with: "- suffix")
 }
 
-type FormattedStringArgsExamples {
+type FormattedArgsExamples {
     original(arg: String!): String
     uppercased(arg: String! @uppercase): String
     lowercased(arg: String! @lowercase): String
@@ -49,6 +49,13 @@ type FormattedStringArgsExamples {
     reversed(arg: String! @reverse): String
     swapcased(arg: String! @swapcase): String
     camelcased(arg: String! @camelcase): String
+    absoluteInt(arg: Int! @absolute): Int
+    ceilingInt(arg: Int! @ceiling): Int
+    flooredInt(arg: Int! @floor): Int
+    absoluteFloat(arg: Float! @absolute): Float
+    ceilingFloat(arg: Float! @ceiling): Float
+    flooredFloat(arg: Float! @floor): Float
+
 }
 
 type FormattedIntegerExamples {
