@@ -3,7 +3,9 @@ package io.github.setchy.dgs.formatters.strings;
 import com.netflix.graphql.dgs.DgsDirective;
 import graphql.GraphQLException;
 import graphql.language.StringValue;
+import graphql.schema.GraphQLAppliedDirectiveArgument;
 import graphql.schema.GraphQLFieldDefinition;
+import graphql.schema.InputValueWithState;
 import io.github.setchy.dgs.formatters.DirectiveConstants;
 
 import java.util.Objects;
@@ -15,12 +17,11 @@ public class SuffixDirective extends AbstractStringDirective {
 
     @Override
     public String applyFormatting(GraphQLFieldDefinition field, String value) {
-        StringValue withArg = Optional.ofNullable(field.getAppliedDirective(DirectiveConstants.SUFFIX_DIRECTIVE_NAME))
+        StringValue withArg = (StringValue) Optional.ofNullable(field.getAppliedDirective(DirectiveConstants.SUFFIX_DIRECTIVE_NAME))
                 .map(directive -> directive.getArgument(DirectiveConstants.SUFFIX_DIRECTIVE_ARGUMENT_NAME))
-                .map(directiveArgument -> directiveArgument.getArgumentValue())
-                .map(argumentValue -> argumentValue.getValue())
+                .map(GraphQLAppliedDirectiveArgument::getArgumentValue)
+                .map(InputValueWithState::getValue)
                 .filter(argValue -> argValue instanceof StringValue)
-                .map(argValue -> (StringValue) argValue)
                 .orElse(null);
 
         if (Objects.isNull(withArg)) {

@@ -3,7 +3,10 @@ package io.github.setchy.dgs.formatters.strings;
 import com.netflix.graphql.dgs.DgsDirective;
 import graphql.GraphQLException;
 import graphql.language.IntValue;
+import graphql.language.StringValue;
+import graphql.schema.GraphQLAppliedDirectiveArgument;
 import graphql.schema.GraphQLFieldDefinition;
+import graphql.schema.InputValueWithState;
 import io.github.setchy.dgs.formatters.DirectiveConstants;
 import org.apache.commons.lang3.StringUtils;
 
@@ -16,7 +19,12 @@ public class AbbreviateDirective extends AbstractStringDirective {
 
     @Override
     public String applyFormatting(GraphQLFieldDefinition field, String value) {
-        IntValue width = Optional.ofNullable(field.getAppliedDirective(DirectiveConstants.ABBREVIATE_DIRECTIVE_NAME)).map(directive -> directive.getArgument(DirectiveConstants.ABBREVIATE_DIRECTIVE_ARGUMENT_NAME)).map(directiveArgument -> directiveArgument.getArgumentValue()).map(argumentValue -> argumentValue.getValue()).filter(argValue -> argValue instanceof IntValue).map(argValue -> (IntValue) argValue).orElse(null);
+        IntValue width = (IntValue) Optional.ofNullable(field.getAppliedDirective(DirectiveConstants.ABBREVIATE_DIRECTIVE_NAME))
+                .map(directive -> directive.getArgument(DirectiveConstants.ABBREVIATE_DIRECTIVE_ARGUMENT_NAME))
+                .map(GraphQLAppliedDirectiveArgument::getArgumentValue)
+                .map(InputValueWithState::getValue)
+                .filter(argValue -> argValue instanceof IntValue)
+                .orElse(null);
 
         if (Objects.isNull(width)) {
             throw new GraphQLException(

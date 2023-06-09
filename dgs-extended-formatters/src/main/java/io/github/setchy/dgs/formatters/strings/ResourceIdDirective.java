@@ -19,25 +19,22 @@ public class ResourceIdDirective extends AbstractStringDirective {
     public String applyFormatting(GraphQLFieldDefinition field, String value) {
         GraphQLAppliedDirective appliedDirective = field.getAppliedDirective(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME);
 
-        StringValue domain = Optional.ofNullable(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_DOMAIN_ARGUMENT_NAME))
+        StringValue domain = (StringValue) Optional.ofNullable(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_DOMAIN_ARGUMENT_NAME))
                 .map(directiveArgument -> directiveArgument.getArgumentValue())
                 .map(argumentValue -> argumentValue.getValue())
                 .filter(argValue -> argValue instanceof StringValue)
-                .map(argValue -> (StringValue) argValue)
                 .orElse(null);
 
-        StringValue subdomain = Optional.ofNullable(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_SUBDOMAIN_ARGUMENT_NAME))
+        StringValue subdomain = (StringValue) Optional.ofNullable(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_SUBDOMAIN_ARGUMENT_NAME))
                 .map(directiveArgument -> directiveArgument.getArgumentValue())
                 .map(argumentValue -> argumentValue.getValue())
                 .filter(argValue -> argValue instanceof StringValue)
-                .map(argValue -> (StringValue) argValue)
                 .orElse(null);
 
-        StringValue systemName = Optional.ofNullable(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_SYSTEMNAME_ARGUMENT_NAME))
+        StringValue systemName = (StringValue) Optional.ofNullable(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_SYSTEMNAME_ARGUMENT_NAME))
                 .map(directiveArgument -> directiveArgument.getArgumentValue())
                 .map(argumentValue -> argumentValue.getValue())
                 .filter(argValue -> argValue instanceof StringValue)
-                .map(argValue -> (StringValue) argValue)
                 .orElse(null);
 
         if (Objects.isNull(domain)) {
