@@ -24,19 +24,19 @@ public class ResourceIdDirective extends AbstractStringDirective {
         StringValue domain = (StringValue) Optional.ofNullable(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_DOMAIN_ARGUMENT_NAME))
                 .map(GraphQLAppliedDirectiveArgument::getArgumentValue)
                 .map(InputValueWithState::getValue)
-                .filter(argValue -> argValue instanceof StringValue)
+                .filter(StringValue.class::isInstance)
                 .orElse(null);
 
         StringValue subdomain = (StringValue) Optional.ofNullable(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_SUBDOMAIN_ARGUMENT_NAME))
                 .map(GraphQLAppliedDirectiveArgument::getArgumentValue)
                 .map(InputValueWithState::getValue)
-                .filter(argValue -> argValue instanceof StringValue)
+                .filter(StringValue.class::isInstance)
                 .orElse(null);
 
         StringValue systemName = (StringValue) Optional.ofNullable(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_SYSTEMNAME_ARGUMENT_NAME))
                 .map(GraphQLAppliedDirectiveArgument::getArgumentValue)
                 .map(InputValueWithState::getValue)
-                .filter(argValue -> argValue instanceof StringValue)
+                .filter(StringValue.class::isInstance)
                 .orElse(null);
 
         if (Objects.isNull(domain)) {

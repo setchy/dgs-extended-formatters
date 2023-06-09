@@ -21,7 +21,8 @@ public class PrefixDirective extends AbstractStringDirective {
                 .map(directive -> directive.getArgument(DirectiveConstants.PREFIX_DIRECTIVE_ARGUMENT_NAME))
                 .map(GraphQLAppliedDirectiveArgument::getArgumentValue)
                 .map(InputValueWithState::getValue)
-                .filter(argValue -> argValue instanceof StringValue).orElse(null);
+                .filter(StringValue.class::isInstance)
+                .orElse(null);
 
         if (Objects.isNull(withArg)) {
             throw new GraphQLException(

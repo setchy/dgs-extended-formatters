@@ -21,7 +21,7 @@ public class SuffixDirective extends AbstractStringDirective {
                 .map(directive -> directive.getArgument(DirectiveConstants.SUFFIX_DIRECTIVE_ARGUMENT_NAME))
                 .map(GraphQLAppliedDirectiveArgument::getArgumentValue)
                 .map(InputValueWithState::getValue)
-                .filter(argValue -> argValue instanceof StringValue)
+                .filter(StringValue.class::isInstance)
                 .orElse(null);
 
         if (Objects.isNull(withArg)) {
