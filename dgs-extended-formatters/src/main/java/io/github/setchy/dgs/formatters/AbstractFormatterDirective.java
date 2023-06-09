@@ -1,9 +1,6 @@
 package io.github.setchy.dgs.formatters;
 
-import graphql.schema.DataFetcher;
-import graphql.schema.DataFetcherFactories;
-import graphql.schema.GraphQLFieldDefinition;
-import graphql.schema.GraphQLFieldsContainer;
+import graphql.schema.*;
 import graphql.schema.idl.SchemaDirectiveWiring;
 import graphql.schema.idl.SchemaDirectiveWiringEnvironment;
 
@@ -11,16 +8,24 @@ public abstract class AbstractFormatterDirective implements SchemaDirectiveWirin
 
     @Override
     public GraphQLFieldDefinition onField(SchemaDirectiveWiringEnvironment<GraphQLFieldDefinition> env) {
-        GraphQLFieldDefinition field = env.getElement();
+        return registerDataFetcher(env);
+    }
+
+    @Override
+    public GraphQLArgument onArgument(SchemaDirectiveWiringEnvironment<GraphQLArgument> env) {
+        return registerDataFetcher(env);
+    }
+
+    private <T extends GraphQLDirectiveContainer> T registerDataFetcher(SchemaDirectiveWiringEnvironment<T> env) {
+        GraphQLFieldDefinition field = env.getFieldDefinition();
         GraphQLFieldsContainer fieldsContainer = env.getFieldsContainer();
         DataFetcher<?> originalDataFetcher = env.getFieldDataFetcher();
 
         DataFetcher<?> dataFetcher =
                 DataFetcherFactories.wrapDataFetcher(originalDataFetcher, ((dataFetchingEnvironment, value) -> format(field, value)));
 
-        env.getCodeRegistry()
-                .dataFetcher(fieldsContainer, field, dataFetcher);
-        return field;
+        env.getCodeRegistry().dataFetcher(fieldsContainer, field, dataFetcher);
+        return env.getElement();
     }
 
     public abstract Object format(GraphQLFieldDefinition field, Object value);

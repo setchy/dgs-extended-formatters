@@ -1,23 +1,24 @@
 # String Formatters
-directive @uppercase on FIELD_DEFINITION
-directive @lowercase on FIELD_DEFINITION
-directive @trim on FIELD_DEFINITION
-directive @capitalize on FIELD_DEFINITION
-directive @reverse on FIELD_DEFINITION
-directive @swapcase on FIELD_DEFINITION
+directive @uppercase on FIELD_DEFINITION | ARGUMENT_DEFINITION
+directive @lowercase on FIELD_DEFINITION | ARGUMENT_DEFINITION
+directive @trim on FIELD_DEFINITION | ARGUMENT_DEFINITION
+directive @capitalize on FIELD_DEFINITION | ARGUMENT_DEFINITION
+directive @reverse on FIELD_DEFINITION | ARGUMENT_DEFINITION
+directive @swapcase on FIELD_DEFINITION | ARGUMENT_DEFINITION
 directive @abbreviate(width: Int!) on FIELD_DEFINITION
-directive @camelcase on FIELD_DEFINITION
+directive @camelcase on FIELD_DEFINITION | ARGUMENT_DEFINITION
 directive @resourceId(domain: String!, subdomain: String!, systemName: String!) on FIELD_DEFINITION
 directive @prefix(with: String!) on FIELD_DEFINITION
 directive @suffix(with: String!) on FIELD_DEFINITION
 
 # Numeric Formatters
-directive @absolute on FIELD_DEFINITION
-directive @ceiling on FIELD_DEFINITION
-directive @floor on FIELD_DEFINITION
+directive @absolute on FIELD_DEFINITION | ARGUMENT_DEFINITION
+directive @ceiling on FIELD_DEFINITION | ARGUMENT_DEFINITION
+directive @floor on FIELD_DEFINITION | ARGUMENT_DEFINITION
 
 type Query {
     formattedStrings: FormattedStringExamples
+    formattedArgs: FormattedArgsExamples
     formattedIntegers: FormattedIntegerExamples
     formattedFloats: FormattedFloatExamples
 }
@@ -36,6 +37,25 @@ type FormattedStringExamples {
     resourceId: String @resourceId(domain: "domain", subdomain: "subdomain", systemName: "systemName")
     prefixed: String @prefix(with: "prefix:")
     suffixed: String @suffix(with: "- suffix")
+}
+
+type FormattedArgsExamples {
+    original(arg: String!): String
+    uppercased(arg: String! @uppercase): String
+    lowercased(arg: String! @lowercase): String
+    trimmed(arg: String! @trim): String
+    trimmedUppercased(arg: String! @uppercase @trim): String
+    capitalized(arg: String! @capitalize): String
+    reversed(arg: String! @reverse): String
+    swapcased(arg: String! @swapcase): String
+    camelcased(arg: String! @camelcase): String
+    absoluteInt(arg: Int! @absolute): Int
+    ceilingInt(arg: Int! @ceiling): Int
+    flooredInt(arg: Int! @floor): Int
+    absoluteFloat(arg: Float! @absolute): Float
+    ceilingFloat(arg: Float! @ceiling): Float
+    flooredFloat(arg: Float! @floor): Float
+
 }
 
 type FormattedIntegerExamples {

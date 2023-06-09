@@ -22,10 +22,11 @@ class DirectivesIntegrationTest {
     private static GraphQLSchema buildSchema() {
         String sdlSpec = """
                 directive @absolute on FIELD_DEFINITION
-                directive @uppercase on FIELD_DEFINITION
+                directive @uppercase on FIELD_DEFINITION | ARGUMENT_DEFINITION
 
                 type Query {
                   helloWorld : String
+                  hello(arg: String @uppercase) : String
                   helloWorldShouting : String @uppercase
                   negativeNumber: Int
                   absoluteNumber: Int @absolute
@@ -48,6 +49,7 @@ class DirectivesIntegrationTest {
         GraphQL graphql = GraphQL.newGraphQL(schema).build();
 
         Map<String, Object> root = new HashMap<>();
+        root.put("hello", "world");
         root.put("helloWorld", "Hello World");
         root.put("helloWorldShouting", "Hello World");
         root.put("negativeNumber", -100);
@@ -55,6 +57,7 @@ class DirectivesIntegrationTest {
 
         String query = """
                 query {
+                    hello(arg: "world")
                     helloWorld
                     helloWorldShouting
                     negativeNumber
@@ -69,6 +72,7 @@ class DirectivesIntegrationTest {
         ExecutionResult executionResult = graphql.execute(executionInput);
         Map<String, Object> data = executionResult.getData();
 
+        assertEquals("WORLD", data.get("hello"));
         assertEquals("Hello World", data.get("helloWorld"));
         assertEquals("HELLO WORLD", data.get("helloWorldShouting"));
         assertEquals(-100, data.get("negativeNumber"));

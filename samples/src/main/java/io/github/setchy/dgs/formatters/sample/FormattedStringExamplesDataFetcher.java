@@ -2,7 +2,6 @@ package io.github.setchy.dgs.formatters.sample;
 
 import com.netflix.graphql.dgs.DgsComponent;
 import com.netflix.graphql.dgs.DgsData;
-import com.netflix.graphql.dgs.DgsDataFetchingEnvironment;
 
 @DgsComponent
 public class FormattedStringExamplesDataFetcher {
@@ -22,7 +21,7 @@ public class FormattedStringExamplesDataFetcher {
     @DgsData(parentType = "FormattedStringExamples", field = "resourceId")
     @DgsData(parentType = "FormattedStringExamples", field = "prefixed")
     @DgsData(parentType = "FormattedStringExamples", field = "suffixed")
-    public String exampleData(DgsDataFetchingEnvironment dfe) {
+    public String exampleData() {
         return SAMPLE_DATA;
     }
 }
