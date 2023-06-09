@@ -2,7 +2,6 @@ package io.github.setchy.dgs.formatters.sample;
 
 import com.netflix.graphql.dgs.DgsComponent;
 import com.netflix.graphql.dgs.DgsData;
-import com.netflix.graphql.dgs.DgsDataFetchingEnvironment;
 
 @DgsComponent
 public class FormattedIntegerExamplesDataFetcher {
