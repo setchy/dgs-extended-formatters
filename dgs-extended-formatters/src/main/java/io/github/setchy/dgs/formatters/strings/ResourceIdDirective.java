@@ -1,12 +1,14 @@
 package io.github.setchy.dgs.formatters.strings;
 
 import com.netflix.graphql.dgs.DgsDirective;
+import graphql.GraphQLException;
 import graphql.language.StringValue;
 import graphql.schema.GraphQLAppliedDirective;
 import graphql.schema.GraphQLAppliedDirectiveArgument;
 import graphql.schema.GraphQLFieldDefinition;
 import graphql.schema.InputValueWithState;
 import io.github.setchy.dgs.formatters.DirectiveConstants;
+import io.github.setchy.dgs.formatters.exception.ExceptionUtils;
 import io.github.setchy.dgs.formatters.protobuf.OpaqueResourceIDProto;
 
 import java.util.Objects;
@@ -39,16 +41,19 @@ public class ResourceIdDirective extends AbstractStringDirective {
                 .orElse(null);
 
         if (Objects.isNull(domain)) {
-            throwGraphQLException(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME, DirectiveConstants.RESOURCE_ID_DIRECTIVE_DOMAIN_ARGUMENT_NAME);
-        }
+            throw new GraphQLException(
+                    ExceptionUtils.formatExceptionMessage(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME,
+                            DirectiveConstants.RESOURCE_ID_DIRECTIVE_DOMAIN_ARGUMENT_NAME));        }
 
         if (Objects.isNull(subdomain)) {
-            throwGraphQLException(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME, DirectiveConstants.RESOURCE_ID_DIRECTIVE_SUBDOMAIN_ARGUMENT_NAME);
-        }
+            throw new GraphQLException(
+                    ExceptionUtils.formatExceptionMessage(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME,
+                            DirectiveConstants.RESOURCE_ID_DIRECTIVE_SUBDOMAIN_ARGUMENT_NAME));        }
 
         if (Objects.isNull(systemName)) {
-            throwGraphQLException(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME, DirectiveConstants.RESOURCE_ID_DIRECTIVE_SYSTEMNAME_ARGUMENT_NAME);
-        }
+            throw new GraphQLException(
+                    ExceptionUtils.formatExceptionMessage(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME,
+                            DirectiveConstants.RESOURCE_ID_DIRECTIVE_SYSTEMNAME_ARGUMENT_NAME));        }
 
         return createOpaqueResourceID(domain.getValue(), subdomain.getValue(), systemName.getValue(), value);
     }

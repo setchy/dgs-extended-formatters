@@ -1,11 +1,13 @@
 package io.github.setchy.dgs.formatters.strings;
 
 import com.netflix.graphql.dgs.DgsDirective;
+import graphql.GraphQLException;
 import graphql.language.StringValue;
 import graphql.schema.GraphQLAppliedDirectiveArgument;
 import graphql.schema.GraphQLFieldDefinition;
 import graphql.schema.InputValueWithState;
 import io.github.setchy.dgs.formatters.DirectiveConstants;
+import io.github.setchy.dgs.formatters.exception.ExceptionUtils;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -24,7 +26,9 @@ public class PrefixDirective extends AbstractStringDirective {
                 .orElse(null);
 
         if (Objects.isNull(withArg)) {
-            throwGraphQLException(DirectiveConstants.PREFIX_DIRECTIVE_NAME, DirectiveConstants.PREFIX_DIRECTIVE_ARGUMENT_NAME);
+            throw new GraphQLException(
+                    ExceptionUtils.formatExceptionMessage(DirectiveConstants.PREFIX_DIRECTIVE_NAME,
+                            DirectiveConstants.PREFIX_DIRECTIVE_ARGUMENT_NAME));
         }
 
         return withArg.getValue().concat(value);
