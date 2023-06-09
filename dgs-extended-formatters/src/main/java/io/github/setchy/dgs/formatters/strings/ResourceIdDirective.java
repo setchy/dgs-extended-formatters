@@ -4,7 +4,9 @@ import com.netflix.graphql.dgs.DgsDirective;
 import graphql.GraphQLException;
 import graphql.language.StringValue;
 import graphql.schema.GraphQLAppliedDirective;
+import graphql.schema.GraphQLAppliedDirectiveArgument;
 import graphql.schema.GraphQLFieldDefinition;
+import graphql.schema.InputValueWithState;
 import io.github.setchy.dgs.formatters.DirectiveConstants;
 import io.github.setchy.dgs.formatters.protobuf.OpaqueResourceIDProto;
 
@@ -20,20 +22,20 @@ public class ResourceIdDirective extends AbstractStringDirective {
         GraphQLAppliedDirective appliedDirective = field.getAppliedDirective(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME);
 
         StringValue domain = (StringValue) Optional.ofNullable(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_DOMAIN_ARGUMENT_NAME))
-                .map(directiveArgument -> directiveArgument.getArgumentValue())
-                .map(argumentValue -> argumentValue.getValue())
+                .map(GraphQLAppliedDirectiveArgument::getArgumentValue)
+                .map(InputValueWithState::getValue)
                 .filter(argValue -> argValue instanceof StringValue)
                 .orElse(null);
 
         StringValue subdomain = (StringValue) Optional.ofNullable(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_SUBDOMAIN_ARGUMENT_NAME))
-                .map(directiveArgument -> directiveArgument.getArgumentValue())
-                .map(argumentValue -> argumentValue.getValue())
+                .map(GraphQLAppliedDirectiveArgument::getArgumentValue)
+                .map(InputValueWithState::getValue)
                 .filter(argValue -> argValue instanceof StringValue)
                 .orElse(null);
 
         StringValue systemName = (StringValue) Optional.ofNullable(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_SYSTEMNAME_ARGUMENT_NAME))
-                .map(directiveArgument -> directiveArgument.getArgumentValue())
-                .map(argumentValue -> argumentValue.getValue())
+                .map(GraphQLAppliedDirectiveArgument::getArgumentValue)
+                .map(InputValueWithState::getValue)
                 .filter(argValue -> argValue instanceof StringValue)
                 .orElse(null);
 
