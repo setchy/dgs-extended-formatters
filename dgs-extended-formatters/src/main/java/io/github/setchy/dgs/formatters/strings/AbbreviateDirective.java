@@ -7,8 +7,6 @@ import graphql.schema.GraphQLFieldDefinition;
 import io.github.setchy.dgs.formatters.DirectiveConstants;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Objects;
-
 
 @DgsDirective(name = DirectiveConstants.ABBREVIATE_DIRECTIVE_NAME)
 public class AbbreviateDirective extends AbstractStringDirective {
@@ -20,7 +18,7 @@ public class AbbreviateDirective extends AbstractStringDirective {
                 .getArgumentValue()
                 .getValue();
 
-        if (Objects.isNull(width)) {
+        if (width == null) {
             throw new GraphQLException("Abbreviate formatter directive missing required argument");
         }
 
