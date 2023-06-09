@@ -6,6 +6,8 @@ import graphql.language.StringValue;
 import graphql.schema.GraphQLFieldDefinition;
 import io.github.setchy.dgs.formatters.DirectiveConstants;
 
+import java.util.Objects;
+
 
 @DgsDirective(name = DirectiveConstants.PREFIX_DIRECTIVE_NAME)
 public class PrefixDirective extends AbstractStringDirective {
@@ -17,7 +19,7 @@ public class PrefixDirective extends AbstractStringDirective {
                 .getArgumentValue()
                 .getValue();
 
-        if (withArg == null) {
+        if (Objects.isNull(withArg)) {
             throw new GraphQLException("Prefix formatter directive missing required argument");
         }
 

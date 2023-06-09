@@ -8,6 +8,8 @@ import graphql.schema.GraphQLFieldDefinition;
 import io.github.setchy.dgs.formatters.DirectiveConstants;
 import io.github.setchy.dgs.formatters.protobuf.OpaqueResourceIDProto;
 
+import java.util.Objects;
+
 import static java.util.Base64.getEncoder;
 
 @DgsDirective(name = DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME)
@@ -31,15 +33,15 @@ public class ResourceIdDirective extends AbstractStringDirective {
                 .getArgumentValue()
                 .getValue();
 
-        if (domain == null) {
+        if (Objects.isNull(domain)) {
             throw new GraphQLException("Domain argument is required in @resourceId");
         }
 
-        if (subdomain == null) {
+        if (Objects.isNull(subdomain)) {
             throw new GraphQLException("Subdomain argument is required in @resourceId");
         }
 
-        if (systemName == null) {
+        if (Objects.isNull(systemName)) {
             throw new GraphQLException("systemName argument is required in @resourceId");
         }
 
