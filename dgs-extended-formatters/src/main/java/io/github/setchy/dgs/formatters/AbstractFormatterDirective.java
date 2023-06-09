@@ -1,6 +1,5 @@
 package io.github.setchy.dgs.formatters;
 
-import graphql.GraphQLException;
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetcherFactories;
 import graphql.schema.GraphQLFieldDefinition;
