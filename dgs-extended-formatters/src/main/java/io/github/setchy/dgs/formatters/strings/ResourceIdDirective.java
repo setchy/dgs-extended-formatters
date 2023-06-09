@@ -8,6 +8,9 @@ import graphql.schema.GraphQLFieldDefinition;
 import io.github.setchy.dgs.formatters.DirectiveConstants;
 import io.github.setchy.dgs.formatters.protobuf.OpaqueResourceIDProto;
 
+import java.util.Objects;
+import java.util.Optional;
+
 import static java.util.Base64.getEncoder;
 
 @DgsDirective(name = DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME)
@@ -16,32 +19,48 @@ public class ResourceIdDirective extends AbstractStringDirective {
     public String applyFormatting(GraphQLFieldDefinition field, String value) {
         GraphQLAppliedDirective appliedDirective = field.getAppliedDirective(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME);
 
-        StringValue domain = (StringValue) appliedDirective
-                .getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_DOMAIN_ARGUMENT_NAME)
-                .getArgumentValue()
-                .getValue();
+        StringValue domain = Optional.ofNullable(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_DOMAIN_ARGUMENT_NAME))
+                .map(directiveArgument -> directiveArgument.getArgumentValue())
+                .map(argumentValue -> argumentValue.getValue())
+                .filter(argValue -> argValue instanceof StringValue)
+                .map(argValue -> (StringValue) argValue)
+                .orElse(null);
 
-        StringValue subdomain = (StringValue) appliedDirective
-                .getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_SUBDOMAIN_ARGUMENT_NAME)
-                .getArgumentValue()
-                .getValue();
+        StringValue subdomain = Optional.ofNullable(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_SUBDOMAIN_ARGUMENT_NAME))
+                .map(directiveArgument -> directiveArgument.getArgumentValue())
+                .map(argumentValue -> argumentValue.getValue())
+                .filter(argValue -> argValue instanceof StringValue)
+                .map(argValue -> (StringValue) argValue)
+                .orElse(null);
 
-        StringValue systemName = (StringValue) appliedDirective
-                .getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_SYSTEMNAME_ARGUMENT_NAME)
-                .getArgumentValue()
-                .getValue();
+        StringValue systemName = Optional.ofNullable(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_SYSTEMNAME_ARGUMENT_NAME))
+                .map(directiveArgument -> directiveArgument.getArgumentValue())
+                .map(argumentValue -> argumentValue.getValue())
+                .filter(argValue -> argValue instanceof StringValue)
+                .map(argValue -> (StringValue) argValue)
+                .orElse(null);
 
-        if (domain == null) {
-            throw new GraphQLException("Domain argument is required in @resourceId");
+        if (Objects.isNull(domain)) {
+            throw new GraphQLException(
+                    String.format("'%s' formatter directive missing required argument '%s'",
+                            DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME, DirectiveConstants.RESOURCE_ID_DIRECTIVE_DOMAIN_ARGUMENT_NAME
+                    )
+            );
         }
 
-        if (subdomain == null) {
-            throw new GraphQLException("Subdomain argument is required in @resourceId");
-        }
+        if (Objects.isNull(subdomain)) {
+            throw new GraphQLException(
+                    String.format("'%s' formatter directive missing required argument '%s'",
+                            DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME, DirectiveConstants.RESOURCE_ID_DIRECTIVE_SUBDOMAIN_ARGUMENT_NAME
+                    )
+            );        }
 
-        if (systemName == null) {
-            throw new GraphQLException("systemName argument is required in @resourceId");
-        }
+        if (Objects.isNull(systemName)) {
+            throw new GraphQLException(
+                    String.format("'%s' formatter directive missing required argument '%s'",
+                            DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME, DirectiveConstants.RESOURCE_ID_DIRECTIVE_SYSTEMNAME_ARGUMENT_NAME
+                    )
+            );        }
 
         return createOpaqueResourceID(domain.getValue(), subdomain.getValue(), systemName.getValue(), value);
     }
