@@ -1,7 +1,6 @@
 package io.github.setchy.dgs.formatters.strings;
 
 import com.netflix.graphql.dgs.DgsDirective;
-import graphql.GraphQLException;
 import graphql.language.StringValue;
 import graphql.schema.GraphQLAppliedDirective;
 import graphql.schema.GraphQLAppliedDirectiveArgument;
@@ -40,26 +39,16 @@ public class ResourceIdDirective extends AbstractStringDirective {
                 .orElse(null);
 
         if (Objects.isNull(domain)) {
-            throw new GraphQLException(
-                    String.format("'%s' formatter directive missing required argument '%s'",
-                            DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME, DirectiveConstants.RESOURCE_ID_DIRECTIVE_DOMAIN_ARGUMENT_NAME
-                    )
-            );
+            throwGraphQLException(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME, DirectiveConstants.RESOURCE_ID_DIRECTIVE_DOMAIN_ARGUMENT_NAME);
         }
 
         if (Objects.isNull(subdomain)) {
-            throw new GraphQLException(
-                    String.format("'%s' formatter directive missing required argument '%s'",
-                            DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME, DirectiveConstants.RESOURCE_ID_DIRECTIVE_SUBDOMAIN_ARGUMENT_NAME
-                    )
-            );        }
+            throwGraphQLException(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME, DirectiveConstants.RESOURCE_ID_DIRECTIVE_SUBDOMAIN_ARGUMENT_NAME);
+        }
 
         if (Objects.isNull(systemName)) {
-            throw new GraphQLException(
-                    String.format("'%s' formatter directive missing required argument '%s'",
-                            DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME, DirectiveConstants.RESOURCE_ID_DIRECTIVE_SYSTEMNAME_ARGUMENT_NAME
-                    )
-            );        }
+            throwGraphQLException(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME, DirectiveConstants.RESOURCE_ID_DIRECTIVE_SYSTEMNAME_ARGUMENT_NAME);
+        }
 
         return createOpaqueResourceID(domain.getValue(), subdomain.getValue(), systemName.getValue(), value);
     }

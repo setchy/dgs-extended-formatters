@@ -1,5 +1,6 @@
 package io.github.setchy.dgs.formatters;
 
+import graphql.GraphQLException;
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetcherFactories;
 import graphql.schema.GraphQLFieldDefinition;
@@ -8,6 +9,14 @@ import graphql.schema.idl.SchemaDirectiveWiring;
 import graphql.schema.idl.SchemaDirectiveWiringEnvironment;
 
 public abstract class AbstractFormatterDirective implements SchemaDirectiveWiring {
+
+    protected static void throwGraphQLException(String directiveName, String argumentName) {
+        throw new GraphQLException(
+                String.format("'%s' formatter directive missing required argument '%s'",
+                        directiveName, argumentName
+                )
+        );
+    }
 
     @Override
     public GraphQLFieldDefinition onField(SchemaDirectiveWiringEnvironment<GraphQLFieldDefinition> env) {

@@ -1,7 +1,6 @@
 package io.github.setchy.dgs.formatters.strings;
 
 import com.netflix.graphql.dgs.DgsDirective;
-import graphql.GraphQLException;
 import graphql.language.StringValue;
 import graphql.schema.GraphQLAppliedDirectiveArgument;
 import graphql.schema.GraphQLFieldDefinition;
@@ -25,11 +24,7 @@ public class PrefixDirective extends AbstractStringDirective {
                 .orElse(null);
 
         if (Objects.isNull(withArg)) {
-            throw new GraphQLException(
-                    String.format("'%s' formatter directive missing required argument '%s'",
-                            DirectiveConstants.PREFIX_DIRECTIVE_NAME, DirectiveConstants.PREFIX_DIRECTIVE_ARGUMENT_NAME
-                    )
-            );
+            throwGraphQLException(DirectiveConstants.PREFIX_DIRECTIVE_NAME, DirectiveConstants.PREFIX_DIRECTIVE_ARGUMENT_NAME);
         }
 
         return withArg.getValue().concat(value);
