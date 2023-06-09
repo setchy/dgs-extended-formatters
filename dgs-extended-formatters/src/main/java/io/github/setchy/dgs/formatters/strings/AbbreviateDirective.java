@@ -3,7 +3,6 @@ package io.github.setchy.dgs.formatters.strings;
 import com.netflix.graphql.dgs.DgsDirective;
 import graphql.GraphQLException;
 import graphql.language.IntValue;
-import graphql.language.StringValue;
 import graphql.schema.GraphQLAppliedDirectiveArgument;
 import graphql.schema.GraphQLFieldDefinition;
 import graphql.schema.InputValueWithState;
