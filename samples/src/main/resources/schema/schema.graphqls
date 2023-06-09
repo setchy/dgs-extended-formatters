@@ -1,12 +1,12 @@
 # String Formatters
-directive @uppercase on FIELD_DEFINITION
-directive @lowercase on FIELD_DEFINITION
-directive @trim on FIELD_DEFINITION
-directive @capitalize on FIELD_DEFINITION
-directive @reverse on FIELD_DEFINITION
-directive @swapcase on FIELD_DEFINITION
+directive @uppercase on FIELD_DEFINITION | ARGUMENT_DEFINITION
+directive @lowercase on FIELD_DEFINITION | ARGUMENT_DEFINITION
+directive @trim on FIELD_DEFINITION | ARGUMENT_DEFINITION
+directive @capitalize on FIELD_DEFINITION | ARGUMENT_DEFINITION
+directive @reverse on FIELD_DEFINITION | ARGUMENT_DEFINITION
+directive @swapcase on FIELD_DEFINITION | ARGUMENT_DEFINITION
 directive @abbreviate(width: Int!) on FIELD_DEFINITION
-directive @camelcase on FIELD_DEFINITION
+directive @camelcase on FIELD_DEFINITION | ARGUMENT_DEFINITION
 directive @resourceId(domain: String!, subdomain: String!, systemName: String!) on FIELD_DEFINITION
 directive @prefix(with: String!) on FIELD_DEFINITION
 directive @suffix(with: String!) on FIELD_DEFINITION
@@ -18,6 +18,7 @@ directive @floor on FIELD_DEFINITION
 
 type Query {
     formattedStrings: FormattedStringExamples
+    formattedStringArgs: FormattedStringArgsExamples
     formattedIntegers: FormattedIntegerExamples
     formattedFloats: FormattedFloatExamples
 }
@@ -36,6 +37,18 @@ type FormattedStringExamples {
     resourceId: String @resourceId(domain: "domain", subdomain: "subdomain", systemName: "systemName")
     prefixed: String @prefix(with: "prefix:")
     suffixed: String @suffix(with: "- suffix")
+}
+
+type FormattedStringArgsExamples {
+    original(arg: String!): String
+    uppercased(arg: String! @uppercase): String
+    lowercased(arg: String! @lowercase): String
+    trimmed(arg: String! @trim): String
+    trimmedUppercased(arg: String! @uppercase @trim): String
+    capitalized(arg: String! @capitalize): String
+    reversed(arg: String! @reverse): String
+    swapcased(arg: String! @swapcase): String
+    camelcased(arg: String! @camelcase): String
 }
 
 type FormattedIntegerExamples {

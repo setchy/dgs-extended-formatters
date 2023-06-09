@@ -13,7 +13,7 @@ public class FormattedIntegerExamplesDataFetcher {
     @DgsData(parentType = "FormattedIntegerExamples", field = "absolute")
     @DgsData(parentType = "FormattedIntegerExamples", field = "ceiling")
     @DgsData(parentType = "FormattedIntegerExamples", field = "floored")
-    public Integer exampleData(DgsDataFetchingEnvironment dfe) {
+    public Integer exampleData() {
         return SAMPLE_DATA;
     }
 }
