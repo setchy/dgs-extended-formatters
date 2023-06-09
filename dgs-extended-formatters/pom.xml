@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.setchy</groupId>
@@ -36,7 +37,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- Dependencies -->
-        <dgs-platform-dependencies.version>7.0.0</dgs-platform-dependencies.version>
+        <dgs-platform-dependencies.version>7.1.0</dgs-platform-dependencies.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <commons-text.version>1.10.0</commons-text.version>
 
@@ -59,7 +60,7 @@
         <!-- Tests -->
         <branch-coverage.minimum>0.80</branch-coverage.minimum>
         <line-coverage.minimum>0.80</line-coverage.minimum>
-        <maven-surefire-plugin.version>3.1.0</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
         <mockito-core.version>5.3.1</mockito-core.version>
         <mockito-junit-jupiter.version>5.3.1</mockito-junit-jupiter.version>
 

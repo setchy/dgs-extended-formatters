@@ -77,6 +77,6 @@ class AbbreviateDirectiveTest {
                 abbreviateDirective.format(field, TestUtils.SOME_STRING)
         );
 
-        assertEquals("Abbreviate formatter directive missing required argument", thrown.getMessage());
+        assertEquals("'abbreviate' formatter directive missing required argument 'width'", thrown.getMessage());
     }
 }

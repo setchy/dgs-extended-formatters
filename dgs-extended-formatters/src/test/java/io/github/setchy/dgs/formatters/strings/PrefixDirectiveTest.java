@@ -75,6 +75,6 @@ class PrefixDirectiveTest {
                 prefixDirective.format(field, TestUtils.SOME_STRING)
         );
 
-        assertEquals("Prefix formatter directive missing required argument", thrown.getMessage());
+        assertEquals("'prefix' formatter directive missing required argument 'with'", thrown.getMessage());
     }
 }
