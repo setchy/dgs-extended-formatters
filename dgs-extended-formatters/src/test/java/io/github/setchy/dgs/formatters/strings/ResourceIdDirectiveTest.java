@@ -65,7 +65,7 @@ class ResourceIdDirectiveTest {
                 resourceIdDirective.format(field, TestUtils.SOME_STRING)
         );
 
-        assertEquals("Domain argument is required in @resourceId", thrown.getMessage());
+        assertEquals("'resourceId' formatter directive missing required argument 'domain'", thrown.getMessage());
     }
 
     @Test
@@ -79,7 +79,7 @@ class ResourceIdDirectiveTest {
                 resourceIdDirective.format(field, TestUtils.SOME_STRING)
         );
 
-        assertEquals("Subdomain argument is required in @resourceId", thrown.getMessage());
+        assertEquals("'resourceId' formatter directive missing required argument 'subdomain'", thrown.getMessage());
     }
 
     @Test
@@ -93,7 +93,7 @@ class ResourceIdDirectiveTest {
                 resourceIdDirective.format(field, TestUtils.SOME_STRING)
         );
 
-        assertEquals("systemName argument is required in @resourceId", thrown.getMessage());
+        assertEquals("'resourceId' formatter directive missing required argument 'systemName'", thrown.getMessage());
     }
 
     @Test

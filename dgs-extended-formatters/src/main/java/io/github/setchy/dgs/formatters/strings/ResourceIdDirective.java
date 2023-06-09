@@ -4,9 +4,15 @@ import com.netflix.graphql.dgs.DgsDirective;
 import graphql.GraphQLException;
 import graphql.language.StringValue;
 import graphql.schema.GraphQLAppliedDirective;
+import graphql.schema.GraphQLAppliedDirectiveArgument;
 import graphql.schema.GraphQLFieldDefinition;
+import graphql.schema.InputValueWithState;
 import io.github.setchy.dgs.formatters.DirectiveConstants;
+import io.github.setchy.dgs.formatters.exception.ExceptionUtils;
 import io.github.setchy.dgs.formatters.protobuf.OpaqueResourceIDProto;
+
+import java.util.Objects;
+import java.util.Optional;
 
 import static java.util.Base64.getEncoder;
 
@@ -16,32 +22,38 @@ public class ResourceIdDirective extends AbstractStringDirective {
     public String applyFormatting(GraphQLFieldDefinition field, String value) {
         GraphQLAppliedDirective appliedDirective = field.getAppliedDirective(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME);
 
-        StringValue domain = (StringValue) appliedDirective
-                .getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_DOMAIN_ARGUMENT_NAME)
-                .getArgumentValue()
-                .getValue();
+        StringValue domain = (StringValue) Optional.ofNullable(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_DOMAIN_ARGUMENT_NAME))
+                .map(GraphQLAppliedDirectiveArgument::getArgumentValue)
+                .map(InputValueWithState::getValue)
+                .filter(StringValue.class::isInstance)
+                .orElse(null);
 
-        StringValue subdomain = (StringValue) appliedDirective
-                .getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_SUBDOMAIN_ARGUMENT_NAME)
-                .getArgumentValue()
-                .getValue();
+        StringValue subdomain = (StringValue) Optional.ofNullable(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_SUBDOMAIN_ARGUMENT_NAME))
+                .map(GraphQLAppliedDirectiveArgument::getArgumentValue)
+                .map(InputValueWithState::getValue)
+                .filter(StringValue.class::isInstance)
+                .orElse(null);
 
-        StringValue systemName = (StringValue) appliedDirective
-                .getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_SYSTEMNAME_ARGUMENT_NAME)
-                .getArgumentValue()
-                .getValue();
+        StringValue systemName = (StringValue) Optional.ofNullable(appliedDirective.getArgument(DirectiveConstants.RESOURCE_ID_DIRECTIVE_SYSTEMNAME_ARGUMENT_NAME))
+                .map(GraphQLAppliedDirectiveArgument::getArgumentValue)
+                .map(InputValueWithState::getValue)
+                .filter(StringValue.class::isInstance)
+                .orElse(null);
 
-        if (domain == null) {
-            throw new GraphQLException("Domain argument is required in @resourceId");
-        }
+        if (Objects.isNull(domain)) {
+            throw new GraphQLException(
+                    ExceptionUtils.formatExceptionMessage(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME,
+                            DirectiveConstants.RESOURCE_ID_DIRECTIVE_DOMAIN_ARGUMENT_NAME));        }
 
-        if (subdomain == null) {
-            throw new GraphQLException("Subdomain argument is required in @resourceId");
-        }
+        if (Objects.isNull(subdomain)) {
+            throw new GraphQLException(
+                    ExceptionUtils.formatExceptionMessage(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME,
+                            DirectiveConstants.RESOURCE_ID_DIRECTIVE_SUBDOMAIN_ARGUMENT_NAME));        }
 
-        if (systemName == null) {
-            throw new GraphQLException("systemName argument is required in @resourceId");
-        }
+        if (Objects.isNull(systemName)) {
+            throw new GraphQLException(
+                    ExceptionUtils.formatExceptionMessage(DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME,
+                            DirectiveConstants.RESOURCE_ID_DIRECTIVE_SYSTEMNAME_ARGUMENT_NAME));        }
 
         return createOpaqueResourceID(domain.getValue(), subdomain.getValue(), systemName.getValue(), value);
     }
