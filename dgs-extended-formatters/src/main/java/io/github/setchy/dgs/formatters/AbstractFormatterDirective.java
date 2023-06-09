@@ -10,7 +10,7 @@ import graphql.schema.idl.SchemaDirectiveWiringEnvironment;
 
 public abstract class AbstractFormatterDirective implements SchemaDirectiveWiring {
 
-    protected static void throwGraphQLException(String directiveName, String argumentName) {
+    protected static void throwGraphQLException(String directiveName, String argumentName) throws GraphQLException {
         throw new GraphQLException(
                 String.format("'%s' formatter directive missing required argument '%s'",
                         directiveName, argumentName
