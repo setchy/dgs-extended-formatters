@@ -75,6 +75,6 @@ class SuffixDirectiveTest {
                 suffixDirective.format(field, TestUtils.SOME_STRING)
         );
 
-        assertEquals("Suffix formatter directive missing required argument", thrown.getMessage());
+        assertEquals("'suffix' formatter directive missing required argument 'with'", thrown.getMessage());
     }
 }
