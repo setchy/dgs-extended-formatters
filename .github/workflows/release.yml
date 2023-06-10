@@ -7,11 +7,6 @@ on:
         description: Release version to use
         required: true
         default: "0.0.0"
-      snapshot_version:
-        type: string
-        description: Next snapshot version to use
-        required: true
-        default: "0.0.0-SNAPSHOT"
 
 jobs:
   release:
@@ -41,7 +36,6 @@ jobs:
             -DskipTests=true \
             -DautoVersionSubmodules=true \
             -Darguments=-DreleaseVersion=${{ github.event.inputs.release_version }} \
-            -Darguments=-DdevelopmentVersion=${{ github.event.inputs.release_version }} \
             -Darguments="-DskipTests=true \
             -Dgpg.passphrase=${{ secrets.OSSRH_GPG_PASSPHRASE }}" \
         env:
