@@ -60,7 +60,7 @@
         <branch-coverage.minimum>0.80</branch-coverage.minimum>
         <line-coverage.minimum>0.80</line-coverage.minimum>
         <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
-        <mockito-core.version>5.3.1</mockito-core.version>
+        <mockito-core.version>5.4.0</mockito-core.version>
         <mockito-junit-jupiter.version>5.4.0</mockito-junit-jupiter.version>
 
         <!-- Sonarcloud details -->
