@@ -47,7 +47,7 @@
         <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
 
         <!-- Test Dependencies -->
-        <junit-bom.version>5.9.3</junit-bom.version>
+        <junit-bom.version>5.10.0</junit-bom.version>
         <jacoco-maven-plugin.version>0.8.10</jacoco-maven-plugin.version>
 
         <!-- Helper plugins -->
