@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.1.5</version>
-        <relativePath/>
+        <relativePath />
     </parent>
 
     <groupId>io.github.setchy</groupId>
@@ -19,7 +18,7 @@
 
     <properties>
         <dgs-extended-formatters.version>1.0.12-SNAPSHOT</dgs-extended-formatters.version>
-        <dgs-platform-dependencies.version>8.0.0</dgs-platform-dependencies.version>
+        <dgs-platform-dependencies.version>8.0.1</dgs-platform-dependencies.version>
         <graphql-java.version>21.2</graphql-java.version>
 
         <!-- Skip deploying this module when releasing -->
