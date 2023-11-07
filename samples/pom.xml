@@ -11,13 +11,13 @@
 
     <groupId>io.github.setchy</groupId>
     <artifactId>dgs-extended-formatters-sample</artifactId>
-    <version>1.0.12-SNAPSHOT</version>
+    <version>1.0.12</version>
 
     <name>${project.artifactId}</name>
     <description>A sample graphql dgs service which utilizes dgs-extended-formatters</description>
 
     <properties>
-        <dgs-extended-formatters.version>1.0.12-SNAPSHOT</dgs-extended-formatters.version>
+        <dgs-extended-formatters.version>1.0.12</dgs-extended-formatters.version>
         <dgs-platform-dependencies.version>8.0.1</dgs-platform-dependencies.version>
         <graphql-java.version>21.2</graphql-java.version>
 
@@ -65,4 +65,8 @@
             </plugin>
         </plugins>
     </build>
+
+  <scm>
+    <tag>1.0.12</tag>
+  </scm>
 </project>
