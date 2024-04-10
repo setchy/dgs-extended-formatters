@@ -17,54 +17,56 @@ A set of [DGS](https://github.com/Netflix/dgs-framework) Schema Directives for c
 </dependency>
 ```
 
-## String Formatters
+## Usage
+
+### String Formatters
 
 The following schema directives support formatting `String` scalars
 
-### @abbreviate
+#### @abbreviate
 
 Abbreviates a string using ellipses for a given width
 
 - SDL: `directive @abbreviate(width: Int!) on FIELD_DEFINITION`
 
-### @camelcase
+#### @camelcase
 
 Converts the String into camelCase
 
 - SDL: `directive @camelcase on FIELD_DEFINITION | ARGUMENT_DEFINITION`
 
-### @capitalize
+#### @capitalize
 
 Capitalize the starting letter for each word in a String
 
 - SDL: `directive @capitalize on FIELD_DEFINITION | ARGUMENT_DEFINITION`
 
-### @lowercase
+#### @lowercase
 
 Lowercase all characters in a String
 
 - SDL: `directive @lowercase on FIELD_DEFINITION | ARGUMENT_DEFINITION`
 
-### @prefix
+#### @prefix
 
 Prepends a prefix to a String
 
 - SDL: `directive @prefix(with: String!) on FIELD_DEFINITION`
 
-### @resourceId
+#### @resourceId
 
 Transforms a string into a base64 protobuf opaque ID. This takes in domain, subdomain, and systemName arguments
 which will be encoded into the ID.
 
 - SDL: `directive @resourceId(domain: String!, subdomain: String!, systemName: String!) on FIELD_DEFINITION`
 
-### @reverse
+#### @reverse
 
 Reverse the characters in a String
 
 - SDL: `directive @reverse on FIELD_DEFINITION | ARGUMENT_DEFINITION`
 
-### @suffix
+#### @suffix
 
 Appends a suffix to a String
 
@@ -76,36 +78,49 @@ Invert the case of each character in a String
 
 - SDL: `directive @swapcase on FIELD_DEFINITION | ARGUMENT_DEFINITION`
 
-### @trim
+#### @trim
 
 Remove any leading or trailing whitespace
 
 - SDL: `directive @trim on FIELD_DEFINITION | ARGUMENT_DEFINITION`
 
-### @uppercase
+#### @uppercase
 
 Uppercase each character in a String
 
 - SDL: `directive @uppercase on FIELD_DEFINITION | ARGUMENT_DEFINITION`
 
-## Numeric Formatters
+### Numeric Formatters
 
 The following schema directives support formatting `Int` or `Float` scalars
 
-### @absolute
+#### @absolute
 
 Returns the absolute value
 
 - SDL: `directive @absolute on FIELD_DEFINITION | ARGUMENT_DEFINITION`
 
-### @ceiling
+#### @ceiling
 
 Returns the ceiling value
 
 - SDL: `directive @ceiling on FIELD_DEFINITION | ARGUMENT_DEFINITION`
 
-### @floor
+#### @floor
 
 Returns the floor value
 
 - SDL: `directive @floor on FIELD_DEFINITION | ARGUMENT_DEFINITION`
+
+## Release Process
+
+Our release process involves
+
+1. Run the [release workflow][release-workflow]
+2. Enter the new version number to release
+3. Draft a [new release][new release], create a tag that matches the release version from above and publish
+
+
+[release-workflow]: https://github.com/setchy/dgs-extended-formatters/actions/workflows/release.yml
+[new-release]: https://github.com/setchy/dgs-extended-formatters/releases/new
+
