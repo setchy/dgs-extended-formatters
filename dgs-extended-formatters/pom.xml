@@ -51,7 +51,7 @@
         <jacoco-maven-plugin.version>0.8.12</jacoco-maven-plugin.version>
 
         <!-- Helper plugins -->
-        <build-helper-maven-plugin.version>3.5.0</build-helper-maven-plugin.version>
+        <build-helper-maven-plugin.version>3.6.0</build-helper-maven-plugin.version>
 
         <!-- Release Prepare configuration -->
         <project.scm.id>github</project.scm.id>
