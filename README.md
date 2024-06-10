@@ -4,6 +4,7 @@
 [![Latest Release](https://maven-badges.herokuapp.com/maven-central/io.github.setchy/dgs-extended-formatters/badge.svg?color=blue)](https://maven-badges.herokuapp.com/maven-central/io.github.setchy/dgs-extended-formatters/)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=setchy_dgs-extended-formatters&metric=coverage)](https://sonarcloud.io/summary/new_code?id=setchy_dgs-extended-formatters)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=setchy_dgs-extended-formatters&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=setchy_dgs-extended-formatters)
+[![Renovate enabled][renovate-badge]][renovate]
 
 A set of [DGS](https://github.com/Netflix/dgs-framework) Schema Directives for common response formatting use-cases.
 
@@ -120,7 +121,8 @@ Our release process involves
 2. Enter the new version number to release
 3. Draft a [new release][new release], create a tag that matches the release version from above and publish
 
-
+<!-- LINK LABELS -->
 [release-workflow]: https://github.com/setchy/dgs-extended-formatters/actions/workflows/release.yml
 [new-release]: https://github.com/setchy/dgs-extended-formatters/releases/new
-
+[renovate]: https://renovatebot.com/
+[renovate-badge]: https://img.shields.io/badge/renovate-enabled-brightgreen.svg
