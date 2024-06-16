@@ -30,7 +30,7 @@
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 
         <!-- Release -->
-        <maven-release-plugin.version>3.0.1</maven-release-plugin.version>
+        <maven-release-plugin.version>3.1.0</maven-release-plugin.version>
     </properties>
 
     <distributionManagement>
