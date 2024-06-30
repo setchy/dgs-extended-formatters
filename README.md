@@ -129,19 +129,19 @@ Our release process involves
 [new-release]: https://github.com/setchy/dgs-extended-formatters/releases/new
 
 [renovate]: https://renovatebot.com/
-[renovate-badge]: https://img.shields.io/badge/renovate-enabled-brightgreen.svg
+[renovate-badge]: https://img.shields.io/badge/renovate-enabled-brightgreen.svg?logo=renovatebot
 
 [license]: LICENSE
-[license-badge]: https://img.shields.io/github/license/setchy/dgs-extended-formatters
+[license-badge]: https://img.shields.io/github/license/setchy/dgs-extended-formatters?logo=github
 
-[build-badge]: https://github.com/setchy/dgs-extended-formatters/actions/workflows/build.yml/badge.svg
-[build-workflow]: https://github.com/setchy/dgs-extended-formatters/actions/workflows/master.yml
+[build-badge]: https://img.shields.io/github/actions/workflow/status/setchy/dgs-extended-formatters/build.yml?logo=github
+[build-workflow]: https://github.com/setchy/dgs-extended-formatters/actions/workflows/build.yml
 
-[latest-release-badge]: https://maven-badges.herokuapp.com/maven-central/io.github.setchy/dgs-extended-formatters/badge.svg?color=blue
-[latest-release]: https://maven-badges.herokuapp.com/maven-central/io.github.setchy/dgs-extended-formatters/
+[latest-release-badge]: https://img.shields.io/maven-central/v/io.github.setchy/dgs-extended-formatters?logo=sonatype
+[latest-release]: https://central.sonatype.com/artifact/io.github.setchy/dgs-extended-formatters
 
-[coverage-badge]: https://sonarcloud.io/api/project_badges/measure?project=setchy_dgs-extended-formatters&metric=coverage
+[coverage-badge]: https://img.shields.io/sonar/coverage/setchy_dgs-extended-formatters?server=https%3A%2F%2Fsonarcloud.io&logo=sonarcloud
 [coverage]: https://sonarcloud.io/summary/new_code?id=setchy_dgs-extended-formatters
 
-[quality-badge]: https://sonarcloud.io/api/project_badges/measure?project=setchy_dgs-extended-formatters&metric=alert_status
+[quality-badge]: https://img.shields.io/sonar/quality_gate/setchy_dgs-extended-formatters?server=https%3A%2F%2Fsonarcloud.io&logo=sonarcloud
 [quality]: https://sonarcloud.io/summary/new_code?id=setchy_dgs-extended-formatters
