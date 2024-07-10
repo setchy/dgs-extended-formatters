@@ -129,7 +129,7 @@ Our release process involves
 [new-release]: https://github.com/setchy/dgs-extended-formatters/releases/new
 
 [renovate]: https://renovatebot.com/
-[renovate-badge]: https://img.shields.io/badge/renovate-enabled-brightgreen.svg?logo=renovatebot
+[renovate-badge]: https://img.shields.io/badge/renovate-enabled-brightgreen.svg?logo=renovate
 
 [license]: LICENSE
 [license-badge]: https://img.shields.io/github/license/setchy/dgs-extended-formatters?logo=github
