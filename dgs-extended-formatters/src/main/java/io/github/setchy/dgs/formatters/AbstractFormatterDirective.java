@@ -24,7 +24,7 @@ public abstract class AbstractFormatterDirective implements SchemaDirectiveWirin
         DataFetcher<?> dataFetcher =
                 DataFetcherFactories.wrapDataFetcher(originalDataFetcher, ((dataFetchingEnvironment, value) -> format(field, value)));
 
-        env.getCodeRegistry().dataFetcher(fieldsContainer, field, dataFetcher);
+        env.getCodeRegistry().dataFetcher((GraphQLObjectType) fieldsContainer, field, dataFetcher);
         return env.getElement();
     }
 
