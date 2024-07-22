@@ -14,7 +14,13 @@
         "\\s?<version>(?<currentValue>[\\w+\\.\\-]*)<\\/version>\\s?",
         "\\s?implementation \\'(?<depName>.*)\\:(?<currentValue>[\\w+\\.\\-]*)\\'\\s?"
       ],
-      "automerge": true
+    }
+  ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["io.github.setchy:dgs-extended-formatters"],
+      "automerge": true,
+      "automergeType": "branch"
     }
   ]
 }
