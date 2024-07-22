@@ -13,7 +13,8 @@
       "matchStrings": [
         "\\s?<version>(?<currentValue>[\\w+\\.\\-]*)<\\/version>\\s?",
         "\\s?implementation \\'(?<depName>.*)\\:(?<currentValue>[\\w+\\.\\-]*)\\'\\s?"
-      ]
+      ],
+      "automerge": true
     }
   ]
 }
