@@ -120,7 +120,7 @@ Our release process involves
 
 1. Run the [release workflow][release-workflow]
 2. Enter the new version number to release
-3. Draft a [new release][new release], create a tag that matches the release version from above and publish
+3. Draft a [new release][new-release], create a tag that matches the release version from above and publish
 
 <!-- LINK LABELS -->
 [dgs-framework]: https://github.com/Netflix/dgs-framework
