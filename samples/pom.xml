@@ -18,8 +18,8 @@
 
     <properties>
         <dgs-extended-formatters.version>1.0.14-SNAPSHOT</dgs-extended-formatters.version>
-        <dgs-platform-dependencies.version>8.7.1</dgs-platform-dependencies.version>
-        <graphql-java.version>21.2</graphql-java.version>
+        <dgs-platform-dependencies.version>9.0.4</dgs-platform-dependencies.version>
+        <graphql-java.version>22.1</graphql-java.version>
 
         <!-- Skip deploying this module when releasing -->
         <sonar.skip>true</sonar.skip>
