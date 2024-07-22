@@ -4,7 +4,7 @@
 
     <groupId>io.github.setchy</groupId>
     <artifactId>dgs-extended-formatters-parent</artifactId>
-    <version>1.0.14-SNAPSHOT</version>
+    <version>1.0.15-SNAPSHOT</version>
     <packaging>pom</packaging>
     <url>https://github.com/setchy/dgs-extended-formatters</url>
     <scm>
