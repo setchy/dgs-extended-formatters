@@ -1,7 +1,10 @@
 {
   "extends": [
-    "config:base"
+    "config:recommended",
+    ":separateMultipleMajorReleases",
+    ":enableVulnerabilityAlerts"
   ],
+  "labels": ["dependency"],
   "regexManagers": [
     {
       "datasourceTemplate": "maven",
