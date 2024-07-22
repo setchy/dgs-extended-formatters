@@ -15,12 +15,5 @@
         "\\s?implementation \\'(?<depName>.*)\\:(?<currentValue>[\\w+\\.\\-]*)\\'\\s?"
       ],
     }
-  ],
-  "packageRules": [
-    {
-      "matchPackagePatterns": ["io.github.setchy:dgs-extended-formatters"],
-      "automerge": true,
-      "automergeType": "branch"
-    }
   ]
 }
