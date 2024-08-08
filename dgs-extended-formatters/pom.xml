@@ -42,7 +42,7 @@
 
         <!-- Protobuf -->
         <protobuf-java.version>4.27.3</protobuf-java.version>
-        <protoc-gen-grpc-java.version>1.65.1</protoc-gen-grpc-java.version>
+        <protoc-gen-grpc-java.version>1.66.0</protoc-gen-grpc-java.version>
         <os-maven-plugin.version>1.7.1</os-maven-plugin.version>
         <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
 
