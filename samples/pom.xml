@@ -18,7 +18,7 @@
 
     <properties>
         <dgs-extended-formatters.version>1.0.15-SNAPSHOT</dgs-extended-formatters.version>
-        <dgs-platform-dependencies.version>9.1.1</dgs-platform-dependencies.version>
+        <dgs-platform-dependencies.version>9.1.2</dgs-platform-dependencies.version>
         <graphql-java.version>22.1</graphql-java.version>
 
         <!-- Skip deploying this module when releasing -->
