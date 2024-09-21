@@ -5,8 +5,9 @@
     ":enableVulnerabilityAlerts"
   ],
   "labels": ["dependency"],
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "datasourceTemplate": "maven",
       "fileMatch": ["(^|/).*\.md$"],
       "depNameTemplate": "io.github.setchy:dgs-extended-formatters",
