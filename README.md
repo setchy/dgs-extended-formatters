@@ -1,4 +1,4 @@
-# dgs-extended-formatters
+# DGS Extended Formatters
 
 [![Build Status][build-badge]][build-workflow]
 [![Latest Release][latest-release-badge]][latest-release]
@@ -7,15 +7,19 @@
 [![Renovate enabled][renovate-badge]][renovate]
 [![OSS License][license-badge]][license]
 
-A set of [DGS][dgs-framework] Schema Directives for common response formatting use-cases.
+A set of [Netflix DGS][dgs-framework] Schema Directives for common response formatting use-cases.
 
 ## Getting started
+
+> [!TIP]
+> - `dgs-extended-formatters` 2.x.x for `Netflix DGS` 10.x
+> - `dgs-extended-formatters` 1.x.x for `Netflix DGS` 9.x
 
 ```xml
 <dependency>
     <groupId>io.github.setchy</groupId>
     <artifactId>dgs-extended-formatters</artifactId>
-    <version>1.0.14</version>
+    <version>2.0.0</version>
 </dependency>
 ```
 
