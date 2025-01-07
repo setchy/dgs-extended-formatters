@@ -12,8 +12,8 @@ A set of [Netflix DGS][dgs-framework] Schema Directives for common response form
 ## Getting started
 
 > [!TIP]
-> dgs-extended-formatters 2.x.x for Netflix DGS 10.x
-> dgs-extended-formatters 1.x.x for Netflix DGS 9.x
+> - dgs-extended-formatters 2.x.x for Netflix DGS 10.x
+> - dgs-extended-formatters 1.x.x for Netflix DGS 9.x
 
 ```xml
 <dependency>
