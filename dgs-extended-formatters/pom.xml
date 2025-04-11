@@ -38,7 +38,7 @@
         <!-- Dependencies -->
         <dgs-platform-dependencies.version>10.1.1</dgs-platform-dependencies.version>
         <commons-lang3.version>3.17.0</commons-lang3.version>
-        <commons-text.version>1.13.0</commons-text.version>
+        <commons-text.version>1.13.1</commons-text.version>
 
         <!-- Protobuf -->
         <protobuf-java.version>4.30.2</protobuf-java.version>
