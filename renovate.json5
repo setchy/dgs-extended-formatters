@@ -1,20 +1,24 @@
 {
-  "extends": [
-    "config:recommended",
-    ":separateMultipleMajorReleases",
-    ":enableVulnerabilityAlerts"
+  extends: [
+    'config:recommended',
+    ':separateMultipleMajorReleases',
+    ':enableVulnerabilityAlerts',
   ],
-  "labels": ["dependency"],
-  "customManagers": [
+  labels: [
+    'dependency',
+  ],
+  customManagers: [
     {
-      "customType": "regex",
-      "datasourceTemplate": "maven",
-      "fileMatch": ["(^|/).*\.md$"],
-      "depNameTemplate": "io.github.setchy:dgs-extended-formatters",
-      "matchStrings": [
-        "\\s?<version>(?<currentValue>[\\w+\\.\\-]*)<\\/version>\\s?",
-        "\\s?implementation \\'(?<depName>.*)\\:(?<currentValue>[\\w+\\.\\-]*)\\'\\s?"
+      customType: 'regex',
+      datasourceTemplate: 'maven',
+      managerFilePatterns: [
+        '/(^|/).*.md$/',
       ],
-    }
-  ]
+      depNameTemplate: 'io.github.setchy:dgs-extended-formatters',
+      matchStrings: [
+        '\\s?<version>(?<currentValue>[\\w+\\.\\-]*)<\\/version>\\s?',
+        "\\s?implementation \\'(?<depName>.*)\\:(?<currentValue>[\\w+\\.\\-]*)\\'\\s?",
+      ],
+    },
+  ],
 }
