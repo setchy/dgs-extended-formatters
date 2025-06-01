@@ -9,7 +9,7 @@
     {
       "customType": "regex",
       "datasourceTemplate": "maven",
-      "fileMatch": ["(^|/).*\.md$"],
+      "managerFilePatterns": ["(^|/).*\.md$"],
       "depNameTemplate": "io.github.setchy:dgs-extended-formatters",
       "matchStrings": [
         "\\s?<version>(?<currentValue>[\\w+\\.\\-]*)<\\/version>\\s?",
