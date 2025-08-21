@@ -134,7 +134,7 @@ Our release process involves
 [new-release]: https://github.com/setchy/dgs-extended-formatters/releases/new
 
 [renovate]: https://renovatebot.com/
-[renovate-badge]: https://img.shields.io/badge/renovate-enabled-brightgreen.svg?logo=renovate
+[renovate-badge]: https://img.shields.io/badge/renovate-enabled-brightgreen.svg?logo=renovate&logoColor=white
 
 [license]: LICENSE
 [license-badge]: https://img.shields.io/github/license/setchy/dgs-extended-formatters?logo=github
@@ -145,8 +145,8 @@ Our release process involves
 [latest-release-badge]: https://img.shields.io/maven-central/v/io.github.setchy/dgs-extended-formatters?logo=sonatype
 [latest-release]: https://central.sonatype.com/artifact/io.github.setchy/dgs-extended-formatters
 
-[coverage-badge]: https://img.shields.io/sonar/coverage/setchy_dgs-extended-formatters?server=https%3A%2F%2Fsonarcloud.io&logo=sonarcloud
+[coverage-badge]: https://img.shields.io/sonar/coverage/setchy_dgs-extended-formatters?server=https%3A%2F%2Fsonarcloud.io&logo=sonarqubecloud
 [coverage]: https://sonarcloud.io/summary/new_code?id=setchy_dgs-extended-formatters
 
-[quality-badge]: https://img.shields.io/sonar/quality_gate/setchy_dgs-extended-formatters?server=https%3A%2F%2Fsonarcloud.io&logo=sonarcloud
+[quality-badge]: https://img.shields.io/sonar/quality_gate/setchy_dgs-extended-formatters?server=https%3A%2F%2Fsonarcloud.io&logo=sonarqubecloud
 [quality]: https://sonarcloud.io/summary/new_code?id=setchy_dgs-extended-formatters
