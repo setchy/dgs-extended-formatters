@@ -48,7 +48,7 @@
 
         <!-- Test Dependencies -->
         <junit-bom.version>6.0.0</junit-bom.version>
-        <jacoco-maven-plugin.version>0.8.13</jacoco-maven-plugin.version>
+        <jacoco-maven-plugin.version>0.8.14</jacoco-maven-plugin.version>
 
         <!-- Helper plugins -->
         <build-helper-maven-plugin.version>3.6.1</build-helper-maven-plugin.version>
