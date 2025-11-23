@@ -26,7 +26,6 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <!-- Sonarcloud details -->
-        <sonar.version>3.9.1.2184</sonar.version>
         <sonar.organization>setchy</sonar.organization>
         <sonar.projectKey>setchy_dgs-extended-formatters</sonar.projectKey>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
@@ -56,13 +55,6 @@
                 <configuration>
                     <tagNameFormat>@{project.version}</tagNameFormat>
                 </configuration>
-            </plugin>
-
-            <!-- SonarQube Plugin -->
-            <plugin>
-                <groupId>org.sonarsource.scanner.maven</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>${sonar.version}</version>
             </plugin>
         </plugins>
     </build>
