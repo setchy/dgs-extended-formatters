@@ -1,6 +1,6 @@
 {
   "extends": [
-    "config: best-practices",
+    "config:best-practices",
     ":enableVulnerabilityAlerts",
     ":separateMultipleMajorReleases" 
   ],
