@@ -18,7 +18,7 @@
 
     <properties>
         <dgs-extended-formatters.version>2.0.1-SNAPSHOT</dgs-extended-formatters.version>
-        <dgs-platform-dependencies.version>10.4.0</dgs-platform-dependencies.version>
+        <dgs-platform-dependencies.version>10.5.0</dgs-platform-dependencies.version>
 
         <!-- Skip deploying this module when releasing -->
         <sonar.skip>true</sonar.skip>
