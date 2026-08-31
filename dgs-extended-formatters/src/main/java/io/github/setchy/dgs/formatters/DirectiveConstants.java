@@ -8,6 +8,8 @@ public final class DirectiveConstants {
     public static final String CAMELCASE_DIRECTIVE_NAME = "camelcase";
     public static final String CAPITALIZE_DIRECTIVE_NAME = "capitalize";
     public static final String CEILING_DIRECTIVE_NAME = "ceiling";
+    public static final String ENCODE_DIRECTIVE_NAME = "encode";
+    public static final String ENCODE_DIRECTIVE_BASE_ARGUMENT_NAME = "base";
     public static final String FLOOR_DIRECTIVE_NAME = "floor";
     public static final String LOWERCASE_DIRECTIVE_NAME = "lowercase";
     public static final String PREFIX_DIRECTIVE_NAME = "prefix";

@@ -10,6 +10,7 @@ directive @camelcase on FIELD_DEFINITION | ARGUMENT_DEFINITION
 directive @resourceId(domain: String!, subdomain: String!, systemName: String!) on FIELD_DEFINITION
 directive @prefix(with: String!) on FIELD_DEFINITION
 directive @suffix(with: String!) on FIELD_DEFINITION
+directive @encode(base: String!) on FIELD_DEFINITION | ARGUMENT_DEFINITION
 
 # Numeric Formatters
 directive @absolute on FIELD_DEFINITION | ARGUMENT_DEFINITION
@@ -37,6 +38,7 @@ type FormattedStringExamples {
     resourceId: String @resourceId(domain: "domain", subdomain: "subdomain", systemName: "systemName")
     prefixed: String @prefix(with: "prefix:")
     suffixed: String @suffix(with: "- suffix")
+    encoded: String @encode(base: "base64")
 }
 
 type FormattedArgsExamples {
@@ -49,6 +51,7 @@ type FormattedArgsExamples {
     reversed(arg: String! @reverse): String
     swapcased(arg: String! @swapcase): String
     camelcased(arg: String! @camelcase): String
+    encoded(arg: String! @encode(base: "base64")): String
     absoluteInt(arg: Int! @absolute): Int
     ceilingInt(arg: Int! @ceiling): Int
     flooredInt(arg: Int! @floor): Int

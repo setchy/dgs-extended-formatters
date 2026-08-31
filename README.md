@@ -47,6 +47,12 @@ Capitalize the starting letter for each word in a String
 
 - SDL: `directive @capitalize on FIELD_DEFINITION | ARGUMENT_DEFINITION`
 
+#### @encode
+
+Encodes a string using the given base. Currently only `base64` is supported.
+
+- SDL: `directive @encode(base: String!) on FIELD_DEFINITION | ARGUMENT_DEFINITION`
+
 #### @lowercase
 
 Lowercase all characters in a String
