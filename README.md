@@ -42,13 +42,13 @@ Abbreviates a string using ellipses for a given width
 
 Converts the String into camelCase
 
-- SDL: `directive @camelcase on FIELD_DEFINITION | ARGUMENT_DEFINITION`
+- SDL: `directive @camelcase on FIELD_DEFINITION | ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION`
 
 #### @capitalize
 
 Capitalize the starting letter for each word in a String
 
-- SDL: `directive @capitalize on FIELD_DEFINITION | ARGUMENT_DEFINITION`
+- SDL: `directive @capitalize on FIELD_DEFINITION | ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION`
 
 #### @encode
 
@@ -60,7 +60,7 @@ Encodes a string using the given base. Currently only `base64` is supported.
 
 Lowercase all characters in a String
 
-- SDL: `directive @lowercase on FIELD_DEFINITION | ARGUMENT_DEFINITION`
+- SDL: `directive @lowercase on FIELD_DEFINITION | ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION`
 
 #### @prefix
 
@@ -79,7 +79,7 @@ which will be encoded into the ID.
 
 Reverse the characters in a String
 
-- SDL: `directive @reverse on FIELD_DEFINITION | ARGUMENT_DEFINITION`
+- SDL: `directive @reverse on FIELD_DEFINITION | ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION`
 
 #### @suffix
 
@@ -91,7 +91,7 @@ Appends a suffix to a String
 
 Invert the case of each character in a String
 
-- SDL: `directive @swapcase on FIELD_DEFINITION | ARGUMENT_DEFINITION`
+- SDL: `directive @swapcase on FIELD_DEFINITION | ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION`
 
 #### @trim
 
@@ -104,7 +104,7 @@ Remove any leading or trailing whitespace
 
 Uppercase each character in a String
 
-- SDL: `directive @uppercase on FIELD_DEFINITION | ARGUMENT_DEFINITION`
+- SDL: `directive @uppercase on FIELD_DEFINITION | ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION`
 
 ### Numeric Formatters
 
@@ -114,19 +114,22 @@ The following schema directives support formatting `Int` or `Float` scalars
 
 Returns the absolute value
 
-- SDL: `directive @absolute on FIELD_DEFINITION | ARGUMENT_DEFINITION`
+- SDL: `directive @absolute on FIELD_DEFINITION | ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION`
+- `INPUT_FIELD_DEFINITION` support: only works correctly for `Int` input fields. Applying `@absolute` to a `Float` input field does not currently transform the value - see the note under `@ceiling`/`@floor` below for why.
 
 #### @ceiling
 
 Returns the ceiling value
 
-- SDL: `directive @ceiling on FIELD_DEFINITION | ARGUMENT_DEFINITION`
+- SDL: `directive @ceiling on FIELD_DEFINITION | ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION`
+- `INPUT_FIELD_DEFINITION` support: only meaningfully supported for `Int` input fields (where it is an identity no-op, consistent with its existing `FIELD_DEFINITION` behavior on `Int`). Applying `@ceiling` to a `Float` input field does not currently work: graphql-java's built-in `Float` scalar coercion produces a `java.lang.Double`, which this directive's implementation does not recognize as a `Float`, so the value passes through untransformed.
 
 #### @floor
 
 Returns the floor value
 
-- SDL: `directive @floor on FIELD_DEFINITION | ARGUMENT_DEFINITION`
+- SDL: `directive @floor on FIELD_DEFINITION | ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION`
+- `INPUT_FIELD_DEFINITION` support: same `Int`-only limitation as `@ceiling` above.
 
 ## Release Process
 
