@@ -47,6 +47,19 @@ class AbstractNumericDirectiveTest {
     }
 
     @Test
+    void applyFormatting_withDouble_isNormalizedToFloatAndReturnsFormattedValue() {
+        // given
+        GraphQLFieldDefinition field = mock(GraphQLFieldDefinition.class);
+        Double value = 10.0;
+
+        // when
+        Object result = directive.format(field, value);
+
+        // then
+        assertEquals(11.0f, result);
+    }
+
+    @Test
     void applyFormatting_withNonNumericValue_returnsOriginalValue() {
         // given
         GraphQLFieldDefinition field = mock(GraphQLFieldDefinition.class);

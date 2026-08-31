@@ -115,21 +115,18 @@ The following schema directives support formatting `Int` or `Float` scalars
 Returns the absolute value
 
 - SDL: `directive @absolute on FIELD_DEFINITION | ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION`
-- `INPUT_FIELD_DEFINITION` support: only works correctly for `Int` input fields. Applying `@absolute` to a `Float` input field does not currently transform the value - see the note under `@ceiling`/`@floor` below for why.
 
 #### @ceiling
 
 Returns the ceiling value
 
 - SDL: `directive @ceiling on FIELD_DEFINITION | ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION`
-- `INPUT_FIELD_DEFINITION` support: only meaningfully supported for `Int` input fields (where it is an identity no-op, consistent with its existing `FIELD_DEFINITION` behavior on `Int`). Applying `@ceiling` to a `Float` input field does not currently work: graphql-java's built-in `Float` scalar coercion produces a `java.lang.Double`, which this directive's implementation does not recognize as a `Float`, so the value passes through untransformed.
 
 #### @floor
 
 Returns the floor value
 
 - SDL: `directive @floor on FIELD_DEFINITION | ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION`
-- `INPUT_FIELD_DEFINITION` support: same `Int`-only limitation as `@ceiling` above.
 
 ## Contributing
 
