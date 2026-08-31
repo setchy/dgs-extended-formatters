@@ -5,6 +5,7 @@ import graphql.schema.GraphQLFieldDefinition;
 import io.github.setchy.dgs.formatters.DirectiveConstants;
 
 
+/** Uppercases each character in a String. */
 @DgsDirective(name = DirectiveConstants.UPPERCASE_DIRECTIVE_NAME)
 public class UppercaseDirective extends AbstractStringDirective {
 

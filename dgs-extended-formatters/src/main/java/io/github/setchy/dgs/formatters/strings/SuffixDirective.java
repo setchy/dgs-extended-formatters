@@ -13,6 +13,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 
+/** Appends a configured suffix to a String. */
 @DgsDirective(name = DirectiveConstants.SUFFIX_DIRECTIVE_NAME)
 public class SuffixDirective extends AbstractStringDirective {
 

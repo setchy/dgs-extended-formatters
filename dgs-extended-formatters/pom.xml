@@ -285,8 +285,9 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>${maven-javadoc-plugin.version}</version>
                 <configuration>
-                    <excludePackageNames>io.github.setchy.dgs.formatters.protobuf.OpaqueResourceIDProto
-                    </excludePackageNames>
+                    <sourceFileExcludes>
+                        <sourceFileExclude>**/protobuf/OpaqueResourceIDProto.java</sourceFileExclude>
+                    </sourceFileExcludes>
                 </configuration>
                 <executions>
                     <execution>

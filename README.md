@@ -131,6 +131,10 @@ Returns the floor value
 - SDL: `directive @floor on FIELD_DEFINITION | ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION`
 - `INPUT_FIELD_DEFINITION` support: same `Int`-only limitation as `@ceiling` above.
 
+## Contributing
+
+The `samples` module is a runnable Spring Boot / DGS application that demonstrates every directive in this library and is exercised by automated tests as part of CI (`mvn -B verify`). When adding a new schema field or directive to `samples`, add a corresponding query assertion in the relevant `*DataFetcherTest` class (e.g. `FormattedStringExamplesDataFetcherTest`, `FormattedArgsExamplesDataFetcherTest`) so a broken wiring or regression is caught by CI rather than only discovered by manually running the sample app.
+
 ## Release Process
 
 Our release process involves

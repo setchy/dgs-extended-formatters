@@ -6,6 +6,7 @@ import io.github.setchy.dgs.formatters.DirectiveConstants;
 import org.apache.commons.text.CaseUtils;
 
 
+/** Converts a String into camelCase. */
 @DgsDirective(name = DirectiveConstants.CAMELCASE_DIRECTIVE_NAME)
 public class CamelcaseDirective extends AbstractStringDirective {
 

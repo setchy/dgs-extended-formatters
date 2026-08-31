@@ -15,6 +15,7 @@ import java.util.Optional;
 
 import static java.util.Base64.getEncoder;
 
+/** Encodes a String using a given base (currently only {@code base64} is supported). */
 @DgsDirective(name = DirectiveConstants.ENCODE_DIRECTIVE_NAME)
 public class EncodeDirective extends AbstractStringDirective {
 
@@ -22,12 +23,14 @@ public class EncodeDirective extends AbstractStringDirective {
 
     @Override
     public String applyFormatting(GraphQLFieldDefinition field, String value) {
-        GraphQLAppliedDirective appliedDirective = field.getAppliedDirective(DirectiveConstants.ENCODE_DIRECTIVE_NAME);
+        GraphQLAppliedDirective appliedDirective = resolveAppliedDirective(field);
 
-        StringValue base = (StringValue) Optional.ofNullable(appliedDirective.getArgument(DirectiveConstants.ENCODE_DIRECTIVE_BASE_ARGUMENT_NAME))
+        StringValue base = Optional.ofNullable(appliedDirective)
+                .map(directive -> directive.getArgument(DirectiveConstants.ENCODE_DIRECTIVE_BASE_ARGUMENT_NAME))
                 .map(GraphQLAppliedDirectiveArgument::getArgumentValue)
                 .map(InputValueWithState::getValue)
                 .filter(StringValue.class::isInstance)
+                .map(StringValue.class::cast)
                 .orElse(null);
 
         if (Objects.isNull(base)) {
@@ -37,6 +40,27 @@ public class EncodeDirective extends AbstractStringDirective {
         }
 
         return encode(base.getValue(), value);
+    }
+
+    /**
+     * The {@code @encode} directive can be applied either to a FIELD_DEFINITION (in which case
+     * the applied directive lives on the field itself) or to an ARGUMENT_DEFINITION (in which
+     * case the applied directive lives on one of the field's arguments, not the field). Both
+     * {@code onField} and {@code onArgument} wiring in {@link io.github.setchy.dgs.formatters.AbstractFormatterDirective}
+     * ultimately call {@code format}/{@code applyFormatting} with only the containing field, so
+     * this checks the field first and falls back to scanning its arguments.
+     */
+    private GraphQLAppliedDirective resolveAppliedDirective(GraphQLFieldDefinition field) {
+        GraphQLAppliedDirective onField = field.getAppliedDirective(DirectiveConstants.ENCODE_DIRECTIVE_NAME);
+        if (Objects.nonNull(onField)) {
+            return onField;
+        }
+
+        return field.getArguments().stream()
+                .map(argument -> argument.getAppliedDirective(DirectiveConstants.ENCODE_DIRECTIVE_NAME))
+                .filter(Objects::nonNull)
+                .findFirst()
+                .orElse(null);
     }
 
     private String encode(String base, String value) {

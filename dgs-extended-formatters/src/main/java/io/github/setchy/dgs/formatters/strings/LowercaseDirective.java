@@ -5,6 +5,7 @@ import graphql.schema.GraphQLFieldDefinition;
 import io.github.setchy.dgs.formatters.DirectiveConstants;
 
 
+/** Lowercases all characters in a String. */
 @DgsDirective(name = DirectiveConstants.LOWERCASE_DIRECTIVE_NAME)
 public class LowercaseDirective extends AbstractStringDirective {
 

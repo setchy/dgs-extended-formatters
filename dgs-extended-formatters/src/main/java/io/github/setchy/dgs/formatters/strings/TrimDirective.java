@@ -5,6 +5,7 @@ import graphql.schema.GraphQLFieldDefinition;
 import io.github.setchy.dgs.formatters.DirectiveConstants;
 
 
+/** Removes leading and trailing whitespace from a String. */
 @DgsDirective(name = DirectiveConstants.TRIM_DIRECTIVE_NAME)
 public class TrimDirective extends AbstractStringDirective {
 

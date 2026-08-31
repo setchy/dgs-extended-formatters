@@ -6,6 +6,7 @@ import io.github.setchy.dgs.formatters.DirectiveConstants;
 import org.apache.commons.text.WordUtils;
 
 
+/** Capitalizes the starting letter of each word in a String. */
 @DgsDirective(name = DirectiveConstants.CAPITALIZE_DIRECTIVE_NAME)
 public class CapitalizeDirective extends AbstractStringDirective {
 

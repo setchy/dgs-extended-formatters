@@ -5,6 +5,7 @@ import graphql.schema.GraphQLFieldDefinition;
 import io.github.setchy.dgs.formatters.DirectiveConstants;
 
 
+/** Returns the floor value of a Float; Integer values are returned unchanged. */
 @DgsDirective(name = DirectiveConstants.FLOOR_DIRECTIVE_NAME)
 public class FloorDirective extends AbstractNumericDirective {
 
