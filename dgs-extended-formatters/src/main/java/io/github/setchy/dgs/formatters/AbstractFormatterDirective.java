@@ -50,7 +50,7 @@ public abstract class AbstractFormatterDirective implements SchemaDirectiveWirin
         GraphQLScalarType wrappedType = GraphQLScalarType.newScalar()
                 .name(originalScalar.getName() + "_" + getClass().getSimpleName() + "_" + field.getName())
                 .description(originalScalar.getDescription())
-                .coercing(new FormattingCoercing(originalScalar.getCoercing(), field))
+                .coercing(new FormattingCoercing(originalScalar.getCoercing()))
                 .build();
 
         return field.transform(builder -> builder.type(wrappedType));
@@ -79,11 +79,9 @@ public abstract class AbstractFormatterDirective implements SchemaDirectiveWirin
     @SuppressWarnings("unchecked")
     private final class FormattingCoercing implements Coercing<Object, Object> {
         private final Coercing<Object, Object> delegate;
-        private final GraphQLInputObjectField field;
 
-        FormattingCoercing(Coercing<?, ?> delegate, GraphQLInputObjectField field) {
+        FormattingCoercing(Coercing<?, ?> delegate) {
             this.delegate = (Coercing<Object, Object>) delegate;
-            this.field = field;
         }
 
         @Override
