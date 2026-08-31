@@ -4,37 +4,41 @@ labels:
   - label: 'enhancement'
     sync: true
     matcher:
-      title: '^feat(\(\w+\))?: .*'
+      title: '^feat(\([\w/]+\))?: .*'
 
   - label: 'bug'
     sync: true
     matcher:
-      title: '^fix(\(\w+\))?: .*'
+      title: '^fix(\((?!deps)[\w/]+\))?: .*'
 
   - label: 'refactor'
     sync: true
     matcher:
-      title: '^refactor(\(\w+\))?: .*'
+      title: '^(refactor|perf)(\([\w/]+\))?: .*'
 
   - label: 'documentation'
     sync: true
     matcher:
-      title: '^docs(\(\w+\))?: .*'
+      title: '^docs(\([\w/]+\))?: .*'
 
   - label: 'test'
     sync: true
     matcher:
-      title: '^test(\(\w+\))?: .*'
+      title: '^test(\([\w/]+\))?: .*'
 
   - label: 'build'
     sync: true
     matcher:
-      title: '^build(\(\w+\))?: .*'
+      title: '^(ci|build)(\([\w/]+\))?: .*'
+
+  - label: 'chore'
+    sync: true
+    matcher:
+      title: '^chore(\((?!deps)[\w/]+\))?: (?!release ).*'
 
   - label: 'dependency'
     sync: true
     matcher:
-      title: '^deps(\(\w+\))?: .*'
       branch: '^renovate/.*'
 
 checks:
@@ -50,4 +54,6 @@ checks:
         - documentation
         - test
         - build
+        - chore
         - dependency
+      
