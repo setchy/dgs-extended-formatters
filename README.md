@@ -97,7 +97,8 @@ Invert the case of each character in a String
 
 Remove any leading or trailing whitespace
 
-- SDL: `directive @trim on FIELD_DEFINITION | ARGUMENT_DEFINITION`
+- SDL: `directive @trim on FIELD_DEFINITION | ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION`
+- `INPUT_FIELD_DEFINITION` support: when applied to a field of a GraphQL input object type, the value is trimmed before any resolver observes it. This currently only supports input fields whose declared type is a scalar (e.g. `String`) directly; nested input object types and list-of-input-object fields are not yet supported and are left unchanged.
 
 #### @uppercase
 
