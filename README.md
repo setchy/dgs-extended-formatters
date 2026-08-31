@@ -12,14 +12,17 @@ A set of [Netflix DGS][dgs-framework] Schema Directives for common response form
 ## Getting started
 
 > [!TIP]
-> - `dgs-extended-formatters` 2.x.x for `Netflix DGS` 10.x
-> - `dgs-extended-formatters` 1.x.x for `Netflix DGS` 9.x
+> | Library | DGS   | Java (min) |
+> |---------|-------|------------|
+> | 3.x.x   | 12.x  | 17         |
+> | 2.x.x   | 10.x  | 17         |
+> | 1.x.x   | 9.x   | 17         |
 
 ```xml
 <dependency>
     <groupId>io.github.setchy</groupId>
     <artifactId>dgs-extended-formatters</artifactId>
-    <version>2.0.0</version>
+    <version>3.0.0</version>
 </dependency>
 ```
 
