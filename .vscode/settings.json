@@ -1,0 +1,6 @@
+{
+    "sonarlint.connectedMode.project": {
+        "connectionId": "setchy",
+        "projectKey": "setchy_dgs-extended-formatters"
+    }
+}
