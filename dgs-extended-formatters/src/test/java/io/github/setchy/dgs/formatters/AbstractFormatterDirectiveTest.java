@@ -2,6 +2,7 @@ package io.github.setchy.dgs.formatters;
 
 import graphql.GraphQLContext;
 import graphql.execution.CoercedVariables;
+import graphql.language.FloatValue;
 import graphql.language.StringValue;
 import graphql.language.Value;
 import graphql.schema.Coercing;
@@ -11,13 +12,21 @@ import graphql.schema.GraphQLInputObjectType;
 import graphql.schema.GraphQLList;
 import graphql.schema.GraphQLScalarType;
 import io.github.setchy.dgs.formatters.numeric.AbsoluteDirective;
+import io.github.setchy.dgs.formatters.numeric.AbstractNumericDirective;
+import io.github.setchy.dgs.formatters.numeric.CeilingDirective;
+import io.github.setchy.dgs.formatters.numeric.FloorDirective;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.math.BigDecimal;
 import java.util.Locale;
+import java.util.stream.Stream;
 
 import static graphql.Scalars.GraphQLFloat;
 import static graphql.Scalars.GraphQLString;
@@ -168,11 +177,11 @@ class AbstractFormatterDirectiveTest {
     }
 
     @SuppressWarnings("unchecked")
-    @Test
-    @DisplayName("onInputObjectField: @absolute on a Float input field correctly transforms a Double-coerced value")
-    void onInputObjectFieldAbsoluteOnFloatFieldTransformsDoubleCoercedValue() {
-        AbstractFormatterDirective absoluteDirective = new AbsoluteDirective();
-
+    @ParameterizedTest(name = "[{index}] {0}: parseValue({1}) -> {2}")
+    @MethodSource("numericDirectiveParseValueCases")
+    @DisplayName("onInputObjectField: numeric directives on a Float input field correctly transform a Double-coerced value (parseValue)")
+    void onInputObjectFieldNumericDirectiveOnFloatFieldTransformsDoubleCoercedValueViaParseValue(
+            AbstractNumericDirective directive, Double input, Float expected) {
         GraphQLInputObjectField field = GraphQLInputObjectField.newInputObjectField()
                 .name("myFloatField")
                 .type(GraphQLFloat)
@@ -180,7 +189,7 @@ class AbstractFormatterDirectiveTest {
 
         lenient().when(env.getElement()).thenReturn(field);
 
-        GraphQLInputObjectField result = absoluteDirective.onInputObjectField(env);
+        GraphQLInputObjectField result = directive.onInputObjectField(env);
         GraphQLScalarType wrappedType = (GraphQLScalarType) result.getType();
         Coercing<Object, Object> coercing = (Coercing<Object, Object>) wrappedType.getCoercing();
 
@@ -188,9 +197,52 @@ class AbstractFormatterDirectiveTest {
         Locale locale = Locale.getDefault();
 
         // graphql-java's built-in Float scalar coerces raw input to java.lang.Double, not Float -
-        // this proves that Double value is still correctly transformed by a numeric directive.
-        Object result1 = coercing.parseValue(-2.5, ctx, locale);
+        // this proves that Double value is still correctly transformed by each numeric directive.
+        Object result1 = coercing.parseValue(input, ctx, locale);
 
-        assertEquals(2.5f, result1);
+        assertEquals(expected, result1);
+    }
+
+    @SuppressWarnings("unchecked")
+    @ParameterizedTest(name = "[{index}] {0}: parseLiteral({1}) -> {2}")
+    @MethodSource("numericDirectiveParseValueCases")
+    @DisplayName("onInputObjectField: numeric directives on a Float input field correctly transform a literal Float value (parseLiteral)")
+    void onInputObjectFieldNumericDirectiveOnFloatFieldTransformsLiteralValueViaParseLiteral(
+            AbstractNumericDirective directive, Double input, Float expected) {
+        GraphQLInputObjectField field = GraphQLInputObjectField.newInputObjectField()
+                .name("myFloatField")
+                .type(GraphQLFloat)
+                .build();
+
+        lenient().when(env.getElement()).thenReturn(field);
+
+        GraphQLInputObjectField result = directive.onInputObjectField(env);
+        GraphQLScalarType wrappedType = (GraphQLScalarType) result.getType();
+        Coercing<Object, Object> coercing = (Coercing<Object, Object>) wrappedType.getCoercing();
+
+        GraphQLContext ctx = GraphQLContext.getDefault();
+        Locale locale = Locale.getDefault();
+
+        Value<?> literal = FloatValue.newFloatValue(BigDecimal.valueOf(input)).build();
+        Object result1 = coercing.parseLiteral(literal, CoercedVariables.emptyVariables(), ctx, locale);
+
+        assertEquals(expected, result1);
+    }
+
+    private static Stream<Arguments> numericDirectiveParseValueCases() {
+        return Stream.of(
+                Arguments.of(new AbsoluteDirective(), -2.5, 2.5f),
+                Arguments.of(new CeilingDirective(), 2.1, 3.0f),
+                Arguments.of(new FloorDirective(), 2.9, 2.0f),
+                // Whole-number edge cases: ceiling/floor should be identity no-ops on whole
+                // numbers (consistent with CeilingDirectiveTest/FloorDirectiveTest's existing
+                // "WithWholeNumber" cases), and this must also hold true via the Double-coerced
+                // INPUT_FIELD_DEFINITION path, not just when called directly with a Float.
+                Arguments.of(new AbsoluteDirective(), 10.0, 10.0f),
+                Arguments.of(new CeilingDirective(), 10.0, 10.0f),
+                Arguments.of(new FloorDirective(), 10.0, 10.0f),
+                Arguments.of(new CeilingDirective(), -10.0, -10.0f),
+                Arguments.of(new FloorDirective(), -10.0, -10.0f)
+        );
     }
 }
