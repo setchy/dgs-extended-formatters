@@ -35,6 +35,43 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!--
+                TEMPORARY OVERRIDE - review/remove once Spring Boot bumps its own json-path pin to 3.x.
+                Explicit override: Spring Boot 4.1.1's own BOM (inherited via spring-boot-starter-parent)
+                pins json-path to 2.10.0, but DGS 12.0.1's runtime code (Jackson3DgsJsonMapper) requires
+                the Jackson3JsonProvider class that only exists in json-path 3.0.0+. DGS's own BOM
+                (graphql-dgs-platform) already correctly pins 3.0.0, but it arrives via a nested BOM
+                import (graphql-dgs-platform-dependencies -> graphql-dgs-platform), which is "farther"
+                than Spring Boot's single-hop parent-inherited pin, so Spring's incorrect 2.10.0 wins
+                Maven's dependency-management precedence without this override.
+                TODO: remove this override once spring-boot-starter-parent's json-path.version >= 3.0.0.
+            -->
+            <dependency>
+                <groupId>com.jayway.jsonpath</groupId>
+                <artifactId>json-path</artifactId>
+                <version>3.0.0</version>
+            </dependency>
+
+            <!--
+                TEMPORARY OVERRIDE - must be kept in sync with dgs-extended-formatters/pom.xml's
+                protobuf-java.version; revisit whenever that property changes.
+                Explicit override: Spring Boot 4.1.1's BOM pins protobuf-java to 4.35.1, but
+                dgs-extended-formatters generates OpaqueResourceIDProto with protobuf-java gencode
+                4.36.0 (see dgs-extended-formatters/pom.xml's protobuf-java.version). Loading that
+                generated class with an older runtime throws
+                ProtobufRuntimeVersionException ("Runtime version cannot be older than the linked
+                gencode version"). Same root cause/shape as the json-path override above: Spring
+                Boot's directly-inherited BOM pin wins over a version that needs to match our own
+                generated code.
+                TODO: bump this whenever dgs-extended-formatters/pom.xml's protobuf-java.version changes,
+                and re-check whether it's still needed if Spring Boot's own pin ever catches up.
+            -->
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>4.36.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
