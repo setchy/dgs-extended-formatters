@@ -29,8 +29,11 @@ jobs:
 
       - name: Set up Git user information
         run: |
-          git config --global user.email "${{ secrets.GIT_EMAIL }}"
-          git config --global user.name "${{ secrets.GIT_USERNAME }}"
+          git config --global user.email "$GIT_EMAIL"
+          git config --global user.name "$GIT_USERNAME"
+        env:
+          GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
+          GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
 
       - name: Release and deploy to Sonatype
         run: |
@@ -40,7 +43,7 @@ jobs:
             -DautoVersionSubmodules=true \
             -Darguments=-DreleaseVersion=${{ github.event.inputs.release_version }} \
             -Darguments="-DskipTests=true \
-            -Dgpg.passphrase=${{ secrets.OSSRH_GPG_PASSPHRASE }}" \
+            -Dgpg.passphrase=$MAVEN_GPG_PASSPHRASE" \
         env:
           MAVEN_GPG_PASSPHRASE: ${{ secrets.OSSRH_GPG_PASSPHRASE }}
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}

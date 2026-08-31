@@ -11,6 +11,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -72,34 +74,19 @@ class EncodeDirectiveTest {
         assertEquals("'encode' formatter directive does not support base 'base32'", thrown.getMessage());
     }
 
-    @Test
-    @DisplayName("Will encode field value using base64")
-    void testEncodeFieldValue() {
+    @ParameterizedTest(name = "[{index}] base={0}, input={1} -> {2}")
+    @CsvSource({
+            "base64, hello, aGVsbG8=",
+            "base64, world, d29ybGQ=",
+            "BASE64, hello, aGVsbG8="
+    })
+    @DisplayName("Will encode value using base64 (field, argument, and case-insensitive base)")
+    void testEncode(String base, String input, String expected) {
         stubAppliedDirective();
         when(baseArgument.getArgumentValue()).thenReturn(base64ArgumentValue);
-        when(base64ArgumentValue.getValue()).thenReturn(StringValue.of("base64"));
+        when(base64ArgumentValue.getValue()).thenReturn(StringValue.of(base));
 
-        assertEquals("aGVsbG8=", encodeDirective.applyFormatting(field, "hello"));
-    }
-
-    @Test
-    @DisplayName("Will encode argument value using base64")
-    void testEncodeArgumentValue() {
-        stubAppliedDirective();
-        when(baseArgument.getArgumentValue()).thenReturn(base64ArgumentValue);
-        when(base64ArgumentValue.getValue()).thenReturn(StringValue.of("base64"));
-
-        assertEquals("d29ybGQ=", encodeDirective.applyFormatting(field, "world"));
-    }
-
-    @Test
-    @DisplayName("Will match base case-insensitively")
-    void testEncodeIsCaseInsensitive() {
-        stubAppliedDirective();
-        when(baseArgument.getArgumentValue()).thenReturn(base64ArgumentValue);
-        when(base64ArgumentValue.getValue()).thenReturn(StringValue.of("BASE64"));
-
-        assertEquals("aGVsbG8=", encodeDirective.applyFormatting(field, "hello"));
+        assertEquals(expected, encodeDirective.applyFormatting(field, input));
     }
 
     @Test
