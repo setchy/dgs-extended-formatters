@@ -10,6 +10,7 @@ import graphql.schema.GraphQLInputObjectField;
 import graphql.schema.GraphQLInputObjectType;
 import graphql.schema.GraphQLList;
 import graphql.schema.GraphQLScalarType;
+import io.github.setchy.dgs.formatters.numeric.AbsoluteDirective;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,6 +19,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Locale;
 
+import static graphql.Scalars.GraphQLFloat;
 import static graphql.Scalars.GraphQLString;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
@@ -163,5 +165,32 @@ class AbstractFormatterDirectiveTest {
         GraphQLInputObjectField result = UPPERCASING_DIRECTIVE.onInputObjectField(env);
         GraphQLScalarType wrappedType = (GraphQLScalarType) result.getType();
         return (Coercing<Object, Object>) wrappedType.getCoercing();
+    }
+
+    @SuppressWarnings("unchecked")
+    @Test
+    @DisplayName("onInputObjectField: @absolute on a Float input field correctly transforms a Double-coerced value")
+    void onInputObjectFieldAbsoluteOnFloatFieldTransformsDoubleCoercedValue() {
+        AbstractFormatterDirective absoluteDirective = new AbsoluteDirective();
+
+        GraphQLInputObjectField field = GraphQLInputObjectField.newInputObjectField()
+                .name("myFloatField")
+                .type(GraphQLFloat)
+                .build();
+
+        lenient().when(env.getElement()).thenReturn(field);
+
+        GraphQLInputObjectField result = absoluteDirective.onInputObjectField(env);
+        GraphQLScalarType wrappedType = (GraphQLScalarType) result.getType();
+        Coercing<Object, Object> coercing = (Coercing<Object, Object>) wrappedType.getCoercing();
+
+        GraphQLContext ctx = GraphQLContext.getDefault();
+        Locale locale = Locale.getDefault();
+
+        // graphql-java's built-in Float scalar coerces raw input to java.lang.Double, not Float -
+        // this proves that Double value is still correctly transformed by a numeric directive.
+        Object result1 = coercing.parseValue(-2.5, ctx, locale);
+
+        assertEquals(2.5f, result1);
     }
 }
