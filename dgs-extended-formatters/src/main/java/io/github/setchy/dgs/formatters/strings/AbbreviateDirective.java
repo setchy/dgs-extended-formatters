@@ -14,6 +14,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 
+/** Abbreviates a String using ellipses once it exceeds a given width. */
 @DgsDirective(name = DirectiveConstants.ABBREVIATE_DIRECTIVE_NAME)
 public class AbbreviateDirective extends AbstractStringDirective {
 

@@ -15,6 +15,7 @@ import java.util.Optional;
 
 import static java.util.Base64.getEncoder;
 
+/** Encodes a String using a given base (currently only {@code base64} is supported). */
 @DgsDirective(name = DirectiveConstants.ENCODE_DIRECTIVE_NAME)
 public class EncodeDirective extends AbstractStringDirective {
 

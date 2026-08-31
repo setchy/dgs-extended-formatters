@@ -16,6 +16,7 @@ import java.util.Optional;
 
 import static java.util.Base64.getEncoder;
 
+/** Transforms a String into a base64-encoded protobuf opaque resource ID. */
 @DgsDirective(name = DirectiveConstants.RESOURCE_ID_DIRECTIVE_NAME)
 public class ResourceIdDirective extends AbstractStringDirective {
     @Override

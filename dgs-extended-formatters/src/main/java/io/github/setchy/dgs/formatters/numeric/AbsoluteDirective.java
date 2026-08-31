@@ -5,6 +5,7 @@ import graphql.schema.GraphQLFieldDefinition;
 import io.github.setchy.dgs.formatters.DirectiveConstants;
 
 
+/** Returns the absolute value of an Integer or Float. */
 @DgsDirective(name = DirectiveConstants.ABSOLUTE_DIRECTIVE_NAME)
 public class AbsoluteDirective extends AbstractNumericDirective {
 

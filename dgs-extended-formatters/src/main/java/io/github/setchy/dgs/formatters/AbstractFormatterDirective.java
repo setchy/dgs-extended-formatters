@@ -4,6 +4,12 @@ import graphql.schema.*;
 import graphql.schema.idl.SchemaDirectiveWiring;
 import graphql.schema.idl.SchemaDirectiveWiringEnvironment;
 
+/**
+ * Base {@link SchemaDirectiveWiring} implementation shared by every schema directive in this
+ * library. Subclasses only need to implement {@link #format(GraphQLFieldDefinition, Object)};
+ * this class handles wiring that formatting into {@code FIELD_DEFINITION}, {@code ARGUMENT_DEFINITION},
+ * and {@code INPUT_FIELD_DEFINITION} locations.
+ */
 public abstract class AbstractFormatterDirective implements SchemaDirectiveWiring {
 
     @Override
@@ -68,6 +74,14 @@ public abstract class AbstractFormatterDirective implements SchemaDirectiveWirin
         return env.getElement();
     }
 
+    /**
+     * Formats a single value according to this directive's rules.
+     *
+     * @param field the field the directive was applied to (or containing the annotated argument);
+     *              {@code null} when invoked for an {@code INPUT_FIELD_DEFINITION} location
+     * @param value the value to format
+     * @return the formatted value, or the original value unchanged if this directive does not apply to its type
+     */
     public abstract Object format(GraphQLFieldDefinition field, Object value);
 
     /**

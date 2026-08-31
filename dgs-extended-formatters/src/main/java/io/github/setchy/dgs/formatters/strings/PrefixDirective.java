@@ -13,6 +13,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 
+/** Prepends a configured prefix to a String. */
 @DgsDirective(name = DirectiveConstants.PREFIX_DIRECTIVE_NAME)
 public class PrefixDirective extends AbstractStringDirective {
 

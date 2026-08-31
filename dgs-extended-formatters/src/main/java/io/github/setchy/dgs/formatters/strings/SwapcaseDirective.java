@@ -6,6 +6,7 @@ import io.github.setchy.dgs.formatters.DirectiveConstants;
 import org.apache.commons.lang3.StringUtils;
 
 
+/** Inverts the case of each character in a String. */
 @DgsDirective(name = DirectiveConstants.SWAPCASE_DIRECTIVE_NAME)
 public class SwapcaseDirective extends AbstractStringDirective {
 

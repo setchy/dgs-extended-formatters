@@ -6,6 +6,7 @@ import io.github.setchy.dgs.formatters.DirectiveConstants;
 import org.apache.commons.lang3.StringUtils;
 
 
+/** Reverses the characters in a String. */
 @DgsDirective(name = DirectiveConstants.REVERSE_DIRECTIVE_NAME)
 public class ReverseDirective extends AbstractStringDirective {
 
