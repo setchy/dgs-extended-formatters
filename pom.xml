@@ -31,6 +31,14 @@
 
         <!-- Release -->
         <maven-release-plugin.version>3.3.1</maven-release-plugin.version>
+
+        <!--
+            This parent/aggregator POM is not meant to be published as its own consumable
+            artifact (it has no source of its own, only reactor module declarations). Skip
+            deploying it - only dgs-extended-formatters itself is published, via the
+            central-publishing-maven-plugin configured in its own pom.xml.
+        -->
+        <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
 
 
