@@ -11,9 +11,13 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Configure for Maven Central Repository
         uses: actions/setup-java@dd06d9cba3e5552c54d9f8ea23572deb30010f7c # v6.0.0
@@ -21,9 +25,13 @@ jobs:
           distribution: "temurin"
           java-version: "17"
           cache: "maven"
-          server-id: ossrh
+          server-id: central
           server-username-env-var: MAVEN_USERNAME
           server-password-env-var: MAVEN_PASSWORD
+          # Note: these secrets are named OSSRH_* for historical reasons (predating the
+          # migration to the Central Publisher Portal) but are still correct/required -
+          # GPG signing is a Maven Central requirement independent of which publishing
+          # mechanism is used. Left as-is since GitHub secrets can't be renamed in place.
           gpg-private-key: ${{ secrets.OSSRH_GPG_PRIVATE_KEY }}
           gpg-passphrase-env-var: MAVEN_GPG_PASSPHRASE
 
@@ -36,15 +44,18 @@ jobs:
           GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
 
       - name: Release and deploy to Sonatype
+        env:
+          RELEASE_VERSION: ${{ github.event.inputs.release_version }}
+          GITHUB_TOKEN: ${{ github.token }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.OSSRH_GPG_PASSPHRASE }}
+          MAVEN_USERNAME: ${{ secrets.CENTRAL_TOKEN_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.CENTRAL_TOKEN_PASSWORD }}
         run: |
+          export GIT_CONFIG_COUNT=1
+          export GIT_CONFIG_KEY_0=http.https://github.com/.extraheader
+          export GIT_CONFIG_VALUE_0="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$GITHUB_TOKEN" | base64 -w 0)"
           mvn -B release:prepare release:perform \
             -Pdeploy \
             -DskipTests=true \
             -DautoVersionSubmodules=true \
-            -Darguments=-DreleaseVersion=${{ github.event.inputs.release_version }} \
-            -Darguments="-DskipTests=true \
-            -Dgpg.passphrase=$MAVEN_GPG_PASSPHRASE" \
-        env:
-          MAVEN_GPG_PASSPHRASE: ${{ secrets.OSSRH_GPG_PASSPHRASE }}
-          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+            "-Darguments=-DreleaseVersion=$RELEASE_VERSION -DskipTests=true -Dgpg.passphrase=$MAVEN_GPG_PASSPHRASE"
