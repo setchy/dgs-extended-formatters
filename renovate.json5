@@ -2,11 +2,21 @@
   "extends": [
     "config:best-practices",
     ":enableVulnerabilityAlerts",
-    ":separateMultipleMajorReleases" 
+    ":semanticCommitTypeAll(chore)",
+    ":separateMultipleMajorReleases",
+    "schedule:weekly"
   ],
   "labels": ["dependency"],
+  "packageRules": [
+     {
+      "description": "Remove word `dependency` from commit messages and PR titles",
+      "matchDatasources": ["npm"],
+      "commitMessageTopic": "{{depName}}"
+    }
+  ],
   "customManagers": [
     {
+      "description": "Keep README.md versions in-sync",
       "customType": "regex",
       "datasourceTemplate": "maven",
       "managerFilePatterns": ["(^|/).*\.md$"],
