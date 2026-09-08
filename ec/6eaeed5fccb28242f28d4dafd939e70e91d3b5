@@ -1,0 +1,16 @@
+.github/workflows/release.yml
+  h_ac004aadb63da9 22
+mise.toml
+  h_ac004aadb63da9 1-3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "ec6eaeed5fccb28242f28d4dafd939e70e91d3b5",
+  "prompts": {},
+  "humans": {
+    "h_ac004aadb63da9": {
+      "author": "Adam Setch <adam.setch@outlook.com>"
+    }
+  }
+}
