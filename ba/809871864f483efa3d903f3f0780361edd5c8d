@@ -1,0 +1,31 @@
+pom.xml
+  s_ed974f0f30045d::t_79a1eed1ac1027 8
+samples/pom.xml
+  s_ed974f0f30045d::t_4607ad8298a4b0 20
+  s_ed974f0f30045d::t_61474efc0d6c7b 14
+README.md
+  s_ed974f0f30045d::t_25e72e929c3600 15-19,25
+dgs-extended-formatters/pom.xml
+  s_ed974f0f30045d::t_09bc75fa0d3363 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "ba809871864f483efa3d903f3f0780361edd5c8d",
+  "prompts": {},
+  "humans": {
+    "h_ac004aadb63da9": {
+      "author": "Adam Setch <adam.setch@outlook.com>"
+    }
+  },
+  "sessions": {
+    "s_ed974f0f30045d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fa6c9c018ffefSFEZxaeqX9PNs",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Adam Setch <adam.setch@outlook.com>"
+    }
+  }
+}
