@@ -1,0 +1,21 @@
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/exception/ExceptionUtils.java
+  s_ed974f0f30045d::t_24e1e469c5e3a4 11
+dgs-extended-formatters/src/test/java/io/github/setchy/dgs/formatters/strings/EncodeDirectiveTest.java
+  s_ed974f0f30045d::t_0e85c8f221502c 14-15,77-84,87,89
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "4df9a563e0dad5d50697748ef3b2dd14b6b2f76b",
+  "prompts": {},
+  "sessions": {
+    "s_ed974f0f30045d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fa6c9c018ffefSFEZxaeqX9PNs",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Adam Setch <adam.setch@outlook.com>"
+    }
+  }
+}
