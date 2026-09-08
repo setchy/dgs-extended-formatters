@@ -1,0 +1,18 @@
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/numeric/AbstractNumericDirective.java
+  h_ac004aadb63da9 6-11,20-21,45
+dgs-extended-formatters/src/test/java/io/github/setchy/dgs/formatters/AbstractFormatterDirectiveTest.java
+  h_ac004aadb63da9 13,22,169-195
+dgs-extended-formatters/src/test/java/io/github/setchy/dgs/formatters/numeric/AbstractNumericDirectiveTest.java
+  h_ac004aadb63da9 49-61
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "224e2b35bf02680b18e15add36ef90f1c2178d43",
+  "prompts": {},
+  "humans": {
+    "h_ac004aadb63da9": {
+      "author": "Adam Setch <adam.setch@outlook.com>"
+    }
+  }
+}
