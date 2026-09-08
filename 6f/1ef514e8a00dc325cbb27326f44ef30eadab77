@@ -1,0 +1,14 @@
+README.md
+  h_ac004aadb63da9 45,51,63,82,94,107,117-118,124-125,131-132
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "6f1ef514e8a00dc325cbb27326f44ef30eadab77",
+  "prompts": {},
+  "humans": {
+    "h_ac004aadb63da9": {
+      "author": "Adam Setch <adam.setch@outlook.com>"
+    }
+  }
+}
