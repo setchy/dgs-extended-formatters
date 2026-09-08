@@ -1,0 +1,57 @@
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/AbstractFormatterDirective.java
+  s_ed974f0f30045d::t_73f949aecc0310 7-12,77-84
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/DirectiveConstants.java
+  s_ed974f0f30045d::t_403ba6bd11728a 3-6,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/exception/ExceptionUtils.java
+  s_ed974f0f30045d::t_8443cd2afa5f3a 4,7-13
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/numeric/AbsoluteDirective.java
+  s_ed974f0f30045d::t_0566e284254e76 8
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/numeric/CeilingDirective.java
+  s_ed974f0f30045d::t_f54e829671250a 8
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/numeric/FloorDirective.java
+  s_ed974f0f30045d::t_83c4ef2c044f9d 8
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/strings/AbbreviateDirective.java
+  s_ed974f0f30045d::t_3aec0ce24109bc 17
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/strings/AbstractStringDirective.java
+  s_ed974f0f30045d::t_bf1e3b452d595a 6,17-23
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/strings/CamelcaseDirective.java
+  s_ed974f0f30045d::t_8514af2064cbf1 9
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/strings/CapitalizeDirective.java
+  s_ed974f0f30045d::t_34a71b4ec87e93 9
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/strings/EncodeDirective.java
+  s_ed974f0f30045d::t_0f64c89a117152 18
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/strings/LowercaseDirective.java
+  s_ed974f0f30045d::t_7e67cd6dbc3bec 8
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/strings/PrefixDirective.java
+  s_ed974f0f30045d::t_12b9cb77c2b6a4 16
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/strings/ResourceIdDirective.java
+  s_ed974f0f30045d::t_4bda3315fccc90 19
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/strings/ReverseDirective.java
+  s_ed974f0f30045d::t_dbf88585e453ca 9
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/strings/SuffixDirective.java
+  s_ed974f0f30045d::t_6a15b8ce6f40ad 16
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/strings/SwapcaseDirective.java
+  s_ed974f0f30045d::t_ea47ed50f96618 9
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/strings/TrimDirective.java
+  s_ed974f0f30045d::t_bf2ec21b57f01f 8
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/strings/UppercaseDirective.java
+  s_ed974f0f30045d::t_41bb8d4e204e56 8
+dgs-extended-formatters/src/test/java/io/github/setchy/dgs/formatters/strings/EncodeDirectiveTest.java
+  s_ed974f0f30045d::t_6fc84ad1d7e100 7,20-21,24,101-133
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "0f58c296619a84346beed7f41c5eff554f864789",
+  "prompts": {},
+  "sessions": {
+    "s_ed974f0f30045d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fa6c9c018ffefSFEZxaeqX9PNs",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Adam Setch <adam.setch@outlook.com>"
+    }
+  }
+}
