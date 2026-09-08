@@ -1,0 +1,14 @@
+dgs-extended-formatters/src/test/java/io/github/setchy/dgs/formatters/AbstractFormatterDirectiveTest.java
+  h_ac004aadb63da9 5,15-17,21-23,27,29,180-184,192,200-230,232-246
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "4acf51c124083a3c7db807992bea70f182aa21c4",
+  "prompts": {},
+  "humans": {
+    "h_ac004aadb63da9": {
+      "author": "Adam Setch <adam.setch@outlook.com>"
+    }
+  }
+}
