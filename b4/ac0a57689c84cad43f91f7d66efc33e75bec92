@@ -1,0 +1,32 @@
+README.md
+  s_ed974f0f30045d::t_e57a8f226650f8 50-55
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/strings/EncodeDirective.java
+  s_ed974f0f30045d::t_b680b7f6f4f6ef 1-51
+dgs-extended-formatters/src/test/java/io/github/setchy/dgs/formatters/strings/EncodeDirectiveTest.java
+  s_ed974f0f30045d::t_f42c54810c1ab6 1-39,41,44-50,52-63,65-77,79-87,89-97,99-110
+  s_ed974f0f30045d::t_5832b87ef8d67a 40,42-43,51,64,78,88,98
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/DirectiveConstants.java
+  s_ed974f0f30045d::t_4476a19e4fc89c 11-12
+samples/src/main/resources/schema/schema.graphqls
+  s_ed974f0f30045d::t_ab65813aecf132 41
+  s_ed974f0f30045d::t_bfa7c341ea0358 54
+  s_ed974f0f30045d::t_444f5780d87f51 13
+samples/src/main/java/io/github/setchy/dgs/formatters/sample/FormattedStringExamplesDataFetcher.java
+  s_ed974f0f30045d::t_f8fa5efb6c560b 24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "b4ac0a57689c84cad43f91f7d66efc33e75bec92",
+  "prompts": {},
+  "sessions": {
+    "s_ed974f0f30045d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fa6c9c018ffefSFEZxaeqX9PNs",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Adam Setch <adam.setch@outlook.com>"
+    }
+  }
+}
