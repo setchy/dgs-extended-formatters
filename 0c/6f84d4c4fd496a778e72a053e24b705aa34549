@@ -1,0 +1,31 @@
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/strings/EncodeDirective.java
+  s_ed974f0f30045d::t_58592e489f1110 25,27-28,32,44-64
+samples/src/main/java/io/github/setchy/dgs/formatters/sample/FormattedArgsExamplesDataFetcher.java
+  s_ed974f0f30045d::t_619a8c81b61fab 1-89
+samples/src/test/java/io/github/setchy/dgs/formatters/sample/ApplicationTests.java
+  s_ed974f0f30045d::t_a8a531bd886da4 1-14
+samples/src/test/java/io/github/setchy/dgs/formatters/sample/FormattedArgsExamplesDataFetcherTest.java
+  s_ed974f0f30045d::t_cb00d81c118338 1-127
+samples/src/test/java/io/github/setchy/dgs/formatters/sample/FormattedFloatExamplesDataFetcherTest.java
+  s_ed974f0f30045d::t_8a6890c435ee50 1-50
+samples/src/test/java/io/github/setchy/dgs/formatters/sample/FormattedIntegerExamplesDataFetcherTest.java
+  s_ed974f0f30045d::t_6a3077b887fea0 1-50
+samples/src/test/java/io/github/setchy/dgs/formatters/sample/FormattedStringExamplesDataFetcherTest.java
+  s_ed974f0f30045d::t_d6f531d25f23c0 1-120
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "0c6f84d4c4fd496a778e72a053e24b705aa34549",
+  "prompts": {},
+  "sessions": {
+    "s_ed974f0f30045d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fa6c9c018ffefSFEZxaeqX9PNs",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Adam Setch <adam.setch@outlook.com>"
+    }
+  }
+}
