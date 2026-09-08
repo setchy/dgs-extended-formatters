@@ -1,0 +1,21 @@
+samples/pom.xml
+  s_ed974f0f30045d::t_ab9470b7d5fbcd 40,48,57-58,66-68
+  s_ed974f0f30045d::t_7c6c5d08bc3963 38-39,41-47,49-54
+  s_ed974f0f30045d::t_430720b21418d0 55-56,59-65,69-74
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "9221abaabeb83df551a0490b1ce00abfc0911733",
+  "prompts": {},
+  "sessions": {
+    "s_ed974f0f30045d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fa6c9c018ffefSFEZxaeqX9PNs",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Adam Setch <adam.setch@outlook.com>"
+    }
+  }
+}
