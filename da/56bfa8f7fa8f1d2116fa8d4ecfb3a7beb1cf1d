@@ -1,0 +1,19 @@
+dgs-extended-formatters/src/main/java/io/github/setchy/dgs/formatters/AbstractFormatterDirective.java
+  s_ed974f0f30045d::t_5b1fff120290f2 19-58,72-113
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "da56bfa8f7fa8f1d2116fa8d4ecfb3a7beb1cf1d",
+  "prompts": {},
+  "sessions": {
+    "s_ed974f0f30045d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fa6c9c018ffefSFEZxaeqX9PNs",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Adam Setch <adam.setch@outlook.com>"
+    }
+  }
+}
