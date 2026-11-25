@@ -1,0 +1,32 @@
+.github/workflows/actions.lock
+  h_ac004aadb63da9 9-11,16,29-31
+.github/workflows/build.yml
+  h_ac004aadb63da9 18,21
+.github/workflows/lint.yml
+  h_ac004aadb63da9 1-38
+.github/workflows/release.yml
+  h_ac004aadb63da9 23,26,56-57,62
+.github/workflows/renovate.yml
+  h_ac004aadb63da9 20
+.github/zizmor.yml
+  h_ac004aadb63da9 1-6
+.nvmrc
+  h_ac004aadb63da9 1
+dgs-extended-formatters/pom.xml
+  h_ac004aadb63da9 45
+mise.toml
+  h_ac004aadb63da9 2
+samples/pom.xml
+  h_ac004aadb63da9 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "690a5378adb8f932854f2c165c4974f5bba8ceef",
+  "prompts": {},
+  "humans": {
+    "h_ac004aadb63da9": {
+      "author": "Adam Setch <adam.setch@outlook.com>"
+    }
+  }
+}
